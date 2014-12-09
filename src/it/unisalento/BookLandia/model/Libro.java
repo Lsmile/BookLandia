@@ -5,4 +5,7 @@ public class Libro {
 	Double Prezzo;
 	String ISBN;
 	int CopieDisponibili;
+	Autore Autore;
+	Casa_Editrice Casa_Editrice;
+	Genere Genere;
 }

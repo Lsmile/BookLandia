@@ -2,24 +2,24 @@ package it.unisalento.BookLandia.view.catalogo;
 
 import java.util.Vector;
 
-import it.unisalento.BookLandia.dao.CatalogoDAO;
+import it.unisalento.BookLandia.model.Catalogo;
 import it.unisalento.BookLandia.model.Libro;
 
 import javax.swing.table.AbstractTableModel;
 
 public class Modello extends AbstractTableModel {
-	Vector v = null;
+	Vector v = Catalogo.getInstance().getCatalogo();
 
 	@Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub
-		return CatalogoDAO.getColonne();
+		return 4;
 	}
 
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
-		return CatalogoDAO.getNumber();
+		return 2;
 	}
 
 	@Override
@@ -29,12 +29,11 @@ public class Modello extends AbstractTableModel {
 		Libro b = (Libro) v.elementAt(riga); 
 		 // la stringa corrispondente alla colonna 
 		 switch (colonna){    
-		 case 0: return b.title;    
-		 case 1: return b.author;    
-		 case 2:return b.quantity;
-		  case 3: return b.price; 
-		  case 4: return b.price * b.quantity; 
-		  default: return ""; 
+		 case 0: return b.getTitolo();  
+		 case 1: return b.getAutore();
+		 case 2: return b.getCopieDisponibili();
+		 case 3: return b.getPrezzo();
+		 default: return ""; 
 	}
 	}
 

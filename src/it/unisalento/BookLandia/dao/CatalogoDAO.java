@@ -7,9 +7,9 @@ import it.unisalento.BookLandia.model.Libro;
 import java.util.Vector;
 
 public class CatalogoDAO {
-	String query = null;
+	String query;
 	Vector<Libro> Libri = null;
-	Vector<String[]> RisultatoQuery = null;
+	Vector<String[]> RisultatoQuery;
 	private static CatalogoDAO instance;
 
 	
@@ -34,7 +34,7 @@ public class CatalogoDAO {
 		for(int z = 0; z < RisultatoQuery.size(); z++)
 		{
 			// to do: convertire stringhe in numeri e aggiungere lo scaffale alla query
-			Libri.add(new Libro(RisultatoQuery.get(z)[0],RisultatoQuery.get(z)[1],RisultatoQuery.get(z)[2],RisultatoQuery.get(z)[3],RisultatoQuery.get(z)[4], RisultatoQuery.get(z)[5], RisultatoQuery.get(z)[6], RisultatoQuery.get(z)[7],"tmpScaffale",0,0));
+			Libri.add(new Libro(RisultatoQuery.get(z)[0], Double.parseDouble(RisultatoQuery.get(z)[1]),RisultatoQuery.get(z)[2],Integer.parseInt(RisultatoQuery.get(z)[3]),RisultatoQuery.get(z)[4], RisultatoQuery.get(z)[5], RisultatoQuery.get(z)[6], RisultatoQuery.get(z)[7],"tmpScaffale",0,0));
 		}
 		return Libri;
 	}

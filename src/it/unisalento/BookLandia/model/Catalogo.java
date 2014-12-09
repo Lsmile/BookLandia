@@ -6,9 +6,23 @@ import java.util.Vector;
 
 public class Catalogo {
 	Vector<Libro> Libri = null;
+	private static Catalogo instance;
 	
 	public Catalogo()
 	{
 		Libri = CatalogoDAO.getInstance().getLibri();
 	}
+	
+	public Vector<Libro> getCatalogo()
+	{
+		return Libri;
+	}
+	
+	public static Catalogo getInstance() {
+		   if(instance == null)
+			   instance = new Catalogo();
+		   return instance;
+	   }
+	
+	
 }

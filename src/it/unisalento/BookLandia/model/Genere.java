@@ -7,4 +7,9 @@ public class Genere {
 	{
 		this.Nome = Nome;
 	}
+	
+	public String getGenere()
+	{
+		return this.Nome;
+	}
 }

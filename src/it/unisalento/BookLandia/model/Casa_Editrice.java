@@ -7,4 +7,9 @@ public class Casa_Editrice {
 	{
 		this.Nome = Nome;
 	}
+	
+	public String getCasa_Editrice()
+	{
+		return Nome;
+	}
 }

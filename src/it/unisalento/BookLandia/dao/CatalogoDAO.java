@@ -8,8 +8,8 @@ import java.util.Vector;
 
 public class CatalogoDAO {
 	String query;
-	Vector<Libro> Libri = null;
-	Vector<String[]> RisultatoQuery;
+	Vector<Libro> Libri = new Vector<Libro>(10);
+	Vector<String[]> RisultatoQuery = new Vector<String[]>(10);
 	private static CatalogoDAO instance;
 
 	
@@ -22,9 +22,13 @@ public class CatalogoDAO {
 	//ritorna una matrice con i dati da rappresentare
 	public CatalogoDAO()
 	{
-		query = "SELECT Titolo, Prezzo, ISBN,CopieDisponibili, Autori.Nome as Nome_Autore, Autori.Cognome as Cognome_Autore, Case_Editrici.Nome as Casa_Editrice"
-				+ " from Libri INNER JOIN Generi INNER JOIN Case_Editrici INNER JOIN Autori where"
-				+ "Case_Editrici_ID_Casa_Editrice =  ID_Casa_Editrice and Generi_Codice_Genere = Codice_Genere AND Autori_Codice_Autore = Codice_Autore;";
+		query = "SELECT Titolo, Prezzo, ISBN, CopieDisponibili,"
+				+ " Autori.Nome as Nome_Autore, Autori.Cognome as Cognome_Autore,"
+				+ " Case_Editrici.Nome as Casa_Editrice, Generi.Nome from Libri"
+				+ " INNER JOIN Generi ON Generi_Codice_Genere = Codice_Genere"
+				+ " INNER JOIN Case_Editrici ON Case_Editrici_ID_Casa_Editrice = ID_Casa_Editrice"
+				+ " INNER JOIN Autori ON Autori_Codice_Autore = Codice_Autore";
+				
 	}
 	
 	public Vector<Libro> getLibri()

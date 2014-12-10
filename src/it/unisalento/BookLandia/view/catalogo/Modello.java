@@ -13,7 +13,7 @@ public class Modello extends AbstractTableModel {
 	@Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub
-		return 4;
+		return 6;
 	}
 
 	@Override
@@ -33,6 +33,8 @@ public class Modello extends AbstractTableModel {
 		 case 1: return b.getAutore();
 		 case 2: return b.getCopieDisponibili();
 		 case 3: return b.getPrezzo();
+		 case 4: return b.getCasa_Editrice();
+		 case 5: return b.getGenere();
 		 default: return ""; 
 	}
 	}

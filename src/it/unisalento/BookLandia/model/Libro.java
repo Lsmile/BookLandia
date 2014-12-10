@@ -42,12 +42,12 @@ public class Libro {
 		return autore.getAutore();
 	}
 
-	public Casa_Editrice getCasa_Editrice() {
-		return casa_Editrice;
+	public String getCasa_Editrice() {
+		return casa_Editrice.getCasa_Editrice();
 	}
 
-	public Genere getGenere() {
-		return genere;
+	public String getGenere() {
+		return genere.getGenere();
 	}
 
 	public Scaffale getScaffale() {

@@ -1,6 +1,7 @@
 package it.unisalento.BookLandia.view;
 
 import it.unisalento.BookLandia.view.catalogo.PanelCatalogo;
+import it.unisalento.BookLandia.view.northpan.NorthPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -19,6 +20,7 @@ public class MainFrame extends JFrame {
 		Container Contenitore = this.getContentPane();
 		Contenitore.setLayout(new BorderLayout());
 		Contenitore.add(new PanelCatalogo(), BorderLayout.CENTER);
+		Contenitore.add(new NorthPanel(), BorderLayout.NORTH);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		

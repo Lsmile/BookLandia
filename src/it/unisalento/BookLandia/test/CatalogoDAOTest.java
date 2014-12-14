@@ -10,7 +10,7 @@ public class CatalogoDAOTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-			Vector<Libro> v = CatalogoDAO.getInstance().getLibri();
+			//Vector<Libro> v = CatalogoDAO.getInstance().getLibri();
 //		String query = "SELECT Titolo, Prezzo, ISBN, CopieDisponibili,"
 //				+ " Autori.Nome as Nome_Autore, Autori.Cognome as Cognome_Autore,"
 //				+ " Case_Editrici.Nome as Casa_Editrice, Generi.Nome from Libri"
@@ -20,6 +20,7 @@ public class CatalogoDAOTest {
 //		Vector<String[]> v = new Vector<String[]>();
 //		v = DbConnection.getInstance().eseguiQuery(query);
 //		System.out.println(v.get(1)[7]);
+		System.out.println(CatalogoDAO.getInstance().getNumeroLibri());
 			
 			
 	}

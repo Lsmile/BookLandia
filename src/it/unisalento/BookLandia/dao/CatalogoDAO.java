@@ -43,5 +43,11 @@ public class CatalogoDAO {
 		return Libri;
 	}
 	
+	public int getNumeroLibri()
+	{
+		query = "SELECT COUNT(*) from Libri;";
+		return Integer.parseInt((DbConnection.getInstance().eseguiQuery(query).get(0)[0]));
+	}
+	
 	//
 }

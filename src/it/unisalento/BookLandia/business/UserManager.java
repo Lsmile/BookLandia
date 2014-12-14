@@ -1,11 +1,14 @@
 package it.unisalento.BookLandia.business;
 
+import it.unisalento.BookLandia.enums.UserType;
 import it.unisalento.BookLandia.model.Utente;
 
 public class UserManager {
 
 	private static UserManager instance;
 	
+	
+	private UserType utente_connesso;
 	
 	public static UserManager getInstance()
 	{
@@ -19,14 +22,15 @@ public class UserManager {
 	public UserManager()
 	{
 		curUser = new Utente();
+		utente_connesso = UserType.NESSUNO;
 	}
 	
-	public boolean LogIn(String utente, String password)
+	public int LogIn(String utente, String password)
 	{
 		curUser.setUsername(utente);
 		curUser.setPassword(password);
-		boolean loginSuccess = curUser.login();
-		return loginSuccess;	
+		UserType type = curUser.login();
+		return type;	
 	}
 	
 	

@@ -1,6 +1,7 @@
 package it.unisalento.BookLandia.model;
 
 import it.unisalento.BookLandia.dao.UtenteDAO;
+import it.unisalento.BookLandia.enums.UserType;
 
 public class Utente {
 
@@ -71,11 +72,12 @@ public class Utente {
 		this.codice_fiscale = codice_fiscale;
 	}
 	
-	public boolean login() {
+	public UserType login() {
 		int ID = UtenteDAO.getInstance().login(username, password);
-		if(ID==-1) return false;
+		if(ID==-1) return UserType.NESSUNO;
 		this.ID = ID;
-		return true;
+		UserType userType = UtenteDAO.getInstance().getType(this.ID);
+		return userType;
 	}
 	
 	public Utente() {

@@ -1,5 +1,7 @@
 package it.unisalento.BookLandia.view.catalogo;
 
+import java.awt.Dimension;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -15,6 +17,7 @@ public class PanelCatalogo extends JPanel {
 		  
 		  // aggiunge la tabella ad uno ScollPane 
 		 JScrollPane scrollpane = new JScrollPane(t); 
+		 scrollpane.setPreferredSize(new Dimension(800,500));
 		  // aggiunge lo ScrollPane alpannello 
 		 add(scrollpane);   
 		} 

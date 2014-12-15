@@ -1,6 +1,7 @@
 package it.unisalento.BookLandia.listener;
 
 import it.unisalento.BookLandia.business.UserManager;
+import it.unisalento.BookLandia.enums.UserType;
 import it.unisalento.BookLandia.view.northpan.NorthPanel;
 
 import java.awt.event.ActionEvent;
@@ -31,7 +32,7 @@ public class NorthPanelListener implements ActionListener{
 			if(button.getName() == "Entra")
 			{
 				//prende dall'interfaccia l'username e la password e li passa allo user manager per effettuare il login
-				if(UserManager.getInstance().LogIn(source.getUsername().getText(), String.valueOf(source.getPassword().getPassword())))
+				if(UserManager.getInstance().LogIn(source.getUsername().getText(), String.valueOf(source.getPassword().getPassword())) != UserType.NESSUNO)
 				{
 					JOptionPane.showMessageDialog(null, "Login effettuato con successo");
 				}

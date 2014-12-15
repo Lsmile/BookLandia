@@ -10,6 +10,10 @@ public class UserManager {
 	
 	private UserType utente_connesso;
 	
+	public UserType getUtente_connesso() {
+		return utente_connesso;
+	}
+
 	public static UserManager getInstance()
 	{
 		if(instance == null)
@@ -25,12 +29,12 @@ public class UserManager {
 		utente_connesso = UserType.NESSUNO;
 	}
 	
-	public int LogIn(String utente, String password)
+	public UserType LogIn(String utente, String password)
 	{
 		curUser.setUsername(utente);
 		curUser.setPassword(password);
-		UserType type = curUser.login();
-		return type;	
+		utente_connesso = curUser.login();
+		return utente_connesso;	
 	}
 	
 	

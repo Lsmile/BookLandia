@@ -4,14 +4,13 @@ import it.unisalento.BookLandia.listener.MenuListener;
 
 import java.awt.GridLayout;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MenuCliente extends  JPanel{
 	MenuListener Focus;
-	JLabel Catalogo = new JLabel ("Catalogo");
-	JLabel Cerca = new JLabel ("Cerca");
-	JLabel Ordini = new JLabel ("Ordini");
+	BottoneMenu Catalogo = new BottoneMenu ("Catalogo");
+	BottoneMenu Cerca = new BottoneMenu ("Cerca");
+	BottoneMenu Ordini = new BottoneMenu ("Ordini");
 	public MenuCliente()
 	{
 		super();

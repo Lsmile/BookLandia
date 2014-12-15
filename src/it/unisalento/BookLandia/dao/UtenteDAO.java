@@ -22,6 +22,19 @@ public class UtenteDAO {
 		return Integer.parseInt(risultato.get(0)[0].toString());
 	}
 	
+	public String getName(int ID)
+	{
+		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT Nome FROM UTENTE WHERE ID_Utente='"+ID+"'");
+		return risultato.get(0)[0].toString(); //metodo richiamato da utente dopo il login, si ha già la sicurezza che l'id esista
+	}
+	
+	public String getSurname(int ID)
+	{
+		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT Cognome FROM UTENTE WHERE ID_Utente='"+ID+"'");
+		return risultato.get(0)[0].toString(); //metodo richiamato da utente dopo il login, si ha già la sicurezza che l'id esista
+	
+	}
+	
 	public UserType getType(int ID)
 	{
 		//ritorna il tipo dell'utente che ha un certo ID, se non esiste ritorna None

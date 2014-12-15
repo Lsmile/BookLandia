@@ -14,6 +14,10 @@ public class UserManager {
 		return utente_connesso;
 	}
 
+	public Utente getCurUser() {
+		return curUser;
+	}
+
 	public static UserManager getInstance()
 	{
 		if(instance == null)

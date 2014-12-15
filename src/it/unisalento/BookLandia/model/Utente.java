@@ -77,6 +77,8 @@ public class Utente {
 		if(ID==-1) return UserType.NESSUNO;
 		this.ID = ID;
 		UserType userType = UtenteDAO.getInstance().getType(this.ID);
+		this.nome = UtenteDAO.getInstance().getName(this.ID);
+		this.cognome = UtenteDAO.getInstance().getSurname(this.ID);
 		return userType;
 	}
 	

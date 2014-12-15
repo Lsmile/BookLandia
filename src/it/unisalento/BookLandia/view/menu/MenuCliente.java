@@ -1,13 +1,11 @@
 package it.unisalento.BookLandia.view.menu;
 
-import it.unisalento.BookLandia.listener.MenuListener;
-
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
 
+
 public class MenuCliente extends  JPanel{
-	MenuListener Focus;
 	BottoneMenu Catalogo = new BottoneMenu ("Catalogo");
 	BottoneMenu Cerca = new BottoneMenu ("Cerca");
 	BottoneMenu Ordini = new BottoneMenu ("Ordini");

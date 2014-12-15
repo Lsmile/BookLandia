@@ -3,6 +3,7 @@ package it.unisalento.BookLandia.view.northpan;
 
 import it.unisalento.BookLandia.listener.NorthPanelListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -51,8 +52,7 @@ public class NorthPanel extends JPanel {
 	{
 		listener = new NorthPanelListener(this);
 		
-		loginButton = new JButton();
-		loginButton.setText("Accedi come utente");
+		loginButton = new JButton(new ImageIcon("assets/utente.png"));
 		loginButton.setName("Login");
 		loginButton.addActionListener(listener);
 		
@@ -63,8 +63,7 @@ public class NorthPanel extends JPanel {
 		password.setColumns(10);
 		password.setText("password");
 		
-		confirmButton = new JButton();
-		confirmButton.setText("Accedi");
+		confirmButton = new JButton(new ImageIcon("assets/accedi.png"));
 		confirmButton.setName("Entra");
 		confirmButton.addActionListener(listener);
 		

@@ -30,9 +30,4 @@ public class MainFrame extends JFrame {
 		this.pack();
 		
 	}
-	
-	public void changeview()
-	{
-		Contenitore.add(new PanelCerca(), BorderLayout.CENTER);
-	}
 }

@@ -1,7 +1,7 @@
 package it.unisalento.BookLandia.view.menu;
 import it.unisalento.BookLandia.listener.MenuListener;
 import it.unisalento.BookLandia.view.MainFrame;
-
+import javax.swing.ImageIcon;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 public class Menu extends JPanel {
-	BottoneMenu Catalogo =  new BottoneMenu ("Catalogo");
-	BottoneMenu Cerca = new BottoneMenu ("Cerca");
+	BottoneMenu Catalogo =  new BottoneMenu (new ImageIcon("assets/catalogo.png"));
+	BottoneMenu Cerca = new BottoneMenu (new ImageIcon("assets/cerca.png"));
 	MenuListener menulistener;
 	MainFrame window;
 	

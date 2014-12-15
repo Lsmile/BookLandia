@@ -34,7 +34,16 @@ public class NorthPanelListener implements ActionListener{
 				//prende dall'interfaccia l'username e la password e li passa allo user manager per effettuare il login
 				if(UserManager.getInstance().LogIn(source.getUsername().getText(), String.valueOf(source.getPassword().getPassword())) != UserType.NESSUNO)
 				{
-					JOptionPane.showMessageDialog(null, "Login effettuato con successo");
+					UserType tipoUtente = UserManager.getInstance().getUtente_connesso();
+					String tipo = ""; //stringa da stampare nel message dialog
+					if(tipoUtente == UserType.CLIENTE)
+						tipo = "Cliente";
+					else if(tipoUtente == UserType.SCAFFALI)
+						tipo = "Addetto Scaffali";
+					else if(tipoUtente == UserType.VENDITE)
+						tipo = "Addetto Vendite";
+					
+					JOptionPane.showMessageDialog(null, "Benvenuto "+UserManager.getInstance().getCurUser().getNome()+" "+UserManager.getInstance().getCurUser().getCognome()+" Ti sei loggato come "+tipo);
 				}
 				else
 				{

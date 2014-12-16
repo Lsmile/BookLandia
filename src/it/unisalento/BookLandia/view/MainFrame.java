@@ -8,9 +8,8 @@ import it.unisalento.BookLandia.view.ricerca.PanelCerca;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Window;
-
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
 	Container Contenitore;
@@ -18,6 +17,8 @@ public class MainFrame extends JFrame {
 	OrdinePanel Ordine = new OrdinePanel();
 	PanelCerca Cerca = new PanelCerca();
 	Menu leftMenu = new Menu(this);
+	BorderLayout Layout = new BorderLayout();
+	JPanel panelInFront;
 	
 	
 	public MainFrame()
@@ -25,10 +26,12 @@ public class MainFrame extends JFrame {
 		super("BookLandia");
 		this.setBounds(0, 0, 1000, 1000);
 		Contenitore = this.getContentPane();
-		Contenitore.setLayout(new BorderLayout());
+		Contenitore.setLayout(Layout);
 		Contenitore.add(Catalogo, BorderLayout.CENTER);
 		Contenitore.add(new NorthPanel(), BorderLayout.NORTH);
 		Contenitore.add(leftMenu, BorderLayout.WEST);
+		
+		panelInFront = Catalogo;
 		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -38,17 +41,21 @@ public class MainFrame extends JFrame {
 	
 	public void changeView(int Selezione)
 	{
-		BorderLayout layout = (BorderLayout) Contenitore.getLayout();
-		this.remove(layout.getLayoutComponent(BorderLayout.CENTER));
+		Contenitore.remove(panelInFront);
 		switch (Selezione)
 		{
 		case 0: Contenitore.add(Catalogo, BorderLayout.CENTER);
+		panelInFront = Catalogo;
 		break;
 		case 1: Contenitore.add(Cerca, BorderLayout.CENTER);
+		panelInFront = Cerca;
 		break;
 		case 2: Contenitore.add(Ordine, BorderLayout.CENTER);
+		panelInFront = Ordine;
 		break;
 	}
+		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
+		repaint();	//
 		
 	}
 }

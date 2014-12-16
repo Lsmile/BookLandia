@@ -33,11 +33,11 @@ public class SwingEmbedding extends JFrame
 		initComponents();
 		
 		// important to set the columns that will have embedded elements as "Editable"
-		DefaultTableModel model = new DefaultTableModel(new String [] {"Slider", "Button" }, 0) 
+		DefaultTableModel model = new DefaultTableModel(new String [] {"Button", "Button", "Button" }, 0) 
 		{
 	            Class[] types = new Class[]
 	            {
-	                 java.lang.Integer.class, java.lang.String.class
+	                 java.lang.String.class, java.lang.String.class, java.lang.String.class
 	            };
 
 	            public Class getColumnClass(int columnIndex)
@@ -46,7 +46,7 @@ public class SwingEmbedding extends JFrame
 	            }
 
 	            boolean[] canEdit = new boolean [] {
-	                true, true
+	                true, true, true
 	            };
 
 	            public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -58,20 +58,20 @@ public class SwingEmbedding extends JFrame
 		// sets the table columns to use the button/slider renderer and editor component
         TableColumn sliderColumn = table.getColumnModel().getColumn(0);
         
-        TableSlider sliders = new TableSlider(50 /*Default Slider Value out of 100*/);
-        sliders.addHandler(new TableSlider.TableSliderMovedHandler() {
+        TableButton buttons1 = new TableButton();
+        buttons1.addHandler(new TableButton.TableButtonPressedHandler() {
 			
 			@Override
-			public void onSlide(int row, int column, int value) 
-			{
-				// handle the slide event
+			public void onButtonPress(int row, int column) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
-
 		// set the column's renderer and editor as the control
-		sliderColumn.setCellRenderer(sliders);
-		sliderColumn.setCellEditor(sliders);
-        
+		sliderColumn.setCellRenderer(buttons1);
+		sliderColumn.setCellEditor(buttons1);
+		
+		
 		TableColumn buttonColumn = table.getColumnModel().getColumn(1);
 
         TableButton buttons = new TableButton();
@@ -86,12 +86,28 @@ public class SwingEmbedding extends JFrame
         
         buttonColumn.setCellRenderer(buttons);
         buttonColumn.setCellEditor(buttons);
+        
+        TableColumn sliderColumn1 = table.getColumnModel().getColumn(2);
+        
+        TableButton buttons2 = new TableButton();
+        buttons1.addHandler(new TableButton.TableButtonPressedHandler() {
+			
+			@Override
+			public void onButtonPress(int row, int column) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		// set the column's renderer and editor as the control
+		sliderColumn1.setCellRenderer(buttons2);
+		sliderColumn1.setCellEditor(buttons2);
+        
 	}
 
 	public void addElement()
 	{
 		DefaultTableModel model = (DefaultTableModel) table.getModel();	
-		model.addRow(new Object[] { 0.00, "Hello" });
+		model.addRow(new Object[] { "Prima colonna" , "Hello", "Terza colonna" });
 	}
 
 	/**

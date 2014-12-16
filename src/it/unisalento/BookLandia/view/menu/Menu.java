@@ -20,12 +20,16 @@ public class Menu extends JPanel {
 		this.window = Window;
 		menulistener = new MenuListener(window);
 		this.setLayout(new GridLayout(2,0));
+		
+		//do un nome ai bottoni
 		Catalogo.setName("Catalogo");
 		Cerca.setName("Cerca");
 		
-		
+		//setto i listener
 		Catalogo.addActionListener(menulistener);
 		Cerca.addActionListener(menulistener);
+		
+		//aggiungo al panel i bottoni
 		this.add(Catalogo);
 		this.add(Cerca);
 		

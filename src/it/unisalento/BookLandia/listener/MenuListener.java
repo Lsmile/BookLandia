@@ -17,20 +17,21 @@ public class MenuListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub
-		System.out.println("Funziono");
 		if(event.getSource() instanceof JButton)
 		{
 			JButton bottone = (JButton) event.getSource();
-			System.out.println(bottone.getName());
 			if(bottone.getName() == "Catalogo")
 			{
-				System.out.println("Cambio in catalogo e invece no");
 				source.changeView(0);
 			}
 			
 			if(bottone.getName() == "Cerca")
 			{
 				source.changeView(1);
+			}
+			if(bottone.getName() == "Ordini")
+			{
+				source.changeView(2);
 			}
 				source.setVisible(true);
 		}

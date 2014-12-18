@@ -1,10 +1,14 @@
 package it.unisalento.BookLandia.view.northpan;
 
 
+import it.unisalento.BookLandia.business.UserManager;
+import it.unisalento.BookLandia.enums.EnumUtils;
 import it.unisalento.BookLandia.listener.NorthPanelListener;
+import it.unisalento.BookLandia.view.MainFrame;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -15,6 +19,11 @@ public class NorthPanel extends JPanel {
 	private JPasswordField password; 	//campo di testo password
 	private JButton confirmButton; //bottone di conferma credenziali di login
 	NorthPanelListener listener; //listener comune per tutto il pannello
+	
+	private JLabel youAreLogged;
+	private JButton logoutButton;
+	
+	private MainFrame frame; //frame necessario per i cambiamenti nel login
 	
 	public JButton getLoginButton() {
 		return loginButton;
@@ -48,9 +57,9 @@ public class NorthPanel extends JPanel {
 		this.confirmButton = confirmButton;
 	}
 
-	public NorthPanel()
+	public NorthPanel(MainFrame source)
 	{
-		listener = new NorthPanelListener(this);
+		listener = new NorthPanelListener(this,source);
 		
 		loginButton = new JButton(new ImageIcon("assets/utente.png"));
 		loginButton.setName("Login");
@@ -67,10 +76,15 @@ public class NorthPanel extends JPanel {
 		confirmButton.setName("Entra");
 		confirmButton.addActionListener(listener);
 		
+		youAreLogged = new JLabel("");//mostrerà le informazioni di nome, cognome e tipo dell'utente corrente, va settata sul momento
+		logoutButton = new JButton("Logout");
+		logoutButton.setName("Logout");
+		logoutButton.addActionListener(listener);
+		
 		add(loginButton);
 	}
 	
-	public void loginView()//change the view to login
+	public void loginView()//change the view to login form
 	{
 		remove(loginButton);
 		add(username);
@@ -78,6 +92,34 @@ public class NorthPanel extends JPanel {
 		add(confirmButton);
 		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
 		repaint();	//
+	}
+	
+	public void loginDone()//change the view to login
+	{
+		remove(username);
+		remove(password);
+		remove(confirmButton);
+		//in breve l'istruzione sotto costruisce la stringa con le informazioni che servono
+		youAreLogged.setText("Ciao "+UserManager.getInstance().getCurUser().getNome()+" "+UserManager.getInstance().getCurUser().getCognome()+", ti sei autenticato come "+EnumUtils.getStringFromType(UserManager.getInstance().getUtente_connesso()));
+		add(youAreLogged);
+		add(logoutButton);
+		
+		revalidate();
+		repaint();
+	}
+
+	public void logoutDone() {
+		youAreLogged.setText("");
+		remove(youAreLogged);
+		remove(logoutButton);
+		username.setText("username");
+		password.setText("password");
+		add(username);
+		add(password);
+		add(confirmButton);
+		
+		revalidate();
+		repaint();
 	}
 	
 	

@@ -1,7 +1,12 @@
 package it.unisalento.BookLandia.view;
 
+import it.unisalento.BookLandia.business.UserManager;
+import it.unisalento.BookLandia.enums.UserType;
 import it.unisalento.BookLandia.view.catalogo.PanelCatalogo;
 import it.unisalento.BookLandia.view.menu.Menu;
+import it.unisalento.BookLandia.view.menu.MenuAddettoScaffali;
+import it.unisalento.BookLandia.view.menu.MenuAddettoVendite;
+import it.unisalento.BookLandia.view.menu.MenuCliente;
 import it.unisalento.BookLandia.view.northpan.NorthPanel;
 import it.unisalento.BookLandia.view.ordini.OrdinePanel;
 import it.unisalento.BookLandia.view.ricerca.PanelCerca;
@@ -17,6 +22,9 @@ public class MainFrame extends JFrame {
 	OrdinePanel Ordine = new OrdinePanel();
 	PanelCerca Cerca = new PanelCerca();
 	Menu leftMenu = new Menu(this);
+	MenuAddettoScaffali leftMenuScaffali = new MenuAddettoScaffali(this);
+	MenuAddettoVendite leftMenuVendite = new MenuAddettoVendite(this);
+	MenuCliente leftMenuCliente = new MenuCliente(this);
 	BorderLayout Layout = new BorderLayout();
 	JPanel panelInFront;
 	
@@ -28,7 +36,7 @@ public class MainFrame extends JFrame {
 		Contenitore = this.getContentPane();
 		Contenitore.setLayout(Layout);
 		Contenitore.add(Catalogo, BorderLayout.CENTER);
-		Contenitore.add(new NorthPanel(), BorderLayout.NORTH);
+		Contenitore.add(new NorthPanel(this), BorderLayout.NORTH);
 		Contenitore.add(leftMenu, BorderLayout.WEST);
 		
 		panelInFront = Catalogo;
@@ -53,9 +61,46 @@ public class MainFrame extends JFrame {
 		case 2: Contenitore.add(Ordine, BorderLayout.CENTER);
 		panelInFront = Ordine;
 		break;
-	}
+	    }
 		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
 		repaint();	//
 		
+	}
+	
+	public void selectMenu(UserType user) //cambia il menu a sinistra a seconda dell'utente che si è loggato
+	{
+		switch(user)//diamo per scontato per il momento che vada rimosso il leftMenu perché si accede solo da utente non registrato
+		{//nel logout poi andrà fatta una selezione dell'utente corrente per sapere quale panel va rimosso, quindi la rimozione va fatta prima del cambiamento di tipo utente
+			case CLIENTE:
+				Contenitore.remove(leftMenu);
+				Contenitore.add(leftMenuCliente, BorderLayout.WEST);
+				break;
+			case VENDITE:
+				Contenitore.remove(leftMenu);
+				Contenitore.add(leftMenuVendite, BorderLayout.WEST);
+				break;
+			case SCAFFALI:
+				Contenitore.remove(leftMenu);
+				Contenitore.add(leftMenuScaffali, BorderLayout.WEST);
+				break;
+			case NESSUNO:
+				if(UserManager.getInstance().getUtente_connesso() == UserType.CLIENTE)
+				{
+					Contenitore.remove(leftMenuCliente);
+				}
+				if(UserManager.getInstance().getUtente_connesso() == UserType.SCAFFALI)
+				{
+					Contenitore.remove(leftMenuScaffali);
+				}
+				if(UserManager.getInstance().getUtente_connesso() == UserType.VENDITE)
+				{
+					Contenitore.remove(leftMenuVendite);
+				}
+				Contenitore.add(leftMenu, BorderLayout.WEST);
+				break;
+		}
+		
+		Contenitore.revalidate();
+		Contenitore.repaint();
 	}
 }

@@ -40,6 +40,11 @@ public class UserManager {
 		utente_connesso = curUser.login();
 		return utente_connesso;	
 	}
+
+	public void LogOut() {
+		curUser = new Utente();
+		utente_connesso = UserType.NESSUNO;
+	}
 	
 	
 	

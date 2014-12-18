@@ -5,9 +5,11 @@ import it.unisalento.BookLandia.view.menu.Menu;
 import it.unisalento.BookLandia.view.northpan.NorthPanel;
 import it.unisalento.BookLandia.view.ordini.OrdinePanel;
 import it.unisalento.BookLandia.view.ricerca.PanelCerca;
+import it.unisalento.BookLandia.view.ricerca.PanelRisultati;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -15,9 +17,10 @@ public class MainFrame extends JFrame {
 	Container Contenitore;
 	PanelCatalogo Catalogo = new PanelCatalogo();
 	OrdinePanel Ordine = new OrdinePanel();
-	PanelCerca Cerca = new PanelCerca();
+	PanelCerca Cerca = new PanelCerca(this);
 	Menu leftMenu = new Menu(this);
 	BorderLayout Layout = new BorderLayout();
+	
 	JPanel panelInFront;
 	
 	
@@ -54,6 +57,16 @@ public class MainFrame extends JFrame {
 		panelInFront = Ordine;
 		break;
 	}
+		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
+		repaint();	//
+		
+	}
+	
+	public void searchView(String Dati)
+	{
+		Contenitore.remove(panelInFront);
+		panelInFront = PanelRisultati.getInstance(Dati);
+		Contenitore.add(panelInFront, BorderLayout.CENTER);
 		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
 		repaint();	//
 		

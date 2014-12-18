@@ -34,7 +34,6 @@ public class MenuListener implements ActionListener {
 			{
 				source.changeView(2);
 			}
-				source.setVisible(true);
 		}
 		
 	}

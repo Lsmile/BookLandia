@@ -1,5 +1,8 @@
 package it.unisalento.BookLandia.view.ricerca;
 
+import it.unisalento.BookLandia.listener.CercaListener;
+import it.unisalento.BookLandia.view.MainFrame;
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
@@ -9,6 +12,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelCerca extends JPanel {
+	
+	//è necessario che il pannello conservi l'istenza della finestra principale per poter far apparire la ricerca effettuata
+	MainFrame source;
+	
+	//stato interno
+	
+	
 	
 	JLabel Titolo = new JLabel("Titolo");
 	CampiTesto TitoloTxt = new CampiTesto();
@@ -20,8 +30,9 @@ public class PanelCerca extends JPanel {
 	CampiTesto GenereTxt = new CampiTesto();
 	JButton Cerca = new JButton("Cerca");
 	
-	public PanelCerca(){
+	public PanelCerca(MainFrame source){
 		super();
+		CercaListener Listener = new CercaListener(source, this);
 		this.setLayout(new GridLayout(5,2));
 		this.add(Titolo);
 		this.add(TitoloTxt);
@@ -31,7 +42,15 @@ public class PanelCerca extends JPanel {
 		this.add(Casa_EditriceTxt);
 		this.add(Genere);
 		this.add(GenereTxt);
-		this.add(Cerca);
 		
+		
+		this.add(Cerca);
+		Cerca.addActionListener(Listener);
+		
+	}
+	
+	public String getInfo()
+	{
+		return TitoloTxt.getText();
 	}
 }

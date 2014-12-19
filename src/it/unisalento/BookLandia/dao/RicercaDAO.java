@@ -8,6 +8,8 @@ import java.util.Vector;
 
 public class RicercaDAO {
 		String Base;
+		String[] Estensioni;
+		int[] Selettore;
 		String Estensione_Titolo;
 		String Estensione_Autore;
 		String Estensione_CasaEditrice;
@@ -39,94 +41,109 @@ public class RicercaDAO {
 		
 		public int getNumeroLibri(GestoreDati Dati)
 		{
-			Base = "SELECT COUNT(Titolo, Autori.Nome as NomeAutore, Autori.Cognome as CognomeAutore) from Libri INNER JOIN Generi ON Generi_Codice_Genere"
+			Base = "SELECT COUNT(Titolo), Titolo, Autori.Nome as NomeAutore, Autori.Cognome as CognomeAutore from Libri INNER JOIN Generi ON Generi_Codice_Genere"
 					+ " = Codice_Genere INNER JOIN Case_Editrici ON Case_Editrici_ID_Casa_Editrice = "
 					+ "ID_Casa_Editrice INNER JOIN Autori ON Autori_Codice_Autore = Codice_Autore";
 			
 			//Stringa per il Titolo
-//			if (Dati.getTitolo().compareTo("") != 0)
-//			{
-//			Estensione_Titolo =  " where Titolo ='" + Dati.getTitolo()+"'";
-//			}
-//			else
-//			{
-//			Estensione_Titolo = "";
-//			}
+			Estensioni[0] = " where Titolo ='" + Dati.getTitolo()+"'" + " ";
+			//string per l'autore
+			Estensioni[1] = "where Nome_Autore ='" + Dati.getAutore()+"' ";
+			//stringa per il genere
+			Estensioni[2] = " where Genere ='" + Dati.getGenere()+"'" + " ";
+			//String per la casa editrice
+			Estensioni[3] = " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";
 			
-			//stringa per l'autore
-			if (Dati.getAutore().compareTo("") != 0)
-			{
-			Estensione_Autore =  " where NomeAutore ='" + Dati.getAutore()+"' ";
-			}
-			else
-			{
-			Estensione_Autore = "";
-			}
+			int i = 0;
 			
-			//Stringa per il Genere
-			if (Dati.getGenere().compareTo("") != 0)
+			if(Dati.getTitolo().compareTo("") != 0)
 			{
-			Estensione_Genere =  " where Genere ='" + Dati.getGenere()+"'" + " ";
+				i++;
+				Selettore[i] = 0;	
 			}
-			else
+			if(Dati.getAutore().compareTo("") != 0)
 			{
-			Estensione_Genere = "";
+				i++;
+				Selettore[i] = 1;
+
 			}
-			
-			//Estensione per la casa editrice
-			if (Dati.getCasaEditrice().compareTo("") != 0)
+			if(Dati.getGenere().compareTo("") != 0)
 			{
-			Estensione_CasaEditrice =  " where Casa_Editrice ='" + Dati.getTitolo()+"'";
+				i++;
+				Selettore[i] = 2;
+
 			}
-			else
+			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
-			Estensione_CasaEditrice = "";
+				i++;
+				Selettore[i] = 3;
+
 			}
-			query = Base + " " +  Estensione_Titolo + " " + Estensione_Autore + " "+ Estensione_CasaEditrice + " " + Estensione_Genere;
+			switch(i)
+			{
+			case 0: query = Base;
+			break;
+			case 1: query = Base + " " + Estensioni[Selettore[i]];
+			break;
+			case 2: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]];
+			break;
+			case 3: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
+			break;
+			case 4: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
+			break;
+			}
 			return Integer.parseInt((DbConnection.getInstance().eseguiQuery(query).get(0)[0]));
 		}
 
 		public Vector<Libro> getLibri(GestoreDati Dati) {
 			
-			if (Dati.getTitolo().compareTo("") != 0)
-			{
-			Estensione_Titolo =  " where Titolo ='" + Dati.getTitolo()+"'" + " ";
-			}
-			else
-			{
-			Estensione_Titolo = "";
-			}
+			//Stringa per il Titolo
+			Estensioni[0] = " where Titolo ='" + Dati.getTitolo()+"'" + " ";
+			//string per l'autore
+			Estensioni[1] = "where Nome_Autore ='" + Dati.getAutore()+"' ";
+			//stringa per il genere
+			Estensioni[2] = " where Genere ='" + Dati.getGenere()+"'" + " ";
+			//String per la casa editrice
+			Estensioni[3] = " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";
 			
-			//stringa per l'autore
-			if (Dati.getAutore().compareTo("") != 0)
-			{
-			Estensione_Autore =  "where Autore ='" + Dati.getAutore()+"' ";
-			}
-			else
-			{
-			Estensione_Autore = "";
-			}
+			int i = 0;
 			
-			//Stringa per il Genere
-			if (Dati.getGenere().compareTo("") != 0)
+			if(Dati.getTitolo().compareTo("") != 0)
 			{
-			Estensione_Genere =  " where Genere ='" + Dati.getGenere()+"'" + " ";
+				i++;
+				Selettore[i] = 0;	
 			}
-			else
+			if(Dati.getAutore().compareTo("") != 0)
 			{
-			Estensione_Genere = "";
+				i++;
+				Selettore[i] = 1;
+
 			}
-			
-			//Estensione per la casa editrice
-			if (Dati.getCasaEditrice().compareTo("") != 0)
+			if(Dati.getGenere().compareTo("") != 0)
 			{
-			Estensione_CasaEditrice =  " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";
+				i++;
+				Selettore[i] = 2;
+
 			}
-			else
+			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
-			Estensione_CasaEditrice = "";
+				i++;
+				Selettore[i] = 3;
+
 			}
-			query = Base + " " +  Estensione_Titolo + " " + Estensione_Autore;
+			switch(i)
+			{
+			case 0: query = Base;
+			break;
+			case 1: query = Base + " " + Estensioni[Selettore[i]];
+			break;
+			case 2: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]];
+			break;
+			case 3: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
+			break;
+			case 4: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
+			break;
+			}
 			
 			Libri.clear();
 			RisultatoQuery = DbConnection.getInstance().eseguiQuery(query);

@@ -3,6 +3,7 @@ package it.unisalento.BookLandia.view;
 import it.unisalento.BookLandia.business.GestoreDati;
 import it.unisalento.BookLandia.business.UserManager;
 import it.unisalento.BookLandia.enums.UserType;
+import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
 import it.unisalento.BookLandia.view.catalogo.PanelCatalogo;
 import it.unisalento.BookLandia.view.menu.Menu;
 import it.unisalento.BookLandia.view.menu.MenuAddettoScaffali;
@@ -24,6 +25,7 @@ public class MainFrame extends JFrame {
 	PanelCatalogo Catalogo = new PanelCatalogo();
 	OrdinePanel Ordine = new OrdinePanel();
 	PanelCerca Cerca = new PanelCerca(this);
+	InserisciPanel Inserisci = new InserisciPanel();
 	Menu leftMenu = new Menu(this);
 	MenuAddettoScaffali leftMenuScaffali = new MenuAddettoScaffali(this);
 	MenuAddettoVendite leftMenuVendite = new MenuAddettoVendite(this);
@@ -64,6 +66,9 @@ public class MainFrame extends JFrame {
 		break;
 		case 2: Contenitore.add(Ordine, BorderLayout.CENTER);
 		panelInFront = Ordine;
+		break;
+		case 3: Contenitore.add(Inserisci, BorderLayout.CENTER);
+		panelInFront = Inserisci;
 		break;
 	    }
 		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti

@@ -21,7 +21,7 @@ public class RicercaDAO {
 
 		
 		public static RicercaDAO getInstance() {
-			   instance = null;
+			   if(instance ==  null)
 				   instance = new RicercaDAO();
 			   return instance;
 		   }
@@ -35,8 +35,8 @@ public class RicercaDAO {
 					+ "Generi.Nome from Libri INNER JOIN Generi ON Generi_Codice_Genere"
 					+ " = Codice_Genere INNER JOIN Case_Editrici ON Case_Editrici_ID_Casa_Editrice = "
 					+ "ID_Casa_Editrice INNER JOIN Autori ON Autori_Codice_Autore = Codice_Autore";
-			
-					
+			Estensioni = new String[4];
+			Selettore = new int[5];
 		}
 		
 		public int getNumeroLibri(GestoreDati Dati)

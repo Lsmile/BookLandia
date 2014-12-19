@@ -43,10 +43,10 @@ public class UtenteDAO {
 		if(risultato.size() != 0) return UserType.CLIENTE;
 		
 		risultato = DbConnection.getInstance().eseguiQuery("SELECT ID_Addetto_Vendite FROM addetti_vendite WHERE ID_Addetto_Vendite='"+ID+"'");
-		if(risultato.size() != 0) return UserType.SCAFFALI;
+		if(risultato.size() != 0) return UserType.VENDITE;
 		
 		risultato = DbConnection.getInstance().eseguiQuery("SELECT ID_Addetto_Scaffali FROM addetti_scaffali WHERE ID_Addetto_Scaffali='"+ID+"'");
-		if(risultato.size() != 0) return UserType.VENDITE;
+		if(risultato.size() != 0) return UserType.SCAFFALI;
 		
 		return UserType.NESSUNO;
 	}

@@ -12,7 +12,7 @@ public class Ricerca {
 	
 	public static Ricerca getInstance(GestoreDati Dati) {
 		// TODO Auto-generated method stub
-		instance = null;
+			if(instance == null)
 			   instance = new Ricerca(Dati);
 		   return instance;
 	}

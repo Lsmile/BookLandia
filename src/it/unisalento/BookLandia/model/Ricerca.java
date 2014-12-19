@@ -11,7 +11,7 @@ public class Ricerca {
 	
 	public static Ricerca getInstance(String Dati) {
 		// TODO Auto-generated method stub
-		if(instance == null)
+		instance = null;
 			   instance = new Ricerca(Dati);
 		   return instance;
 	}

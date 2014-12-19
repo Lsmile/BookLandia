@@ -17,7 +17,7 @@ public class PanelRisultati extends JPanel {
 	private static PanelRisultati instance;
 	
 	public static PanelRisultati getInstance(String Dati) {
-		   if(instance == null)
+				instance = null;
 			   instance = new PanelRisultati(Dati);
 		   return instance;
 	   }
@@ -25,9 +25,9 @@ public class PanelRisultati extends JPanel {
 	
 	public PanelRisultati(String Dati) { 
 		//è importante che riceva l'istanza del pannello cerca per poterne prelevare le informazioni
-		this.add(new JLabel("Risultati della ricerca"));
 		  // crea il modello di dati 
-		 RisultatiModel dataModel = new RisultatiModel(Dati); 
+		 RisultatiModel dataModel = null;
+		 dataModel = new RisultatiModel(Dati); 
 		  // crea la tabella 
 		  JTable t = new JTable(dataModel); 
 

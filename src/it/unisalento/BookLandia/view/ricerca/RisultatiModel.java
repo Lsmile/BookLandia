@@ -19,6 +19,7 @@ public class RisultatiModel extends AbstractTableModel {
 	public RisultatiModel(String Dati)
 	{
 		this.Dati = Dati;
+		v = null;
 		v =  Ricerca.getInstance(Dati).getRicerca();
 	}
 	

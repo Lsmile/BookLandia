@@ -13,7 +13,7 @@ public class RicercaDAO {
 
 		
 		public static RicercaDAO getInstance() {
-			   if(instance == null)
+			   instance = null;
 				   instance = new RicercaDAO();
 			   return instance;
 		   }

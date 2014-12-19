@@ -30,8 +30,8 @@ public class RicercaDAO {
 		public RicercaDAO()
 		{
 			Base = "SELECT Titolo, Prezzo, ISBN, CopieDisponibili, "
-					+ "Autori.Nome as Nome_Autore, Autori.Cognome "
-					+ "as Cognome_Autore, Case_Editrici.Nome as Casa_Editrice, "
+					+ "Autori.Nome as NomeAutore, Autori.Cognome "
+					+ "as CognomeAutore, Case_Editrici.Nome as Casa_Editrice, "
 					+ "Generi.Nome from Libri INNER JOIN Generi ON Generi_Codice_Genere"
 					+ " = Codice_Genere INNER JOIN Case_Editrici ON Case_Editrici_ID_Casa_Editrice = "
 					+ "ID_Casa_Editrice INNER JOIN Autori ON Autori_Codice_Autore = Codice_Autore";
@@ -41,7 +41,7 @@ public class RicercaDAO {
 		
 		public int getNumeroLibri(GestoreDati Dati)
 		{
-			Base = "SELECT COUNT(Titolo), Titolo, Autori.Nome as NomeAutore, Autori.Cognome as CognomeAutore from Libri INNER JOIN Generi ON Generi_Codice_Genere"
+			Base = "SELECT COUNT(Titolo), Titolo, Autori.Nome, Autori.Cognome, Generi.Nome, Case_Editrici.Nome from Libri INNER JOIN Generi ON Generi_Codice_Genere"
 					+ " = Codice_Genere INNER JOIN Case_Editrici ON Case_Editrici_ID_Casa_Editrice = "
 					+ "ID_Casa_Editrice INNER JOIN Autori ON Autori_Codice_Autore = Codice_Autore";
 			int i = 0;
@@ -60,7 +60,7 @@ public class RicercaDAO {
 			if(Dati.getAutore().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[1] = " where Nome_Autore ='" + Dati.getAutore()+"' ";
+				Estensioni[1] = " where Autori.Nome ='" + Dati.getAutore()+"' ";
 				Selettore[i] = 1;
 
 			}
@@ -68,7 +68,7 @@ public class RicercaDAO {
 			if(Dati.getGenere().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[2] = " where Genere ='" + Dati.getGenere()+"'" + " ";
+				Estensioni[2] = " where Generi.Nome ='" + Dati.getGenere()+"'" + " ";
 				Selettore[i] = 2;
 
 			}
@@ -76,7 +76,7 @@ public class RicercaDAO {
 			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[3] = " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";
+				Estensioni[3] = " where Case_Editrici.Nome ='" + Dati.getTitolo()+"'" + " ";
 				Selettore[i] = 3;
 
 			}
@@ -98,6 +98,12 @@ public class RicercaDAO {
 
 		public Vector<Libro> getLibri(GestoreDati Dati) {
 			int i = 0;
+			Base = "SELECT Titolo, Prezzo, ISBN, CopieDisponibili, "
+					+ "Autori.Nome, Autori.Cognome "
+					+ "as CognomeAutore, Case_Editrici.Nome, "
+					+ "Generi.Nome from Libri INNER JOIN Generi ON Generi_Codice_Genere"
+					+ " = Codice_Genere INNER JOIN Case_Editrici ON Case_Editrici_ID_Casa_Editrice = "
+					+ "ID_Casa_Editrice INNER JOIN Autori ON Autori_Codice_Autore = Codice_Autore";
 			//Stringa per il Titolo
 			if(Dati.getTitolo().compareTo("") != 0)
 			{
@@ -109,7 +115,7 @@ public class RicercaDAO {
 			if(Dati.getAutore().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[1] = "where Nome_Autore ='" + Dati.getAutore()+"' ";
+				Estensioni[1] = "where Autori.Nome ='" + Dati.getAutore()+"' ";
 				Selettore[i] = 1;
 
 			}
@@ -117,7 +123,7 @@ public class RicercaDAO {
 			if(Dati.getGenere().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[2] = " where Genere ='" + Dati.getGenere()+"'" + " ";
+				Estensioni[2] = " where Generi.Nome ='" + Dati.getGenere()+"'" + " ";
 				Selettore[i] = 2;
 
 			}
@@ -125,7 +131,7 @@ public class RicercaDAO {
 			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[3] = " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";
+				Estensioni[3] = " where Case_Editrici.Nome ='" + Dati.getCasaEditrice()+ "'" + " ";
 				Selettore[i] = 3;
 
 			}

@@ -1,5 +1,6 @@
 package it.unisalento.BookLandia.view.ricerca;
 
+import it.unisalento.BookLandia.business.GestoreDati;
 import it.unisalento.BookLandia.model.Catalogo;
 import it.unisalento.BookLandia.view.catalogo.ButtonPanel;
 
@@ -16,14 +17,14 @@ public class PanelRisultati extends JPanel {
 	String Dati;
 	private static PanelRisultati instance;
 	
-	public static PanelRisultati getInstance(String Dati) {
+	public static PanelRisultati getInstance(GestoreDati Dati) {
 				instance = null;
 			   instance = new PanelRisultati(Dati);
 		   return instance;
 	   }
 	
 	
-	public PanelRisultati(String Dati) { 
+	public PanelRisultati(GestoreDati Dati) { 
 		//è importante che riceva l'istanza del pannello cerca per poterne prelevare le informazioni
 		  // crea il modello di dati 
 		 RisultatiModel dataModel = null;

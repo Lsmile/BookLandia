@@ -1,5 +1,6 @@
 package it.unisalento.BookLandia.view.ricerca;
 
+import it.unisalento.BookLandia.business.GestoreDati;
 import it.unisalento.BookLandia.listener.CercaListener;
 import it.unisalento.BookLandia.view.MainFrame;
 
@@ -32,6 +33,10 @@ public class PanelCerca extends JPanel {
 	
 	public PanelCerca(MainFrame source){
 		super();
+		
+		TitoloTxt.setText("");
+		AutoreTxt.setText("");
+		
 		CercaListener Listener = new CercaListener(source, this);
 		this.setLayout(new GridLayout(5,2));
 		this.add(Titolo);
@@ -49,8 +54,8 @@ public class PanelCerca extends JPanel {
 		
 	}
 	
-	public String getInfo()
+	public GestoreDati getInfo()
 	{
-		return TitoloTxt.getText();
+		return new GestoreDati(TitoloTxt.getText(),GenereTxt.getText(), AutoreTxt.getText(), Casa_EditriceTxt.getText());
 	}
 }

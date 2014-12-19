@@ -1,5 +1,6 @@
 package it.unisalento.BookLandia.view.ricerca;
 
+import it.unisalento.BookLandia.business.GestoreDati;
 import it.unisalento.BookLandia.dao.CatalogoDAO;
 import it.unisalento.BookLandia.dao.RicercaDAO;
 import it.unisalento.BookLandia.model.Catalogo;
@@ -13,10 +14,10 @@ import javax.swing.table.AbstractTableModel;
 public class RisultatiModel extends AbstractTableModel {
 	String[] ColName =  {"Titolo","Autore", "Prezzo", "Casa Editrice", "Genere", "Copie Disponibili" };
 	Vector v =  new Vector();
-	String Dati;
+	GestoreDati Dati;
 	
 	
-	public RisultatiModel(String Dati)
+	public RisultatiModel(GestoreDati Dati)
 	{
 		this.Dati = Dati;
 		v = null;

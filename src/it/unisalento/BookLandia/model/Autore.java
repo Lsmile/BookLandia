@@ -12,6 +12,6 @@ public class Autore {
 	
 	public String getAutore()
 	{
-		return Nome + Cognome;
+		return Nome + " " + Cognome;
 	}
 }

@@ -1,5 +1,6 @@
 package it.unisalento.BookLandia.view;
 
+import it.unisalento.BookLandia.business.GestoreDati;
 import it.unisalento.BookLandia.business.UserManager;
 import it.unisalento.BookLandia.enums.UserType;
 import it.unisalento.BookLandia.view.catalogo.PanelCatalogo;
@@ -70,7 +71,7 @@ public class MainFrame extends JFrame {
 		
 	}
 	
-	public void searchView(String Dati)
+	public void searchView(GestoreDati Dati)
 	{
 		Contenitore.remove(panelInFront);
 		panelInFront = PanelRisultati.getInstance(Dati);

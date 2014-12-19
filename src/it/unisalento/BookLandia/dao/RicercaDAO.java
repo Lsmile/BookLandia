@@ -50,22 +50,22 @@ public class RicercaDAO {
 			System.out.println(Dati.getGenere());
 			System.out.println(Dati.getCasaEditrice());
 			//Stringa per il Titolo
-			if(Dati.getTitolo() != null)
+			if(Dati.getTitolo().compareTo("") != 0)
 			{
 				i++;
 				Estensioni[0] = " where Titolo ='" + Dati.getTitolo()+"'" + " ";
 				Selettore[i] = 0;	
 			}
 			//string per l'autore
-			if(Dati.getAutore() != null)
+			if(Dati.getAutore().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[1] = "where Nome_Autore ='" + Dati.getAutore()+"' ";
+				Estensioni[1] = " where Nome_Autore ='" + Dati.getAutore()+"' ";
 				Selettore[i] = 1;
 
 			}
 			//stringa per il genere
-			if(Dati.getGenere() != null)
+			if(Dati.getGenere().compareTo("") != 0)
 			{
 				i++;
 				Estensioni[2] = " where Genere ='" + Dati.getGenere()+"'" + " ";
@@ -73,7 +73,7 @@ public class RicercaDAO {
 
 			}
 			//String per la casa editrice
-			if(Dati.getCasaEditrice() != null)
+			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
 				i++;
 				Estensioni[3] = " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";
@@ -99,14 +99,14 @@ public class RicercaDAO {
 		public Vector<Libro> getLibri(GestoreDati Dati) {
 			int i = 0;
 			//Stringa per il Titolo
-			if(Dati.getTitolo() != null)
+			if(Dati.getTitolo().compareTo("") != 0)
 			{
 				i++;
 				Estensioni[0] = " where Titolo ='" + Dati.getTitolo()+"'" + " ";
 				Selettore[i] = 0;	
 			}
 			//string per l'autore
-			if(Dati.getAutore() != null)
+			if(Dati.getAutore().compareTo("") != 0)
 			{
 				i++;
 				Estensioni[1] = "where Nome_Autore ='" + Dati.getAutore()+"' ";
@@ -114,7 +114,7 @@ public class RicercaDAO {
 
 			}
 			//stringa per il genere
-			if(Dati.getGenere() != null)
+			if(Dati.getGenere().compareTo("") != 0)
 			{
 				i++;
 				Estensioni[2] = " where Genere ='" + Dati.getGenere()+"'" + " ";
@@ -122,7 +122,7 @@ public class RicercaDAO {
 
 			}
 			//String per la casa editrice
-			if(Dati.getCasaEditrice() != null)
+			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
 				i++;
 				Estensioni[3] = " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";

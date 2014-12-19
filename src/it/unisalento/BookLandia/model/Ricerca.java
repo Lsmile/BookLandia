@@ -17,9 +17,9 @@ public class Ricerca {
 		   return instance;
 	}
 	
-	public Ricerca(GestoreDati dati)
+	public Ricerca(GestoreDati Dati)
 	{
-		Libri = RicercaDAO.getInstance().getLibri(dati);
+		Libri = RicercaDAO.getInstance().getLibri(Dati);
 	}
 	
 	public Vector<Libro> getRicerca()

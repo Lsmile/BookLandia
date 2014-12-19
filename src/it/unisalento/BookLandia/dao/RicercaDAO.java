@@ -44,38 +44,39 @@ public class RicercaDAO {
 			Base = "SELECT COUNT(Titolo), Titolo, Autori.Nome as NomeAutore, Autori.Cognome as CognomeAutore from Libri INNER JOIN Generi ON Generi_Codice_Genere"
 					+ " = Codice_Genere INNER JOIN Case_Editrici ON Case_Editrici_ID_Casa_Editrice = "
 					+ "ID_Casa_Editrice INNER JOIN Autori ON Autori_Codice_Autore = Codice_Autore";
-			
-			//Stringa per il Titolo
-			Estensioni[0] = " where Titolo ='" + Dati.getTitolo()+"'" + " ";
-			//string per l'autore
-			Estensioni[1] = "where Nome_Autore ='" + Dati.getAutore()+"' ";
-			//stringa per il genere
-			Estensioni[2] = " where Genere ='" + Dati.getGenere()+"'" + " ";
-			//String per la casa editrice
-			Estensioni[3] = " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";
-			
 			int i = 0;
-			
-			if(Dati.getTitolo().compareTo("") != 0)
+			System.out.println(Dati.getTitolo());
+			System.out.println(Dati.getAutore());
+			System.out.println(Dati.getGenere());
+			System.out.println(Dati.getCasaEditrice());
+			//Stringa per il Titolo
+			if(Dati.getTitolo() != null)
 			{
 				i++;
+				Estensioni[0] = " where Titolo ='" + Dati.getTitolo()+"'" + " ";
 				Selettore[i] = 0;	
 			}
-			if(Dati.getAutore().compareTo("") != 0)
+			//string per l'autore
+			if(Dati.getAutore() != null)
 			{
 				i++;
+				Estensioni[1] = "where Nome_Autore ='" + Dati.getAutore()+"' ";
 				Selettore[i] = 1;
 
 			}
-			if(Dati.getGenere().compareTo("") != 0)
+			//stringa per il genere
+			if(Dati.getGenere() != null)
 			{
 				i++;
+				Estensioni[2] = " where Genere ='" + Dati.getGenere()+"'" + " ";
 				Selettore[i] = 2;
 
 			}
-			if(Dati.getCasaEditrice().compareTo("") != 0)
+			//String per la casa editrice
+			if(Dati.getCasaEditrice() != null)
 			{
 				i++;
+				Estensioni[3] = " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";
 				Selettore[i] = 3;
 
 			}
@@ -93,41 +94,38 @@ public class RicercaDAO {
 			break;
 			}
 			return Integer.parseInt((DbConnection.getInstance().eseguiQuery(query).get(0)[0]));
-		}
+			}
 
 		public Vector<Libro> getLibri(GestoreDati Dati) {
-			
-			//Stringa per il Titolo
-			Estensioni[0] = " where Titolo ='" + Dati.getTitolo()+"'" + " ";
-			//string per l'autore
-			Estensioni[1] = "where Nome_Autore ='" + Dati.getAutore()+"' ";
-			//stringa per il genere
-			Estensioni[2] = " where Genere ='" + Dati.getGenere()+"'" + " ";
-			//String per la casa editrice
-			Estensioni[3] = " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";
-			
 			int i = 0;
-			
-			if(Dati.getTitolo().compareTo("") != 0)
+			//Stringa per il Titolo
+			if(Dati.getTitolo() != null)
 			{
 				i++;
+				Estensioni[0] = " where Titolo ='" + Dati.getTitolo()+"'" + " ";
 				Selettore[i] = 0;	
 			}
-			if(Dati.getAutore().compareTo("") != 0)
+			//string per l'autore
+			if(Dati.getAutore() != null)
 			{
 				i++;
+				Estensioni[1] = "where Nome_Autore ='" + Dati.getAutore()+"' ";
 				Selettore[i] = 1;
 
 			}
-			if(Dati.getGenere().compareTo("") != 0)
+			//stringa per il genere
+			if(Dati.getGenere() != null)
 			{
 				i++;
+				Estensioni[2] = " where Genere ='" + Dati.getGenere()+"'" + " ";
 				Selettore[i] = 2;
 
 			}
-			if(Dati.getCasaEditrice().compareTo("") != 0)
+			//String per la casa editrice
+			if(Dati.getCasaEditrice() != null)
 			{
 				i++;
+				Estensioni[3] = " where Casa_Editrice ='" + Dati.getTitolo()+"'" + " ";
 				Selettore[i] = 3;
 
 			}

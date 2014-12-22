@@ -21,7 +21,7 @@ public class RicercaDAO {
 
 		
 		public static RicercaDAO getInstance() {
-			   if(instance ==  null)
+			   instance =  null;
 				   instance = new RicercaDAO();
 			   return instance;
 		   }
@@ -45,22 +45,18 @@ public class RicercaDAO {
 					+ " = Codice_Genere INNER JOIN Case_Editrici ON Case_Editrici_ID_Casa_Editrice = "
 					+ "ID_Casa_Editrice INNER JOIN Autori ON Autori_Codice_Autore = Codice_Autore";
 			int i = 0;
-			System.out.println(Dati.getTitolo());
-			System.out.println(Dati.getAutore());
-			System.out.println(Dati.getGenere());
-			System.out.println(Dati.getCasaEditrice());
 			//Stringa per il Titolo
 			if(Dati.getTitolo().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[0] = " where Titolo ='" + Dati.getTitolo()+"'" + " ";
+				Estensioni[0] = " where Titolo LIKE'%" + Dati.getTitolo()+"%'" + " ";
 				Selettore[i] = 0;	
 			}
 			//string per l'autore
 			if(Dati.getAutore().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[1] = " where Autori.Nome ='" + Dati.getAutore()+"' ";
+				Estensioni[1] = " where Autori.Nome LIKE'%" + Dati.getAutore()+"%' ";
 				Selettore[i] = 1;
 
 			}
@@ -68,7 +64,7 @@ public class RicercaDAO {
 			if(Dati.getGenere().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[2] = " where Generi.Nome ='" + Dati.getGenere()+"'" + " ";
+				Estensioni[2] = " where Generi.Nome LIKE'%" + Dati.getGenere()+"%'" + " ";
 				Selettore[i] = 2;
 
 			}
@@ -76,7 +72,7 @@ public class RicercaDAO {
 			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[3] = " where Case_Editrici.Nome ='" + Dati.getTitolo()+"'" + " ";
+				Estensioni[3] = " where Case_Editrici.Nome LIKE'%" + Dati.getTitolo()+"%'" + " ";
 				Selettore[i] = 3;
 
 			}
@@ -108,14 +104,14 @@ public class RicercaDAO {
 			if(Dati.getTitolo().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[0] = " where Titolo ='" + Dati.getTitolo()+"'" + " ";
+				Estensioni[0] = " where Titolo LIKE'%" + Dati.getTitolo()+"%'" + " ";
 				Selettore[i] = 0;	
 			}
 			//string per l'autore
 			if(Dati.getAutore().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[1] = "where Autori.Nome ='" + Dati.getAutore()+"' ";
+				Estensioni[1] = "where Autori.Nome LIKE'%" + Dati.getAutore()+"%' ";
 				Selettore[i] = 1;
 
 			}
@@ -123,7 +119,7 @@ public class RicercaDAO {
 			if(Dati.getGenere().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[2] = " where Generi.Nome ='" + Dati.getGenere()+"'" + " ";
+				Estensioni[2] = " where Generi.Nome LIKE'%" + Dati.getGenere()+"%'" + " ";
 				Selettore[i] = 2;
 
 			}
@@ -131,7 +127,7 @@ public class RicercaDAO {
 			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[3] = " where Case_Editrici.Nome ='" + Dati.getCasaEditrice()+ "'" + " ";
+				Estensioni[3] = " where Case_Editrici.Nome LIKE'%" + Dati.getCasaEditrice()+ "%'" + " ";
 				Selettore[i] = 3;
 
 			}

@@ -10,13 +10,13 @@ public class Libro {
 	Genere genere;
 	Scaffale scaffale;
 	
-	public Libro(String Titolo, Double Prezzo, String ISBN, int CopieDisponibili, String nome_autore, String cognome_autore, String casa_Editrice, String genere, String settore_scaffale, int numero_scaffale, int numero_libreria)
+	public Libro(String Titolo, Double Prezzo, String ISBN, int CopieDisponibili, String nome_autore, String casa_Editrice, String genere, String settore_scaffale, int numero_scaffale, int numero_libreria)
 	{
 		this.Titolo = Titolo;
 		this.Prezzo = Prezzo;
 		this.ISBN = ISBN;
 		this.CopieDisponibili = CopieDisponibili;
-		this.autore = new Autore(nome_autore,cognome_autore);
+		this.autore = new Autore(nome_autore);
 		this.casa_Editrice = new Casa_Editrice(casa_Editrice);
 		this.genere = new Genere(genere);
 		this.scaffale = new Scaffale(settore_scaffale, numero_scaffale, numero_libreria);

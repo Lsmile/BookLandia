@@ -1,0 +1,43 @@
+package Vendita;
+import java.awt.Container;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import it.unisalento.BookLandia.listener.VenditaListener;
+import it.unisalento.BookLandia.view.MainFrame;
+import it.unisalento.BookLandia.view.ricerca.CampiTesto;
+
+public class RegistraVenditaPanel extends JPanel {
+	CampiTesto IdLibro = new CampiTesto();
+	CampiTesto IdCliente = new CampiTesto();
+	JLabel IdLibroLbl = new JLabel("Id Libro");
+	JLabel IdClienteLbl = new JLabel ("Id Cliente");
+	JButton Avanti = new JButton("Avanti");
+	
+	
+	public RegistraVenditaPanel(MainFrame finestra)
+	{
+		super();
+		VenditaListener listener = new VenditaListener(this, finestra);
+		this.setLayout(new GridLayout(3,2));
+		this.add(IdLibroLbl);
+		this.add(IdLibro);
+		this.add(IdClienteLbl);
+		this.add(IdCliente);
+		this.add(Avanti);
+		Avanti.addActionListener(listener);
+		
+	}
+	
+	public int getLibroID()
+	{
+		if (IdLibro.getText() == "")
+			return 0;
+		return Integer.parseInt(IdLibro.getText());
+	}
+	
+
+}

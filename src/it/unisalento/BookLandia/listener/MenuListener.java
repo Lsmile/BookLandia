@@ -38,6 +38,10 @@ public class MenuListener implements ActionListener {
 			{
 				source.changeView(3);
 			}
+			if(bottone.getName() == "Registra_Vendita")
+			{
+				source.changeView(4);
+			}
 		}
 		
 	}

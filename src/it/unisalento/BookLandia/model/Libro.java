@@ -22,6 +22,15 @@ public class Libro {
 		this.scaffale = new Scaffale(settore_scaffale, numero_scaffale, numero_libreria);
 	}
 	
+	public Libro(String Titolo, String Autore, String Casa_Editrice, String ISBN, double Prezzo)
+	{
+		this.Titolo = Titolo;
+		this.autore = new Autore(Autore);
+		this.casa_Editrice = new Casa_Editrice(Casa_Editrice);
+		this.ISBN = ISBN;
+		this.Prezzo = Prezzo;
+	};
+	
 	public String getTitolo() {
 		return Titolo;
 	}

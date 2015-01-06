@@ -3,6 +3,7 @@ package it.unisalento.BookLandia.view;
 import it.unisalento.BookLandia.business.GestoreDati;
 import it.unisalento.BookLandia.business.UserManager;
 import it.unisalento.BookLandia.enums.UserType;
+import it.unisalento.BookLandia.model.Libro;
 import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
 import it.unisalento.BookLandia.view.catalogo.PanelCatalogo;
 import it.unisalento.BookLandia.view.menu.Menu;
@@ -20,12 +21,16 @@ import java.awt.Container;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Vendita.RegistraPanel;
+import Vendita.RegistraVenditaPanel;
+
 public class MainFrame extends JFrame {
 	Container Contenitore;
 	PanelCatalogo Catalogo = new PanelCatalogo();
 	OrdinePanel Ordine = new OrdinePanel();
 	PanelCerca Cerca = new PanelCerca(this);
 	InserisciPanel Inserisci = new InserisciPanel();
+	RegistraVenditaPanel Registra_Vendita = new RegistraVenditaPanel(this);
 	Menu leftMenu = new Menu(this);
 	MenuAddettoScaffali leftMenuScaffali = new MenuAddettoScaffali(this);
 	MenuAddettoVendite leftMenuVendite = new MenuAddettoVendite(this);
@@ -70,6 +75,9 @@ public class MainFrame extends JFrame {
 		case 3: Contenitore.add(Inserisci, BorderLayout.CENTER);
 		panelInFront = Inserisci;
 		break;
+		case 4: Contenitore.add(Registra_Vendita, BorderLayout.CENTER);
+		panelInFront = Registra_Vendita;
+		break;
 	    }
 		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
 		repaint();	//
@@ -83,6 +91,15 @@ public class MainFrame extends JFrame {
 		Contenitore.add(panelInFront, BorderLayout.CENTER);
 		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
 		repaint();	//
+	}
+	
+	public void sellView(Libro Dati)
+	{
+			Contenitore.remove(panelInFront);
+			panelInFront = RegistraPanel.getInstance(Dati);
+			Contenitore.add(panelInFront, BorderLayout.CENTER);
+			revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
+			repaint();	//
 	}
 		
 	public void selectMenu(UserType user) //cambia il menu a sinistra a seconda dell'utente che si è loggato

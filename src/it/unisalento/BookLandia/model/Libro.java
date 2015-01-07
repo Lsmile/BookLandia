@@ -9,6 +9,7 @@ public class Libro {
 	Casa_Editrice casa_Editrice;
 	Genere genere;
 	Scaffale scaffale;
+	int Quantità;
 	int ID;
 	
 	public Libro(String Titolo, Double Prezzo, String ISBN, int CopieDisponibili, String nome_autore, String casa_Editrice, String genere, String settore_scaffale, int numero_scaffale, int numero_libreria)
@@ -23,7 +24,7 @@ public class Libro {
 		this.scaffale = new Scaffale(settore_scaffale, numero_scaffale, numero_libreria);
 	}
 	
-	public Libro(String Titolo, String Autore, String Casa_Editrice,  String genere,String ISBN, double Prezzo, int ID)
+	public Libro(String Titolo, String Autore, String Casa_Editrice,  String genere,String ISBN, double Prezzo, int ID, int Quantità)
 	{
 		this.Titolo = Titolo;
 		this.autore = new Autore(Autore);
@@ -32,6 +33,7 @@ public class Libro {
 		this.ISBN = ISBN;
 		this.Prezzo = Prezzo;
 		this.ID = ID;
+		this.Quantità = Quantità;
 	};
 	
 	public String getTitolo() {
@@ -69,5 +71,10 @@ public class Libro {
 	public int getID()
 	{
 		return ID;
+	}
+	
+	public int getQuantità()
+	{
+		return Quantità;
 	}
 }

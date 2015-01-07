@@ -4,6 +4,7 @@ import it.unisalento.BookLandia.business.GestoreDati;
 import it.unisalento.BookLandia.business.UserManager;
 import it.unisalento.BookLandia.enums.UserType;
 import it.unisalento.BookLandia.model.Libro;
+import it.unisalento.BookLandia.model.Utente;
 import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
 import it.unisalento.BookLandia.view.catalogo.PanelCatalogo;
 import it.unisalento.BookLandia.view.menu.Menu;
@@ -137,5 +138,14 @@ public class MainFrame extends JFrame {
 		
 		Contenitore.revalidate();
 		Contenitore.repaint();
+	}
+
+	public void sellView(Libro libroVendita, Utente buyUser) {
+		Contenitore.remove(panelInFront);
+		panelInFront = RegistraPanel.getInstance(libroVendita, buyUser);
+		Contenitore.add(panelInFront, BorderLayout.CENTER);
+		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
+		repaint();	//
+		
 	}
 }

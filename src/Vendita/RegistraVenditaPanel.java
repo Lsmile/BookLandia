@@ -13,8 +13,10 @@ import it.unisalento.BookLandia.view.ricerca.CampiTesto;
 public class RegistraVenditaPanel extends JPanel {
 	CampiTesto IdLibro = new CampiTesto();
 	CampiTesto IdCliente = new CampiTesto();
+	CampiTesto Quantit‡ = new CampiTesto();
 	JLabel IdLibroLbl = new JLabel("Id Libro");
 	JLabel IdClienteLbl = new JLabel ("Id Cliente");
+	JLabel Quantit‡Lbl = new JLabel ("Quantit‡");
 	JButton Avanti = new JButton("Avanti");
 	
 	
@@ -22,11 +24,14 @@ public class RegistraVenditaPanel extends JPanel {
 	{
 		super();
 		VenditaListener listener = new VenditaListener(this, finestra);
-		this.setLayout(new GridLayout(3,2));
+		this.setLayout(new GridLayout(4,2));
 		this.add(IdLibroLbl);
 		this.add(IdLibro);
 		this.add(IdClienteLbl);
 		this.add(IdCliente);
+		this.add(Quantit‡Lbl);
+		this.add(Quantit‡);
+		Avanti.setName("Avanti");
 		this.add(Avanti);
 		Avanti.addActionListener(listener);
 		
@@ -37,6 +42,22 @@ public class RegistraVenditaPanel extends JPanel {
 		if (IdLibro.getText() == "")
 			return 0;
 		return Integer.parseInt(IdLibro.getText());
+	}
+	
+	public int getUtenteID()
+	{
+		if(IdCliente.getText().compareTo("") == 0)
+		{
+			return 0;
+		}
+		else
+		return Integer.parseInt(IdCliente.getText());
+		
+	}
+	
+	public int getQuantit‡()
+	{
+		return Integer.parseInt(Quantit‡.getText());
 	}
 	
 

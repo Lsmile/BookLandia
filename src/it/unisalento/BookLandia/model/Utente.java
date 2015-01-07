@@ -85,4 +85,10 @@ public class Utente {
 	public Utente() {
 		
 	}
+
+	public Utente(String nome, String cognome, int utenteID) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.ID = utenteID;
+	}
 }

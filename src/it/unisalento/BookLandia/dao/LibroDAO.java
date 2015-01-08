@@ -16,6 +16,6 @@ public class LibroDAO {
 	
 	public void InserisciLibro(String titolo, float prezzo, String ISBN, int Copie, int idAutore, int idGenere, int idCasaEditrice, int idScaffale)
 	{
-		DbConnection.getInstance().eseguiQuery("INSERT INTO `booklandia`.`libri` (`Titolo`, `Prezzo`, `ISBN`, `Case_Editrici_ID_Casa_Editrice`, `Generi_Codice_Genere`, `Autori_Codice_Autore`, `CopieDisponibili`, `Scaffali_ID_Scaffale`) VALUES ('"+titolo+"', '"+prezzo+"', '"+ISBN+"', '"+idCasaEditrice+"', '"+idGenere+"', '"+idAutore+"', '"+Copie+"', '"+idScaffale+"');");
+		DbConnection.getInstance().eseguiAggiornamento("INSERT INTO `booklandia`.`libri` (`Titolo`, `Prezzo`, `ISBN`, `Case_Editrici_ID_Casa_Editrice`, `Generi_Codice_Genere`, `Autori_Codice_Autore`, `CopieDisponibili`, `Scaffali_ID_Scaffale`) VALUES ('"+titolo+"', '"+prezzo+"', '"+ISBN+"', '"+idCasaEditrice+"', '"+idGenere+"', '"+idAutore+"', '"+Copie+"', '"+idScaffale+"');");
 	}
 }

@@ -26,4 +26,11 @@ public class ScaffaleDAO {
 		}
 		return listaSettori;
 	}
+	
+	public int getIdFromName(String name)
+	{
+		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT Id_Scaffale FROM scaffali where Settore = '"+name+"';");
+		int id = Integer.parseInt(risultato.get(0)[0]);
+		return id;
+	}
 }

@@ -4,8 +4,10 @@ import it.unisalento.BookLandia.dao.AutoreDAO;
 import it.unisalento.BookLandia.dao.CasaEditriceDAO;
 import it.unisalento.BookLandia.dao.GenereDAO;
 import it.unisalento.BookLandia.dao.ScaffaleDAO;
+import it.unisalento.BookLandia.listener.InserisciListener;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
 import javax.swing.JButton;
@@ -17,6 +19,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class InserisciPanel extends JPanel {
+	
+	InserisciListener listener;
+	
 	JLabel titoloLabel;
 	JTextField titoloTextField;
 	
@@ -61,13 +66,15 @@ public class InserisciPanel extends JPanel {
 	public InserisciPanel()
 	{
 
+		listener = new InserisciListener(this);
+		
 		formatoPrezzo = NumberFormat.getNumberInstance();
 		formatoPrezzo.setMinimumFractionDigits(2);
 		formatoPrezzo.setMaximumFractionDigits(2);
 		
 		formatoISBN = NumberFormat.getIntegerInstance();
-		formatoISBN.setMinimumIntegerDigits(13);
-		formatoISBN.setMaximumIntegerDigits(13);
+		formatoISBN.setMinimumIntegerDigits(11);
+		formatoISBN.setMaximumIntegerDigits(11);
 		
 		titoloLabel = new JLabel("Titolo");
 		titoloTextField = new JTextField();
@@ -84,6 +91,8 @@ public class InserisciPanel extends JPanel {
 		autoreLabel = new JLabel("Autore");
 		autoreList = new JList<String>(AutoreDAO.getInstance().getNomiAutori());
 		nuovoAutoreButton = new JButton("Inserisci Nuovo");
+		nuovoAutoreButton.setName("NuovoAutore");
+		nuovoAutoreButton.addActionListener(listener);
 		autorePanel = new JPanel();
 		autorePanel.add(autoreList);
 		autorePanel.add(nuovoAutoreButton);
@@ -92,6 +101,8 @@ public class InserisciPanel extends JPanel {
 		genereLabel = new JLabel("Genere");
 		genereList = new JList<String>(GenereDAO.getInstance().getNomiGeneri());
 		nuovoGenereButton = new JButton("Inserisci Nuovo");
+		nuovoGenereButton.setName("NuovoGenere");
+		nuovoGenereButton.addActionListener(listener);
 		generePanel = new JPanel();
 		generePanel.add(genereList);
 		generePanel.add(nuovoGenereButton);
@@ -100,6 +111,8 @@ public class InserisciPanel extends JPanel {
 		casaEditriceLabel = new JLabel("Casa Editrice");
 		casaEditriceList = new JList<String>(CasaEditriceDAO.getInstance().getNomiCaseEditrici());
 		nuovaCasaEditriceButton = new JButton("Inserisci Nuovo");
+		nuovaCasaEditriceButton.setName("NuovaCasaEditrice");
+		nuovaCasaEditriceButton.addActionListener(listener);
 		casaEditricePanel = new JPanel();
 		casaEditricePanel.add(casaEditriceList);
 		casaEditricePanel.add(nuovaCasaEditriceButton);
@@ -108,6 +121,8 @@ public class InserisciPanel extends JPanel {
 		scaffaleLabel = new JLabel("Casa Editrice");
 		scaffaleList = new JList<String>(ScaffaleDAO.getInstance().getSettoriScaffali());
 		nuovoScaffaleButton = new JButton("Inserisci Nuovo");
+		nuovoScaffaleButton.setName("NuovoScaffale");
+		nuovoScaffaleButton.addActionListener(listener);
 		scaffalePanel = new JPanel();
 		scaffalePanel.add(scaffaleList);
 		scaffalePanel.add(nuovoScaffaleButton);
@@ -115,7 +130,7 @@ public class InserisciPanel extends JPanel {
 		
 		inserisci = new JButton("Inserisci");
 		inserisci.setName("Inserisci");
-		
+		inserisci.addActionListener(listener);
 		
 		
 		this.setLayout(new GridLayout(9,2));
@@ -137,6 +152,8 @@ public class InserisciPanel extends JPanel {
 		add(scaffalePanelScroll);
 		
 		add(inserisci);
+		
+		
 	}
 
 	public JTextField getTitoloTextField() {

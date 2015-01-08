@@ -26,4 +26,11 @@ public class CasaEditriceDAO {
 		}
 		return listaCaseEditrici;
 	}
+	
+	public int getIdFromName(String name)
+	{
+		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT Id_Casa_Editrice FROM case_editrici where Nome = '"+name+"';");
+		int id = Integer.parseInt(risultato.get(0)[0]);
+		return id;
+	}
 }

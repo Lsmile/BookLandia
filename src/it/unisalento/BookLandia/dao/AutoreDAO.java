@@ -27,4 +27,16 @@ public class AutoreDAO {
 		return listaAutori;
 		
 	}
+	
+	public int getIdFromName(String name)
+	{
+		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT Codice_Autore FROM autori where Nome = '"+name+"';");
+		int id = Integer.parseInt(risultato.get(0)[0]);
+		return id;
+	}
+	
+	public void inserisciAutore(String nome)
+	{
+		DbConnection.getInstance().eseguiAggiornamento("INSERT INTO `booklandia`.`autori` (`Nome`, `Codice_Autore`) VALUES ('"+nome+"', 0);");
+	}
 }

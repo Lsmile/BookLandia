@@ -27,4 +27,11 @@ public class GenereDAO {
 		return listaGeneri;
 		
 	}
+	
+	public int getIdFromName(String name)
+	{
+		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT Codice_Genere FROM generi where Nome = '"+name+"';");
+		int id = Integer.parseInt(risultato.get(0)[0]);
+		return id;
+	}
 }

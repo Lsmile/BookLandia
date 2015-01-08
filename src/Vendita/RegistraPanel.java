@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import it.unisalento.BookLandia.listener.VenditaListener;
 import it.unisalento.BookLandia.model.Libro;
 import it.unisalento.BookLandia.model.Utente;
+import it.unisalento.BookLandia.view.MainFrame;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,17 +19,17 @@ public class RegistraPanel extends JPanel {
 	
 private static RegistraPanel instance;
 	
-	public static RegistraPanel getInstance(Libro Lbr)
+	public static RegistraPanel getInstance(Libro Lbr, MainFrame finestra)
 	{
 		instance = null;
-			instance = new RegistraPanel(Lbr);
+			instance = new RegistraPanel(Lbr, finestra);
 		return instance;
 	}
 	
-	public RegistraPanel(Libro LibroVnd)
+	public RegistraPanel(Libro LibroVnd, MainFrame finestra)
 	{
 		this.LibroVendita = LibroVnd;
-		Listener = new VenditaListener(LibroVnd);
+		Listener = new VenditaListener(LibroVnd, finestra);
 		this.setLayout(new GridLayout(5,2));
 		this.add(new JLabel("Titolo : " + LibroVendita.getTitolo()));
 		this.add(new JLabel("Autore: " + LibroVendita.getAutore()));
@@ -43,9 +44,9 @@ private static RegistraPanel instance;
 		this.add(Registra);
 	}
 
-	public RegistraPanel(Libro LibroVendita, Utente buyUser) {
+	public RegistraPanel(Libro LibroVendita, Utente buyUser, MainFrame finestra) {
 		this.setLayout(new GridLayout(7,1));
-		Listener = new VenditaListener(LibroVendita, buyUser);
+		Listener = new VenditaListener(LibroVendita, buyUser, finestra);
 		this.add(new JLabel("Titolo : " + LibroVendita.getTitolo()));
 		this.add(new JLabel("Autore: " + LibroVendita.getAutore()));
 		this.add(new JLabel("Casa Editrice: " + LibroVendita.getCasa_Editrice()));
@@ -61,10 +62,10 @@ private static RegistraPanel instance;
 		
 	}
 
-	public static RegistraPanel getInstance(Libro libroVendita, Utente buyUser) {
+	public static RegistraPanel getInstance(Libro libroVendita, Utente buyUser, MainFrame finestra) {
 		{
 			instance = null;
-				instance = new RegistraPanel(libroVendita, buyUser);
+				instance = new RegistraPanel(libroVendita, buyUser, finestra);
 			return instance;
 	}
 }

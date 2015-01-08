@@ -27,15 +27,17 @@ public class VenditaListener implements ActionListener {
 	
 	
 
-	public VenditaListener(Libro LibroVendita) {
+	public VenditaListener(Libro LibroVendita, MainFrame finestra) {
 		this.LibroVendita = LibroVendita;
+		this.finestra = finestra;
 	}
 
 
 
-	public VenditaListener(Libro libroVendita, Utente buyUser) {
+	public VenditaListener(Libro libroVendita, Utente buyUser, MainFrame finestra) {
 		this.LibroVendita = libroVendita;
 		this.buyUser = buyUser;
+		this.finestra = finestra;
 	}
 
 
@@ -67,9 +69,10 @@ public class VenditaListener implements ActionListener {
 			}
 			if(buyUser != null)
 			{
-				System.out.println("Qui si");
 				VenditaDAO.getInstance().RegistraVendita(LibroVendita.getQuantità(), LibroVendita.getID(), buyUser.getID());
+				System.out.println("Qui arrivo");
 			}
+			finestra.changeView(4);
 		}
 		
 		}

@@ -97,7 +97,7 @@ public class MainFrame extends JFrame {
 	public void sellView(Libro Dati)
 	{
 			Contenitore.remove(panelInFront);
-			panelInFront = RegistraPanel.getInstance(Dati);
+			panelInFront = RegistraPanel.getInstance(Dati, this);
 			Contenitore.add(panelInFront, BorderLayout.CENTER);
 			revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
 			repaint();	//
@@ -142,7 +142,7 @@ public class MainFrame extends JFrame {
 
 	public void sellView(Libro libroVendita, Utente buyUser) {
 		Contenitore.remove(panelInFront);
-		panelInFront = RegistraPanel.getInstance(libroVendita, buyUser);
+		panelInFront = RegistraPanel.getInstance(libroVendita, buyUser, this);
 		Contenitore.add(panelInFront, BorderLayout.CENTER);
 		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
 		repaint();	//

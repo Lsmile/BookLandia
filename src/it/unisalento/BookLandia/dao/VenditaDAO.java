@@ -37,9 +37,6 @@ private static VenditaDAO instance;
 
 	public void RegistraVendita(int quantità, int id) {
 		GregorianCalendar gc = new GregorianCalendar();
-		System.out.println("Giorno: " + gc.get(Calendar.DAY_OF_MONTH) );
-		System.out.println("Mese: " + gc.get(Calendar.MONTH) );
-		System.out.println("Anno: " + gc.get(Calendar.YEAR) );
 		String query = "INSERT INTO vendite (`Vendite_Codice_Vendita`, `ID_Cliente`, `Data`, `Quantità`, `Libri_ID`) VALUES (0,"
 				+ " '4', '"
 				+ gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" + gc.get(Calendar.DAY_OF_MONTH)+"'," +
@@ -50,9 +47,6 @@ private static VenditaDAO instance;
 
 	public void RegistraVendita(int quantità, int id, int idCliente) {
 		GregorianCalendar gc = new GregorianCalendar();
-		System.out.println("Giorno: " + gc.get(Calendar.DAY_OF_MONTH) );
-		System.out.println("Mese: " + gc.get(Calendar.MONTH) );
-		System.out.println("Anno: " + gc.get(Calendar.YEAR) );
 		String query = "INSERT INTO vendite (`Vendite_Codice_Vendita`, `ID_Cliente`, `Data`, `Quantità`, `Libri_ID`) VALUES (0,"
 				+ " '" + idCliente + "', '"
 				+ gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" + gc.get(Calendar.DAY_OF_MONTH)+"'," +

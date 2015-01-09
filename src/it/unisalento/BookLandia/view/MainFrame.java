@@ -24,6 +24,7 @@ import javax.swing.JPanel;
 
 import Vendita.RegistraPanel;
 import Vendita.RegistraVenditaPanel;
+import Vendita.TabellaVendite;
 
 public class MainFrame extends JFrame {
 	Container Contenitore;
@@ -31,6 +32,7 @@ public class MainFrame extends JFrame {
 	OrdinePanel Ordine = new OrdinePanel();
 	PanelCerca Cerca = new PanelCerca(this);
 	InserisciPanel Inserisci = new InserisciPanel();
+	TabellaVendite VenditePanel = new TabellaVendite();
 	RegistraVenditaPanel Registra_Vendita = new RegistraVenditaPanel(this);
 	Menu leftMenu = new Menu(this);
 	MenuAddettoScaffali leftMenuScaffali = new MenuAddettoScaffali(this);
@@ -78,6 +80,9 @@ public class MainFrame extends JFrame {
 		break;
 		case 4: Contenitore.add(Registra_Vendita, BorderLayout.CENTER);
 		panelInFront = Registra_Vendita;
+		break;
+		case 5:Contenitore.add(VenditePanel, BorderLayout.CENTER);
+		panelInFront = VenditePanel;
 		break;
 	    }
 		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti

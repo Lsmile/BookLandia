@@ -1,4 +1,4 @@
-package Vendita;
+package it.unisalento.BookLandia.view.Vendita;
 
 import it.unisalento.BookLandia.dao.VenditaDAO;
 import it.unisalento.BookLandia.view.catalogo.ButtonPanel;

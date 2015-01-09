@@ -4,14 +4,13 @@ import it.unisalento.BookLandia.dao.VenditaDAO;
 import it.unisalento.BookLandia.model.Libro;
 import it.unisalento.BookLandia.model.Utente;
 import it.unisalento.BookLandia.view.MainFrame;
+import it.unisalento.BookLandia.view.Vendita.RegistraVenditaPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
 import javax.swing.JButton;
-
-import Vendita.RegistraVenditaPanel;
 
 public class VenditaListener implements ActionListener {
 	Libro LibroVendita;

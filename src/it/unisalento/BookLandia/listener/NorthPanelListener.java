@@ -33,6 +33,10 @@ public class NorthPanelListener implements ActionListener{
 			{
 				source.loginView();
 			}
+			if(button.getName() == "Registration")
+			{
+				root.changeView(6);
+			}
 			if(button.getName() == "Entra")
 			{
 				//prende dall'interfaccia l'username e la password e li passa allo user manager per effettuare il login

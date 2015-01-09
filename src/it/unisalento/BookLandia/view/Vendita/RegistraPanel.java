@@ -1,4 +1,4 @@
-package Vendita;
+package it.unisalento.BookLandia.view.Vendita;
 
 import java.awt.GridLayout;
 

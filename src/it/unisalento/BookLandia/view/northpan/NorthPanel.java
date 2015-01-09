@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 public class NorthPanel extends JPanel {
 	private JButton loginButton; //bottone per far comparire i campi di login
+	private JButton RegistrationButton;
 	private JTextField username;	//campo di testo username
 	private JPasswordField password; 	//campo di testo password
 	private JButton confirmButton; //bottone di conferma credenziali di login
@@ -82,11 +83,18 @@ public class NorthPanel extends JPanel {
 		logoutButton.addActionListener(listener);
 		
 		add(loginButton);
+		
+		RegistrationButton = new JButton(new ImageIcon("assets/registrati.png"));
+		RegistrationButton.setName("Registration");
+		RegistrationButton.addActionListener(listener);
+		
+		add(RegistrationButton);
 	}
 	
 	public void loginView()//change the view to login form
 	{
 		remove(loginButton);
+		remove(RegistrationButton);
 		add(username);
 		add(password);
 		add(confirmButton);

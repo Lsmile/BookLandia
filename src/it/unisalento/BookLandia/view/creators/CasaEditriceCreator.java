@@ -1,6 +1,8 @@
 package it.unisalento.BookLandia.view.creators;
 
 import it.unisalento.BookLandia.dao.AutoreDAO;
+import it.unisalento.BookLandia.dao.CasaEditriceDAO;
+import it.unisalento.BookLandia.dao.GenereDAO;
 import it.unisalento.BookLandia.listener.CreatorListener;
 import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
 
@@ -16,7 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.text.AbstractDocument.Content;
 
-public class AutoreCreator extends JFrame {
+public class CasaEditriceCreator extends JFrame {
 	Container container;
 	JTextField nome;
 	JList lista;
@@ -29,9 +31,9 @@ public class AutoreCreator extends JFrame {
 		return nome;
 	}
 
-	public AutoreCreator(InserisciPanel source)
+	public CasaEditriceCreator(InserisciPanel source)
 	{
-		super("Nuovo Autore");
+		super("Nuova Casa Editrice");
 		this.setBounds(0, 0, 500, 500);
 		
 		panel = new JPanel();
@@ -40,13 +42,13 @@ public class AutoreCreator extends JFrame {
 		
 		container.setLayout(new FlowLayout());
 		
-		listener = new CreatorListener(this,null,null,null,source);
+		listener = new CreatorListener(null,null,this,null,source);
 		
 		nome = new JTextField();
 		nome.setColumns(15);
-		lista = new JList(AutoreDAO.getInstance().getNomiAutori());
+		lista = new JList(CasaEditriceDAO.getInstance().getNomiCaseEditrici());
 		insert = new JButton("Inserisci");
-		insert.setName("CreaAutore");
+		insert.setName("CreaCasaEditrice");
 		insert.addActionListener(listener);
 		
 		panel.add(lista);
@@ -63,7 +65,7 @@ public class AutoreCreator extends JFrame {
 	
 	public void Update()
 	{
-		lista = new JList(AutoreDAO.getInstance().getNomiAutori());
+		lista = new JList(CasaEditriceDAO.getInstance().getNomiCaseEditrici());
 		panel.removeAll();
 		panel.add(lista);
 		container.revalidate();

@@ -33,4 +33,9 @@ public class ScaffaleDAO {
 		int id = Integer.parseInt(risultato.get(0)[0]);
 		return id;
 	}
+
+	public void inserisciScaffale(String nome,int numeroScaffale, int numeroLibreria) {
+		String query = "INSERT INTO `booklandia`.`scaffali` (`Settore`, `NumeroScaffale`, `ID_Scaffale`, `NumeroLibreria`) VALUES('"+nome+"','"+numeroScaffale+"','0','"+numeroLibreria+"');";
+		DbConnection.getInstance().eseguiAggiornamento(query);
+	}
 }

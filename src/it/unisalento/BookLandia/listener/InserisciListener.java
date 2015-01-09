@@ -7,6 +7,9 @@ import it.unisalento.BookLandia.dao.GenereDAO;
 import it.unisalento.BookLandia.dao.ScaffaleDAO;
 import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
 import it.unisalento.BookLandia.view.creators.AutoreCreator;
+import it.unisalento.BookLandia.view.creators.CasaEditriceCreator;
+import it.unisalento.BookLandia.view.creators.GenereCreator;
+import it.unisalento.BookLandia.view.creators.ScaffaliCreator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,6 +49,18 @@ public class InserisciListener implements ActionListener{
 			else if(button.getName() == "NuovoAutore")
 			{
 				AutoreCreator creator = new AutoreCreator(source);
+			}
+			else if(button.getName() == "NuovoGenere")
+			{
+				GenereCreator creator = new GenereCreator(source);
+			}
+			else if(button.getName() == "NuovaCasaEditrice")
+			{
+				CasaEditriceCreator creator = new CasaEditriceCreator(source);
+			}
+			else if(button.getName() == "NuovoScaffale")
+			{
+				ScaffaliCreator creator = new ScaffaliCreator(source);
 			}
 		}
 	}

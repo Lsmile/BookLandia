@@ -34,4 +34,9 @@ public class GenereDAO {
 		int id = Integer.parseInt(risultato.get(0)[0]);
 		return id;
 	}
+	
+	public void inserisciGenere(String nome)
+	{
+		DbConnection.getInstance().eseguiAggiornamento("INSERT INTO `booklandia`.`generi` (`Nome`, `Codice_Genere`) VALUES ('"+nome+"', 0);");
+	}
 }

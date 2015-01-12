@@ -3,6 +3,7 @@ package it.unisalento.BookLandia.view.RegistrazioneUtente;
 import java.awt.GridLayout;
 
 import it.unisalento.BookLandia.listener.RegistraUtenteListener;
+import it.unisalento.BookLandia.view.MainFrame;
 import it.unisalento.BookLandia.view.ricerca.CampiTesto;
 
 import javax.swing.JButton;
@@ -22,13 +23,13 @@ CampiTesto NomeTxt = new CampiTesto();
 CampiTesto CognomeTxt = new CampiTesto();
 CampiTesto Codice_FiscaleTxt = new CampiTesto();
 JButton Registra = new JButton("Registra");
-RegistraUtenteListener listener = new RegistraUtenteListener(this);
+RegistraUtenteListener listener;
 
-public RegistraClientePanel()
+public RegistraClientePanel(MainFrame root)
 {
 	super();
 	this.setLayout(new GridLayout(6,2));
-	listener = new RegistraUtenteListener(this);
+	listener = new RegistraUtenteListener(this, root);
 	this.add(UserNameLbl);
 	this.add(UserNameTxt);
 	this.add(PasswordLbl);

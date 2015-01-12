@@ -46,6 +46,10 @@ public class MenuListener implements ActionListener {
 			{
 				source.changeView(5);
 			}
+			if(bottone.getName() == "Modifica_Libro")
+			{
+				source.changeView(7);
+			}
 		}
 		
 	}

@@ -13,11 +13,12 @@ public class MenuAddettoScaffali extends JPanel {
 	BottoneMenu Cerca = new BottoneMenu ("Cerca");
 	BottoneMenu Ordini = new BottoneMenu ("Ordini");
 	BottoneMenu Inserisci_Libro = new BottoneMenu("Inserisci Libro");
+	BottoneMenu Modifica_Libro = new BottoneMenu("Modifica Libro");
 	MenuListener listener;
 	public MenuAddettoScaffali(MainFrame window)
 	{
 		super();
-		this.setLayout(new GridLayout(4,0));
+		this.setLayout(new GridLayout(5,0));
 		
 		//istanzio il listener
 		listener = new MenuListener(window);
@@ -27,15 +28,18 @@ public class MenuAddettoScaffali extends JPanel {
 		Cerca.setName("Cerca");
 		Ordini.setName("Ordini");
 		Inserisci_Libro.setName("Inserisci_Libro");
+		Modifica_Libro.setName("Modifica_Libro");
 		
 		//aggiungo i listener
 		Catalogo.addActionListener(listener);
 		Cerca.addActionListener(listener);
 		Ordini.addActionListener(listener);
 		Inserisci_Libro.addActionListener(listener);
+		Modifica_Libro.addActionListener(listener);
 		this.add(Catalogo);
 		this.add(Cerca);
 		this.add(Ordini);
 		this.add(Inserisci_Libro);
+		this.add(Modifica_Libro);
 	}
 }

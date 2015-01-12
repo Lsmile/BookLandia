@@ -10,6 +10,7 @@ import it.unisalento.BookLandia.view.Vendita.RegistraPanel;
 import it.unisalento.BookLandia.view.Vendita.RegistraVenditaPanel;
 import it.unisalento.BookLandia.view.Vendita.TabellaVendite;
 import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
+import it.unisalento.BookLandia.view.catalogo.ModificaLibroPanel;
 import it.unisalento.BookLandia.view.catalogo.PanelCatalogo;
 import it.unisalento.BookLandia.view.menu.Menu;
 import it.unisalento.BookLandia.view.menu.MenuAddettoScaffali;
@@ -31,10 +32,11 @@ public class MainFrame extends JFrame {
 	PanelCatalogo Catalogo = new PanelCatalogo();
 	OrdinePanel Ordine = new OrdinePanel();
 	PanelCerca Cerca = new PanelCerca(this);
-	RegistraClientePanel RegistraClientePnl = new RegistraClientePanel();
+	RegistraClientePanel RegistraClientePnl = new RegistraClientePanel(this);
 	InserisciPanel Inserisci = new InserisciPanel();
 	TabellaVendite VenditePanel = new TabellaVendite();
 	RegistraVenditaPanel Registra_Vendita = new RegistraVenditaPanel(this);
+	ModificaLibroPanel Modifica_Libro = new ModificaLibroPanel(this);
 	Menu leftMenu = new Menu(this);
 	MenuAddettoScaffali leftMenuScaffali = new MenuAddettoScaffali(this);
 	MenuAddettoVendite leftMenuVendite = new MenuAddettoVendite(this);
@@ -88,6 +90,8 @@ public class MainFrame extends JFrame {
 		case 6:Contenitore.add(RegistraClientePnl, BorderLayout.CENTER);
 		panelInFront = RegistraClientePnl;
 		break;
+		case 7:Contenitore.add(Modifica_Libro);
+		panelInFront = Modifica_Libro;
 		
 	    }
 		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti

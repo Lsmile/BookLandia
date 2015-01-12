@@ -23,6 +23,14 @@ public class ModificaLibroPanel extends JPanel {
 	
 	ModificaLibroListener listener;
 	
+	JLabel idLabel;
+	JFormattedTextField idTextField;
+	JButton idButton;
+	NumberFormat idFormat;
+	JLabel curBookLabel;
+	
+	
+	
 	JLabel titoloLabel;
 	JTextField titoloTextField;
 	
@@ -68,7 +76,15 @@ public class ModificaLibroPanel extends JPanel {
 	{
 		this.source = source;
 		
-		listener = new ModificaLibroListener(this);
+		listener = new ModificaLibroListener(this,source);
+		
+		idFormat = NumberFormat.getNumberInstance();
+		idTextField = new JFormattedTextField(idFormat);
+		idLabel = new JLabel("Id del libro");
+		idButton = new JButton("Cerca");
+		idButton.setName("Cerca_Libro");
+		curBookLabel = new JLabel("Libro in modifica: ");
+		
 		
 		formatoPrezzo = NumberFormat.getNumberInstance();
 		formatoPrezzo.setMinimumFractionDigits(2);
@@ -130,12 +146,16 @@ public class ModificaLibroPanel extends JPanel {
 		scaffalePanel.add(nuovoScaffaleButton);
 		scaffalePanelScroll = new JScrollPane(scaffalePanel);
 		
-		inserisci = new JButton("Inserisci");
-		inserisci.setName("Inserisci");
+		inserisci = new JButton("Modifica");
+		inserisci.setName("Modifica");
 		inserisci.addActionListener(listener);
 		
 		
-		this.setLayout(new GridLayout(9,2));
+		this.setLayout(new GridLayout(11,2));
+		add(idLabel);
+		add(idTextField);
+		add(idButton);
+		add(curBookLabel);
 		add(titoloLabel);
 		add(titoloTextField);
 		add(prezzoLabel);
@@ -154,5 +174,75 @@ public class ModificaLibroPanel extends JPanel {
 		add(scaffalePanelScroll);
 		
 		add(inserisci);
+	}
+	
+	public void SelezionaLibro(String titolo,float prezzo,String ISBN,int copieDisponibili,int idAutore,int idGenere,int idCasaEditrice,int idScaffale)
+	{
+		titoloTextField.setText(titolo);
+		prezzoTextField.setValue(prezzo);
+		ISBNTextField.setValue(ISBN);
+		CopieTextField.setText(""+copieDisponibili);
+	}
+	public void Update()//aggiorna le liste di autori, generi, ecc.
+	{
+		autoreList = new JList(AutoreDAO.getInstance().getNomiAutori());
+		autorePanel.removeAll();
+		autorePanel.add(autoreList);
+		autorePanel.add(nuovoAutoreButton);
+		autorePanel.revalidate();
+		autorePanel.repaint();
+		
+		genereList = new JList(GenereDAO.getInstance().getNomiGeneri());
+		generePanel.removeAll();
+		generePanel.add(genereList);
+		generePanel.add(nuovoGenereButton);
+		generePanel.revalidate();
+		generePanel.repaint();
+		
+		casaEditriceList = new JList(CasaEditriceDAO.getInstance().getNomiCaseEditrici());
+		casaEditricePanel.removeAll();
+		casaEditricePanel.add(casaEditriceList);
+		casaEditricePanel.add(nuovaCasaEditriceButton);
+		casaEditricePanel.revalidate();
+		casaEditricePanel.repaint();
+		
+		scaffaleList = new JList(ScaffaleDAO.getInstance().getSettoriScaffali());
+		scaffalePanel.removeAll();
+		scaffalePanel.add(scaffaleList);
+		scaffalePanel.add(nuovoScaffaleButton);
+		scaffalePanel.revalidate();
+		scaffalePanel.repaint();
+	}
+
+	public JTextField getTitoloTextField() {
+		return titoloTextField;
+	}
+
+	public JFormattedTextField getPrezzoTextField() {
+		return prezzoTextField;
+	}
+
+	public JFormattedTextField getISBNTextField() {
+		return ISBNTextField;
+	}
+
+	public JTextField getCopieTextField() {
+		return CopieTextField;
+	}
+
+	public JList getAutoreList() {
+		return autoreList;
+	}
+
+	public JList getGenereList() {
+		return genereList;
+	}
+
+	public JList getCasaEditriceList() {
+		return casaEditriceList;
+	}
+
+	public JList getScaffaleList() {
+		return scaffaleList;
 	}
 }

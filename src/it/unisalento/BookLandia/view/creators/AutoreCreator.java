@@ -2,6 +2,7 @@ package it.unisalento.BookLandia.view.creators;
 
 import it.unisalento.BookLandia.dao.AutoreDAO;
 import it.unisalento.BookLandia.listener.CreatorListener;
+import it.unisalento.BookLandia.view.MainFrame;
 import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
 
 import java.awt.Container;
@@ -25,14 +26,19 @@ public class AutoreCreator extends JFrame {
 	JPanel panel;
 	CreatorListener listener;
 	
+	MainFrame source;
+	
 	public JTextField getNome() {
 		return nome;
 	}
 
-	public AutoreCreator(InserisciPanel source)
+	public AutoreCreator(MainFrame source)
 	{
+		
 		super("Nuovo Autore");
 		this.setBounds(0, 0, 500, 500);
+		
+		this.source = source;
 		
 		panel = new JPanel();
 		
@@ -40,7 +46,7 @@ public class AutoreCreator extends JFrame {
 		
 		container.setLayout(new FlowLayout());
 		
-		listener = new CreatorListener(this,null,null,null,source);
+		listener = new CreatorListener(this,null,null,null);
 		
 		nome = new JTextField();
 		nome.setColumns(15);
@@ -68,6 +74,9 @@ public class AutoreCreator extends JFrame {
 		panel.add(lista);
 		container.revalidate();
 		container.repaint();
+		
+		source.getInserisci().Update();
+		source.getModifica_Libro().Update();
 		this.pack();
 	}
 }

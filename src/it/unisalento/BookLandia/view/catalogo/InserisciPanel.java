@@ -5,6 +5,7 @@ import it.unisalento.BookLandia.dao.CasaEditriceDAO;
 import it.unisalento.BookLandia.dao.GenereDAO;
 import it.unisalento.BookLandia.dao.ScaffaleDAO;
 import it.unisalento.BookLandia.listener.InserisciListener;
+import it.unisalento.BookLandia.view.MainFrame;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
@@ -63,10 +64,10 @@ public class InserisciPanel extends JPanel {
 	NumberFormat formatoPrezzo;
 	NumberFormat formatoISBN;
 	
-	public InserisciPanel()
+	public InserisciPanel(MainFrame source)
 	{
 
-		listener = new InserisciListener(this);
+		listener = new InserisciListener(this,source);
 		
 		formatoPrezzo = NumberFormat.getNumberInstance();
 		formatoPrezzo.setMinimumFractionDigits(2);
@@ -156,6 +157,37 @@ public class InserisciPanel extends JPanel {
 		
 	}
 
+	public void Update()
+	{
+		autoreList = new JList(AutoreDAO.getInstance().getNomiAutori());
+		autorePanel.removeAll();
+		autorePanel.add(autoreList);
+		autorePanel.add(nuovoAutoreButton);
+		autorePanel.revalidate();
+		autorePanel.repaint();
+		
+		genereList = new JList(GenereDAO.getInstance().getNomiGeneri());
+		generePanel.removeAll();
+		generePanel.add(genereList);
+		generePanel.add(nuovoGenereButton);
+		generePanel.revalidate();
+		generePanel.repaint();
+		
+		casaEditriceList = new JList(CasaEditriceDAO.getInstance().getNomiCaseEditrici());
+		casaEditricePanel.removeAll();
+		casaEditricePanel.add(casaEditriceList);
+		casaEditricePanel.add(nuovaCasaEditriceButton);
+		casaEditricePanel.revalidate();
+		casaEditricePanel.repaint();
+		
+		scaffaleList = new JList(ScaffaleDAO.getInstance().getSettoriScaffali());
+		scaffalePanel.removeAll();
+		scaffalePanel.add(scaffaleList);
+		scaffalePanel.add(nuovoScaffaleButton);
+		scaffalePanel.revalidate();
+		scaffalePanel.repaint();
+	}
+	
 	public JTextField getTitoloTextField() {
 		return titoloTextField;
 	}

@@ -4,7 +4,9 @@ import it.unisalento.BookLandia.business.GestoreLibri;
 import it.unisalento.BookLandia.dao.AutoreDAO;
 import it.unisalento.BookLandia.dao.CasaEditriceDAO;
 import it.unisalento.BookLandia.dao.GenereDAO;
+import it.unisalento.BookLandia.dao.LibroDAO;
 import it.unisalento.BookLandia.dao.ScaffaleDAO;
+import it.unisalento.BookLandia.view.MainFrame;
 import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
 import it.unisalento.BookLandia.view.catalogo.ModificaLibroPanel;
 import it.unisalento.BookLandia.view.creators.AutoreCreator;
@@ -21,10 +23,12 @@ import javax.swing.JOptionPane;
 public class ModificaLibroListener implements ActionListener{
 
 	ModificaLibroPanel source;
+	MainFrame root;
 	
-	public ModificaLibroListener(ModificaLibroPanel source)
+	public ModificaLibroListener(ModificaLibroPanel source, MainFrame root)
 	{
 		this.source = source;
+		this.root = root;
 	}
 	
 	@Override
@@ -33,7 +37,7 @@ public class ModificaLibroListener implements ActionListener{
 		if(event.getSource() instanceof JButton)
 		{
 			JButton button = (JButton)event.getSource();
-			/*if(button.getName() == "Inserisci")
+			if(button.getName() == "Modifica")
 			{
 				String titolo = source.getTitoloTextField().getText();
 				float prezzo = ((Number)source.getPrezzoTextField().getValue()).floatValue();
@@ -49,20 +53,26 @@ public class ModificaLibroListener implements ActionListener{
 			}
 			else if(button.getName() == "NuovoAutore")
 			{
-				AutoreCreator creator = new AutoreCreator(source);
+				AutoreCreator creator = new AutoreCreator(root);
 			}
 			else if(button.getName() == "NuovoGenere")
 			{
-				GenereCreator creator = new GenereCreator(source);
+				GenereCreator creator = new GenereCreator(root);
 			}
 			else if(button.getName() == "NuovaCasaEditrice")
 			{
-				CasaEditriceCreator creator = new CasaEditriceCreator(source);
+				CasaEditriceCreator creator = new CasaEditriceCreator(root);
 			}
 			else if(button.getName() == "NuovoScaffale")
 			{
-				ScaffaliCreator creator = new ScaffaliCreator(source);
-			}*/
+				ScaffaliCreator creator = new ScaffaliCreator(root);
+			}
+			else if(button.getName() == "Cerca")
+			{
+				//String libro[] = LibroDAO.getInstance().getLibro(id);
+				
+				//source.SelezionaLibro(titolo, prezzo, ISBN, copieDisponibili, idAutore, idGenere, idCasaEditrice, idScaffale);
+			}
 		}
 	}
 

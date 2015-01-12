@@ -5,6 +5,7 @@ import it.unisalento.BookLandia.dao.CasaEditriceDAO;
 import it.unisalento.BookLandia.dao.GenereDAO;
 import it.unisalento.BookLandia.dao.ScaffaleDAO;
 import it.unisalento.BookLandia.listener.CreatorListener;
+import it.unisalento.BookLandia.view.MainFrame;
 import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
 
 import java.awt.Container;
@@ -40,14 +41,19 @@ public class ScaffaliCreator extends JFrame {
 	SpinnerModel model2;     
 	JSpinner spinner2; //numero libreria
 	
+	
+	MainFrame source;
+	
 	public JTextField getNome() {
 		return nome;
 	}
 
-	public ScaffaliCreator(InserisciPanel source)
+	public ScaffaliCreator(MainFrame source)
 	{
 		super("Nuovi Scaffali");
 		this.setBounds(0, 0, 500, 500);
+		
+		this.source = source;
 		
 		numScaffale = new JLabel("Scaffale");
 		model1 = new SpinnerNumberModel(1, 1, 100, 1);     
@@ -63,7 +69,7 @@ public class ScaffaliCreator extends JFrame {
 		
 		container.setLayout(new FlowLayout());
 		
-		listener = new CreatorListener(null,null,null,this,source);
+		listener = new CreatorListener(null,null,null,this);
 		
 		nome = new JTextField();
 		nome.setColumns(15);
@@ -104,6 +110,10 @@ public class ScaffaliCreator extends JFrame {
 		panel.add(lista);
 		container.revalidate();
 		container.repaint();
+		
+		source.getInserisci().Update();
+		source.getModifica_Libro().Update();
+		
 		this.pack();
 	}
 }

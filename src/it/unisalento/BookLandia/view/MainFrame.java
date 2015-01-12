@@ -33,7 +33,15 @@ public class MainFrame extends JFrame {
 	OrdinePanel Ordine = new OrdinePanel();
 	PanelCerca Cerca = new PanelCerca(this);
 	RegistraClientePanel RegistraClientePnl = new RegistraClientePanel(this);
-	InserisciPanel Inserisci = new InserisciPanel();
+	public InserisciPanel getInserisci() {
+		return Inserisci;
+	}
+
+	public ModificaLibroPanel getModifica_Libro() {
+		return Modifica_Libro;
+	}
+
+	InserisciPanel Inserisci = new InserisciPanel(this);
 	TabellaVendite VenditePanel = new TabellaVendite();
 	RegistraVenditaPanel Registra_Vendita = new RegistraVenditaPanel(this);
 	ModificaLibroPanel Modifica_Libro = new ModificaLibroPanel(this);

@@ -23,15 +23,13 @@ public class CreatorListener implements ActionListener {
 	CasaEditriceCreator casCreator;
 	ScaffaliCreator scaCreator;
 	
-	InserisciPanel source;
 	
-	public CreatorListener(AutoreCreator autoreCreator, GenereCreator genereCreator, CasaEditriceCreator casaedCreator,ScaffaliCreator scaffaleCreator, InserisciPanel source)
+	public CreatorListener(AutoreCreator autoreCreator, GenereCreator genereCreator, CasaEditriceCreator casaedCreator,ScaffaliCreator scaffaleCreator)
 	{
 		autCreator = autoreCreator;
 		genCreator = genereCreator;
 		casCreator = casaedCreator;
 		scaCreator = scaffaleCreator;
-		this.source = source;
 	}
 	
 	@Override

@@ -38,7 +38,7 @@ private static VenditaDAO instance;
 	public void RegistraVendita(int quantità, int id) {
 		GregorianCalendar gc = new GregorianCalendar();
 		String query = "INSERT INTO vendite (`Vendite_Codice_Vendita`, `ID_Cliente`, `Data`, `Quantità`, `Libri_ID`) VALUES (0,"
-				+ " '4', '"
+				+ " NULL, '"
 				+ gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" + gc.get(Calendar.DAY_OF_MONTH)+"'," +
 				"'" + quantità +"'," +  "'" + id + "');";
 		DbConnection.getInstance().eseguiAggiornamento(query);

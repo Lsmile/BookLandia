@@ -21,7 +21,7 @@ public class RegistraUtenteListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		RegistraClientiDAO.RegistraCliente(source.getUsername(), source.getPassword(), source.getNome(), source.getCognome(), source.getCodiceFiscale());
-		root.changeView(6);
+		root.changeView(0);
 	}
 
 }

@@ -16,8 +16,8 @@ public class OrdiniDAO {
 	{
 		String query = "SELECT ID_Ordinazione, libri.Titolo, autori.Nome, libri.Prezzo, "
 						+ "utente.Nome, utente.Cognome, Data_Inserimento, Data_Completato, Data_Consegna, Stato "
-						+ " FROM ordinazioni INNER JOIN libri ON Libri_ID = ID INNER JOIN autori ON Autori_Codice_Autore = Codice_Autore"
-						+ "INNER JOIN utente ON ID_Utente = Cliente_ID_Utente";
+						+ " FROM ordinazioni INNER JOIN libri ON Libri_ID = ID INNER JOIN autori ON Autori_Codice_Autore = Codice_Autore "
+						+ "INNER JOIN utente ON ID_Utente = Cliente_Utente_ID_Utente";
 		return DbConnection.getInstance().eseguiQuery(query);
 		
 	}

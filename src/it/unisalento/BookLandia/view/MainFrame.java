@@ -18,6 +18,7 @@ import it.unisalento.BookLandia.view.menu.MenuAddettoVendite;
 import it.unisalento.BookLandia.view.menu.MenuCliente;
 import it.unisalento.BookLandia.view.northpan.NorthPanel;
 import it.unisalento.BookLandia.view.ordini.OrdinePanel;
+import it.unisalento.BookLandia.view.ordini.VistaOrdini;
 import it.unisalento.BookLandia.view.ricerca.PanelCerca;
 import it.unisalento.BookLandia.view.ricerca.PanelRisultati;
 
@@ -30,7 +31,7 @@ import javax.swing.JPanel;
 public class MainFrame extends JFrame {
 	Container Contenitore;
 	PanelCatalogo Catalogo = new PanelCatalogo();
-	OrdinePanel Ordine = new OrdinePanel();
+	VistaOrdini Ordine = new VistaOrdini();
 	PanelCerca Cerca = new PanelCerca(this);
 	RegistraClientePanel RegistraClientePnl = new RegistraClientePanel(this);
 	public InserisciPanel getInserisci() {

@@ -20,8 +20,6 @@ public class RisultatiModel extends AbstractTableModel {
 	public RisultatiModel(GestoreDati Dati)
 	{
 		this.Dati = Dati;
-		v = null;
-		v =  Ricerca.getInstance(Dati).getRicerca();
 	}
 	
 	/** ritorna il nome della colonna */ 
@@ -51,15 +49,15 @@ public class RisultatiModel extends AbstractTableModel {
 	public Object getValueAt(int riga, int colonna) {
 		// TODO Auto-generated method stub
 		// seleziona il libro
-		Libro b = (Libro) v.elementAt(riga); 
+		Vector<Libro> b   = (Vector<Libro>) RicercaDAO.getInstance().getLibri(Dati);
 		 // la stringa corrispondente alla colonna 
 		 switch (colonna){    
-		 case 0: return b.getTitolo();  
-		 case 1: return b.getAutore();
-		 case 2: return b.getGenere();
-		 case 3: return b.getPrezzo();
-		 case 4: return b.getCasa_Editrice();
-		 case 5: return b.getCopieDisponibili();
+		 case 0: return b.get(riga).getTitolo();
+		 case 1: return b.get(riga).getAutore();
+		 case 2: return b.get(riga).getGenere();
+		 case 3: return b.get(riga).getPrezzo();
+		 case 4: return b.get(riga).getCasa_Editrice();
+		 case 5: return b.get(riga).getCopieDisponibili();
 		 default: return ""; 
 	}
 	}

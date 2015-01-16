@@ -49,14 +49,14 @@ public class RicercaDAO {
 			if(Dati.getTitolo().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[0] = " where Titolo LIKE'%" + Dati.getTitolo()+"%'" + " ";
+				Estensioni[0] = " Titolo LIKE'%" + Dati.getTitolo()+"%'" + " ";
 				Selettore[i] = 0;	
 			}
 			//string per l'autore
 			if(Dati.getAutore().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[1] = " where Autori.Nome LIKE'%" + Dati.getAutore()+"%' ";
+				Estensioni[1] = "  Autori.Nome LIKE'%" + Dati.getAutore()+"%' ";
 				Selettore[i] = 1;
 
 			}
@@ -64,7 +64,7 @@ public class RicercaDAO {
 			if(Dati.getGenere().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[2] = " where Generi.Nome LIKE'%" + Dati.getGenere()+"%'" + " ";
+				Estensioni[2] = "  Generi.Nome LIKE'%" + Dati.getGenere()+"%'" + " ";
 				Selettore[i] = 2;
 
 			}
@@ -72,7 +72,7 @@ public class RicercaDAO {
 			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[3] = " where Case_Editrici.Nome LIKE'%" + Dati.getTitolo()+"%'" + " ";
+				Estensioni[3] = "  Case_Editrici.Nome LIKE'%" + Dati.getTitolo()+"%'" + " ";
 				Selettore[i] = 3;
 
 			}
@@ -80,13 +80,13 @@ public class RicercaDAO {
 			{
 			case 0: query = Base;
 			break;
-			case 1: query = Base + " " + Estensioni[Selettore[i]];
+			case 1: query = Base + " where " + Estensioni[Selettore[i]];
 			break;
-			case 2: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]];
+			case 2: query = Base + " where " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]];
 			break;
-			case 3: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
+			case 3: query = Base + " where " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
 			break;
-			case 4: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
+			case 4: query = Base + " where " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
 			break;
 			}
 			return Integer.parseInt((DbConnection.getInstance().eseguiQuery(query).get(0)[0]));
@@ -104,14 +104,14 @@ public class RicercaDAO {
 			if(Dati.getTitolo().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[0] = " where Titolo LIKE'%" + Dati.getTitolo()+"%'" + " ";
+				Estensioni[0] = "  Titolo LIKE'%" + Dati.getTitolo()+"%'" + " ";
 				Selettore[i] = 0;	
 			}
 			//string per l'autore
 			if(Dati.getAutore().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[1] = "where Autori.Nome LIKE'%" + Dati.getAutore()+"%' ";
+				Estensioni[1] = " Autori.Nome LIKE'%" + Dati.getAutore()+"%' ";
 				Selettore[i] = 1;
 
 			}
@@ -119,7 +119,7 @@ public class RicercaDAO {
 			if(Dati.getGenere().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[2] = " where Generi.Nome LIKE'%" + Dati.getGenere()+"%'" + " ";
+				Estensioni[2] = "  Generi.Nome LIKE'%" + Dati.getGenere()+"%'" + " ";
 				Selettore[i] = 2;
 
 			}
@@ -127,7 +127,7 @@ public class RicercaDAO {
 			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[3] = " where Case_Editrici.Nome LIKE'%" + Dati.getCasaEditrice()+ "%'" + " ";
+				Estensioni[3] = "  Case_Editrici.Nome LIKE'%" + Dati.getCasaEditrice()+ "%'" + " ";
 				Selettore[i] = 3;
 
 			}
@@ -135,13 +135,13 @@ public class RicercaDAO {
 			{
 			case 0: query = Base;
 			break;
-			case 1: query = Base + " " + Estensioni[Selettore[i]];
+			case 1: query = Base + " where " + Estensioni[Selettore[i]];
 			break;
-			case 2: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]];
+			case 2: query = Base + " where " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]];
 			break;
-			case 3: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
+			case 3: query = Base + " where " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
 			break;
-			case 4: query = Base + " " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
+			case 4: query = Base + " where " + Estensioni[Selettore[i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]] + " and " + Estensioni[Selettore[--i]];
 			break;
 			}
 			

@@ -2,6 +2,10 @@ package it.unisalento.BookLandia.business;
 
 public class GestoreDati {
 	String Titolo;
+	String Genere;
+	String Autore;
+	String CasaEditrice;
+
 	public String getTitolo() {
 		return Titolo;
 	}
@@ -17,10 +21,7 @@ public class GestoreDati {
 	public String getCasaEditrice() {
 		return CasaEditrice;
 	}
-
-	String Genere;
-	String Autore;
-	String CasaEditrice;
+	
 	
 	//costruttore per la ricerca
 	public GestoreDati(String Titolo, String Genere, String Autore, String CasaEditrice)

@@ -25,7 +25,6 @@ public class PanelRisultati extends JPanel {
 	
 	
 	public PanelRisultati(GestoreDati Dati) { 
-
 		//è importante che riceva l'istanza del pannello cerca per poterne prelevare le informazioni
 		  // crea il modello di dati 
 		 RisultatiModel dataModel = null;

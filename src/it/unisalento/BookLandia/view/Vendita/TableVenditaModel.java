@@ -27,7 +27,7 @@ public class TableVenditaModel extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
-		return VenditaDAO.getInstance().getNumeroVendite() - 1;
+		return VenditaDAO.getInstance().getNumeroVendite();
 	}
 	
 	/** ritorna il tipo dei valori
@@ -40,6 +40,10 @@ public class TableVenditaModel extends AbstractTableModel {
 	public String getValueAt(int riga, int colonna) {
 		// TODO Auto-generated method stub
 		// seleziona il libro
+		if(colonna == 2)
+			return v.get(riga)[2] + " " +  v.get(riga)[3];
+		if(colonna > 2)
+			return v.get(riga)[colonna + 1];
 		return v.get(riga)[colonna];
 		 // la stringa corrispondente alla colonna 
 	}

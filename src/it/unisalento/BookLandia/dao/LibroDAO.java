@@ -16,6 +16,13 @@ public class LibroDAO {
 		return instance;
 	}
 	
+	public int getNumLibri()
+	{
+		String query = "SELECT * from libri";
+		Vector<String[]> risultati = DbConnection.getInstance().eseguiQuery(query);
+		return risultati.size();
+	}
+	
 	public String[] getLibro(int id)
 	{
 		String query = "SELECT * from libri where ID = "+id+";";

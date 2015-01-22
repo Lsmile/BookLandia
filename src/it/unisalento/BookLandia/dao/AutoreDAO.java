@@ -28,6 +28,19 @@ public class AutoreDAO {
 		
 	}
 	
+	public int getPositionFromId(int id)
+	{
+		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT Codice_Autore FROM autori");
+		for(int z = 0; z < risultato.size(); z++)
+		{
+			String p = String.valueOf(id);
+			String k = risultato.get(z)[0];
+			if(k.equalsIgnoreCase(p))
+				return z;
+		}
+		return 0;
+	}
+	
 	public int getIdFromName(String name)
 	{
 		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT Codice_Autore FROM autori where Nome = '"+name+"';");

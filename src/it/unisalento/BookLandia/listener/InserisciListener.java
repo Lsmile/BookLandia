@@ -39,7 +39,7 @@ public class InserisciListener implements ActionListener{
 			{
 				String titolo = source.getTitoloTextField().getText();
 				float prezzo = ((Number)source.getPrezzoTextField().getValue()).floatValue();
-				String ISBN = String.valueOf(((Number)source.getISBNTextField().getValue()).intValue()); //questi due sembrano un po' strani, ma sono necessari altrimenti il testo che viene preso contiene punti e virgole
+				String ISBN = String.valueOf(((Number)source.getISBNTextField().getValue()).longValue()); //questi due sembrano un po' strani, ma sono necessari altrimenti il testo che viene preso contiene punti e virgole
 				int copieDisponibili = Integer.parseInt(source.getCopieTextField().getText());
 				int idAutore = AutoreDAO.getInstance().getIdFromName((String)source.getAutoreList().getSelectedValue());
 				int idGenere =  GenereDAO.getInstance().getIdFromName((String)source.getGenereList().getSelectedValue());

@@ -34,6 +34,20 @@ public class CasaEditriceDAO {
 		return id;
 	}
 
+	public int getPositionFromId(int id)
+	{
+		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT ID_Casa_Editrice FROM case_editrici");
+		for(int z = 0; z < risultato.size(); z++)
+		{
+			String p = String.valueOf(id);
+			String k = risultato.get(z)[0];
+			if(k.equalsIgnoreCase(p))
+				return z;
+		}
+		return 0;
+	}
+	
+	
 	public void inserisciGenere(String nome) {
 		DbConnection.getInstance().eseguiAggiornamento("INSERT INTO `booklandia`.`case_editrici` (`Nome`, `ID_Casa_Editrice`) VALUES ('"+nome+"', 0);");
 		

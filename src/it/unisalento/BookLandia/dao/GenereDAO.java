@@ -16,6 +16,20 @@ public class GenereDAO {
 		return instance;
 	}
 	
+	public int getPositionFromId(int id)
+	{
+		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT Codice_Genere FROM generi");
+		for(int z = 0; z < risultato.size(); z++)
+		{
+			String p = String.valueOf(id);
+			String k = risultato.get(z)[0];
+			if(k.equalsIgnoreCase(p))
+				return z;
+		}
+		return 0;
+	}
+	
+	
 	public Vector<String> getNomiGeneri()
 	{
 		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT Nome FROM generi");

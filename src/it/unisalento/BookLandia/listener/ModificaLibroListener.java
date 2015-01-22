@@ -69,9 +69,17 @@ public class ModificaLibroListener implements ActionListener{
 			}
 			else if(button.getName() == "Cerca")
 			{
-				//String libro[] = LibroDAO.getInstance().getLibro(id);
+				if(((Number)source.getIdTextField().getValue()).intValue() > LibroDAO.getInstance().getNumLibri())
+					JOptionPane.showMessageDialog(null, "Libro non presente");
+				else
+				{
+					String libro[] = LibroDAO.getInstance().getLibro(((Number)source.getIdTextField().getValue()).intValue());
 				
-				//source.SelezionaLibro(titolo, prezzo, ISBN, copieDisponibili, idAutore, idGenere, idCasaEditrice, idScaffale);
+					JOptionPane.showMessageDialog(null, "Selezionato "+libro[0]);
+					
+					source.SelezionaLibro(libro[0],Float.parseFloat(libro[1]), libro[3], Integer.parseInt(libro[4]), Integer.parseInt(libro[5]), Integer.parseInt(libro[6]), Integer.parseInt(libro[7]), Integer.parseInt(libro[8]));//2 manca perché è l'ID
+				}
+				
 			}
 		}
 	}

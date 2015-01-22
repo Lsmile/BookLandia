@@ -82,7 +82,8 @@ public class ModificaLibroPanel extends JPanel {
 		idTextField = new JFormattedTextField(idFormat);
 		idLabel = new JLabel("Id del libro");
 		idButton = new JButton("Cerca");
-		idButton.setName("Cerca_Libro");
+		idButton.setName("Cerca");
+		idButton.addActionListener(listener);
 		curBookLabel = new JLabel("Libro in modifica: ");
 		
 		
@@ -136,7 +137,7 @@ public class ModificaLibroPanel extends JPanel {
 		casaEditricePanel.add(nuovaCasaEditriceButton);
 		casaEditricePanelScroll = new JScrollPane(casaEditricePanel);
 		
-		scaffaleLabel = new JLabel("Casa Editrice");
+		scaffaleLabel = new JLabel("Scaffale");
 		scaffaleList = new JList<String>(ScaffaleDAO.getInstance().getSettoriScaffali());
 		nuovoScaffaleButton = new JButton("Inserisci Nuovo");
 		nuovoScaffaleButton.setName("NuovoScaffale");
@@ -176,12 +177,21 @@ public class ModificaLibroPanel extends JPanel {
 		add(inserisci);
 	}
 	
-	public void SelezionaLibro(String titolo,float prezzo,String ISBN,int copieDisponibili,int idAutore,int idGenere,int idCasaEditrice,int idScaffale)
+	public JFormattedTextField getIdTextField() {
+		return idTextField;
+	}
+
+	public void SelezionaLibro(String titolo,float prezzo,String ISBN,int idCasaEditrice,int idGenere,int idAutore,int copieDisponibili,int idScaffale)
 	{
 		titoloTextField.setText(titolo);
 		prezzoTextField.setValue(prezzo);
-		ISBNTextField.setValue(ISBN);
+		ISBNTextField.setValue(Long.parseLong(ISBN));
 		CopieTextField.setText(""+copieDisponibili);
+		
+		autoreList.setSelectedIndex(AutoreDAO.getInstance().getPositionFromId(idAutore));
+		genereList.setSelectedIndex(GenereDAO.getInstance().getPositionFromId(idGenere));
+		casaEditriceList.setSelectedIndex(CasaEditriceDAO.getInstance().getPositionFromId(idCasaEditrice));
+		scaffaleList.setSelectedIndex(ScaffaleDAO.getInstance().getPositionFromId(idScaffale));
 	}
 	public void Update()//aggiorna le liste di autori, generi, ecc.
 	{

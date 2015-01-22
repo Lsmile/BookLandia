@@ -119,7 +119,7 @@ public class InserisciPanel extends JPanel {
 		casaEditricePanel.add(nuovaCasaEditriceButton);
 		casaEditricePanelScroll = new JScrollPane(casaEditricePanel);
 		
-		scaffaleLabel = new JLabel("Casa Editrice");
+		scaffaleLabel = new JLabel("Scaffale");
 		scaffaleList = new JList<String>(ScaffaleDAO.getInstance().getSettoriScaffali());
 		nuovoScaffaleButton = new JButton("Inserisci Nuovo");
 		nuovoScaffaleButton.setName("NuovoScaffale");

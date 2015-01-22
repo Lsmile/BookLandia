@@ -38,4 +38,18 @@ public class ScaffaleDAO {
 		String query = "INSERT INTO `booklandia`.`scaffali` (`Settore`, `NumeroScaffale`, `ID_Scaffale`, `NumeroLibreria`) VALUES('"+nome+"','"+numeroScaffale+"','0','"+numeroLibreria+"');";
 		DbConnection.getInstance().eseguiAggiornamento(query);
 	}
+	
+	public int getPositionFromId(int id)
+	{
+		Vector<String[]> risultato = DbConnection.getInstance().eseguiQuery("SELECT ID_Scaffale FROM scaffali");
+		for(int z = 0; z < risultato.size(); z++)
+		{
+			String p = String.valueOf(id);
+			String k = risultato.get(z)[0];
+			if(k.equalsIgnoreCase(p))
+				return z;
+		}
+		return 0;
+	}
+	
 }

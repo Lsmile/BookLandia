@@ -20,4 +20,9 @@ public class GestoreLibri {
 	{
 		LibroDAO.getInstance().InserisciLibro(titolo, prezzo, ISBN, Copie, idAutore, idGenere, idCasaEditrice, idScaffale);
 	}
+	
+	public void ModificaLibro(int id, String titolo, float prezzo, String ISBN, int Copie, int idAutore, int idGenere, int idCasaEditrice, int idScaffale)
+	{
+		LibroDAO.getInstance().modificaLibro(id, titolo, prezzo, ISBN, Copie, idAutore, idGenere, idCasaEditrice, idScaffale);
+	}
 }

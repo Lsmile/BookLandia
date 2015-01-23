@@ -19,6 +19,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class ModificaLibroPanel extends JPanel {
+	int idSelected = 0;
+	
 	MainFrame source;
 	
 	ModificaLibroListener listener;
@@ -183,6 +185,8 @@ public class ModificaLibroPanel extends JPanel {
 
 	public void SelezionaLibro(String titolo,float prezzo,String ISBN,int idCasaEditrice,int idGenere,int idAutore,int copieDisponibili,int idScaffale)
 	{
+		idSelected = Integer.parseInt(idTextField.getText());
+		
 		titoloTextField.setText(titolo);
 		prezzoTextField.setValue(prezzo);
 		ISBNTextField.setValue(Long.parseLong(ISBN));
@@ -193,6 +197,10 @@ public class ModificaLibroPanel extends JPanel {
 		casaEditriceList.setSelectedIndex(CasaEditriceDAO.getInstance().getPositionFromId(idCasaEditrice));
 		scaffaleList.setSelectedIndex(ScaffaleDAO.getInstance().getPositionFromId(idScaffale));
 	}
+	public int getIdSelected() {
+		return idSelected;
+	}
+
 	public void Update()//aggiorna le liste di autori, generi, ecc.
 	{
 		autoreList = new JList(AutoreDAO.getInstance().getNomiAutori());

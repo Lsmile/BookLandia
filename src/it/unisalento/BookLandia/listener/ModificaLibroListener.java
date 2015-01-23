@@ -39,17 +39,19 @@ public class ModificaLibroListener implements ActionListener{
 			JButton button = (JButton)event.getSource();
 			if(button.getName() == "Modifica")
 			{
+				int id = source.getIdSelected();
+				
 				String titolo = source.getTitoloTextField().getText();
 				float prezzo = ((Number)source.getPrezzoTextField().getValue()).floatValue();
-				String ISBN = String.valueOf(((Number)source.getISBNTextField().getValue()).intValue()); //questi due sembrano un po' strani, ma sono necessari altrimenti il testo che viene preso contiene punti e virgole
+				String ISBN = String.valueOf(((Number)source.getISBNTextField().getValue()).longValue()); //questi due sembrano un po' strani, ma sono necessari altrimenti il testo che viene preso contiene punti e virgole
 				int copieDisponibili = Integer.parseInt(source.getCopieTextField().getText());
 				int idAutore = AutoreDAO.getInstance().getIdFromName((String)source.getAutoreList().getSelectedValue());
 				int idGenere =  GenereDAO.getInstance().getIdFromName((String)source.getGenereList().getSelectedValue());
 				int idCasaEditrice = CasaEditriceDAO.getInstance().getIdFromName((String)source.getCasaEditriceList().getSelectedValue());
 				int idScaffale = ScaffaleDAO.getInstance().getIdFromName((String)source.getScaffaleList().getSelectedValue());
-				GestoreLibri.getInstance().InserisciLibro(titolo, prezzo, ISBN, copieDisponibili, idAutore, idGenere, idCasaEditrice, idScaffale);
-			
-				JOptionPane.showMessageDialog(null, "Libro "+titolo+" inserito con successo" );
+				GestoreLibri.getInstance().ModificaLibro(id, titolo, prezzo, ISBN, copieDisponibili, idAutore, idGenere, idCasaEditrice, idScaffale);
+				
+				JOptionPane.showMessageDialog(null, "Libro "+titolo+" modificato con successo" );
 			}
 			else if(button.getName() == "NuovoAutore")
 			{

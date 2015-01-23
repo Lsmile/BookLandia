@@ -34,4 +34,10 @@ public class LibroDAO {
 	{
 		DbConnection.getInstance().eseguiAggiornamento("INSERT INTO `booklandia`.`libri` (`Titolo`, `Prezzo`, `ID`, `ISBN`, `Case_Editrici_ID_Casa_Editrice`, `Generi_Codice_Genere`, `Autori_Codice_Autore`, `CopieDisponibili`, `Scaffali_ID_Scaffale`) VALUES ('"+titolo+"', '"+prezzo+"', '0' , '"+ISBN+"', '"+idCasaEditrice+"', '"+idGenere+"', '"+idAutore+"', '"+Copie+"', '"+idScaffale+"');");
 	}
+	
+	public void modificaLibro(int id, String titolo, float prezzo, String ISBN, int Copie, int idAutore, int idGenere, int idCasaEditrice, int idScaffale)
+	{
+		String query = "update libri set titolo = '"+titolo+"', prezzo ="+prezzo+" , ISBN = '"+ISBN+"', Case_Editrici_ID_Casa_Editrice = "+idCasaEditrice+", Generi_Codice_Genere = "+idGenere+", Autori_Codice_Autore = "+idAutore+",CopieDisponibili = "+Copie+",Scaffali_ID_Scaffale = "+idScaffale+" where id = "+id;
+		DbConnection.getInstance().eseguiAggiornamento(query);
+	}
 }

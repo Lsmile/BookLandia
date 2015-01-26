@@ -38,8 +38,8 @@ public class InserisciListener implements ActionListener{
 			if(button.getName() == "Inserisci")
 			{
 				String titolo = source.getTitoloTextField().getText();
-				float prezzo = ((Number)source.getPrezzoTextField().getValue()).floatValue();
-				String ISBN = String.valueOf(((Number)source.getISBNTextField().getValue()).longValue()); //questi due sembrano un po' strani, ma sono necessari altrimenti il testo che viene preso contiene punti e virgole
+				float prezzo = Float.parseFloat(source.getPrezzoTextField().getText().replace(",", "."));
+				String ISBN = ((String) source.getISBNTextField().getText()).replace(".", "");
 				int copieDisponibili = Integer.parseInt(source.getCopieTextField().getText());
 				int idAutore = AutoreDAO.getInstance().getIdFromName((String)source.getAutoreList().getSelectedValue());
 				int idGenere =  GenereDAO.getInstance().getIdFromName((String)source.getGenereList().getSelectedValue());

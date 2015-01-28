@@ -1,7 +1,11 @@
 package it.unisalento.BookLandia.dao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 
+import it.unisalento.BookLandia.business.UserManager;
 import it.unisalento.BookLandia.dbinterface.DbConnection;
 
 public class OrdiniDAO {
@@ -20,6 +24,17 @@ public class OrdiniDAO {
 						+ "INNER JOIN utente ON ID_Utente = Cliente_Utente_ID_Utente";
 		return DbConnection.getInstance().eseguiQuery(query);
 		
+	}
+	
+	public static boolean insertOrdinazione(int idLibro)
+	{
+		int idCliente = UserManager.getInstance().getCurUser().getID();
+		DateFormat sqlFormatDate = new SimpleDateFormat("yyyy-mm-gg");
+		Date date = new Date();
+		String curDate = sqlFormatDate.format(date);
+		String query = "INSERT INTO `booklandia`.`ordinazioni` (`ID_Ordinazione`, `Stato`, `Data_Inserimento`, `Cliente_Utente_ID_Utente`, `Data_Completato`,"
+				+"`Data_Consegna`, `Libri_ID`) VALUES (0, '0', "+curDate+", "+idCliente+", NULL, NULL, "+idLibro+");";
+		return DbConnection.getInstance().eseguiAggiornamento(query);
 	}
 	
 }

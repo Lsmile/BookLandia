@@ -7,10 +7,13 @@ import it.unisalento.BookLandia.view.RegistrazioneUtente.RegistraClientePanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 public class RegistraUtenteListener implements ActionListener {
 	
 	RegistraClientePanel source;
 	MainFrame root;
+	Boolean UserFlag = true, PassFlag = true, CodiceFiscaleFlag = true;
 	
 	public RegistraUtenteListener(RegistraClientePanel source, MainFrame root)
 	{
@@ -20,8 +23,57 @@ public class RegistraUtenteListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		
+		if(RegistraClientiDAO.checkUsername(source.getUsername()))
+		{
+			UserFlag = false;
+			JOptionPane.showMessageDialog(null, "Username già esistente");
+		}
+		else
+			UserFlag = true;
+		
+		if (source.getPassword().length() <= 8)
+		{
+			PassFlag = false;
+			JOptionPane.showMessageDialog(null, "Inserisci una password di almeno 8 caratteri");
+		}
+		else
+			PassFlag = true;
+		
+		if (source.getCodiceFiscale().length() != 16)
+		{
+			CodiceFiscaleFlag = false;
+			JOptionPane.showMessageDialog(null, "Il codice fiscale non ha 16 caratteri!!");
+		}
+		else
+			CodiceFiscaleFlag = true;
+		
+		if (RegistraClientiDAO.CheckCodiceFiscale(source.getCodiceFiscale()))
+		{
+			CodiceFiscaleFlag = false;
+			JOptionPane.showMessageDialog(null, "Il codice fiscale esiste già in Database");
+		}
+		else
+			CodiceFiscaleFlag = true;
+		
+//		if (source.getName().length() == 0)
+//		{
+//			RegistraFlag = false;
+//			JOptionPane.showMessageDialog(null, "Non hai inserito il tuo nome!!");
+//		}
+//		
+//		if (source.getCognome().length() == 0)
+//		{
+//			RegistraFlag = false;
+//			JOptionPane.showMessageDialog(null, "Non hai inserito il tuo cognome!!");
+//		}
+		
+		if (UserFlag == true && PassFlag == true && CodiceFiscaleFlag == true)
+		{
 		RegistraClientiDAO.RegistraCliente(source.getUsername(), source.getPassword(), source.getNome(), source.getCognome(), source.getCodiceFiscale());
+		JOptionPane.showMessageDialog(null, "Registrazione effettuata con successo");
 		root.changeView(0);
+		}
 	}
 
 }

@@ -26,6 +26,13 @@ public class PanelCatalogo extends JPanel {
 		  // aggiunge lo ScrollPane alpannello 
 		 add(scrollpane);   
 		 
+		 
+		 //ora il catalogo contiene l'ID del libro, usando la funzione getValueAt sotto ripostata puoi ottenere tutti gli ID
+		 //indovina un pò: in conteggio di righe e colonne parte da zero! mai visto prima vero?
+		 int riga = 1;
+		 int colonna = 0;
+		 System.out.println(t.getValueAt(riga, colonna));
+		 
 		 this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 		 ButtonPanel b = new ButtonPanel();
 		 b.addButton(t.getRowCount());

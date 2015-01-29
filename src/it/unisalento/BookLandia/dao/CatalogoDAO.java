@@ -22,7 +22,7 @@ public class CatalogoDAO {
 	//ritorna una matrice con i dati da rappresentare
 	public CatalogoDAO()
 	{
-		query = "SELECT Titolo, Prezzo, ISBN, CopieDisponibili,"
+		query = "SELECT ID, Titolo, Prezzo, ISBN, CopieDisponibili,"
 				+ " Autori.Nome as Nome_Autore,"
 				+ " Case_Editrici.Nome as Casa_Editrice, Generi.Nome from Libri"
 				+ " INNER JOIN Generi ON Generi_Codice_Genere = Codice_Genere"
@@ -38,7 +38,7 @@ public class CatalogoDAO {
 		for(int z = 0; z < RisultatoQuery.size(); z++)
 		{
 			// to do: convertire stringhe in numeri e aggiungere lo scaffale alla query
-			Libri.add(new Libro(RisultatoQuery.get(z)[0], Double.parseDouble(RisultatoQuery.get(z)[1]),RisultatoQuery.get(z)[2],Integer.parseInt(RisultatoQuery.get(z)[3]),RisultatoQuery.get(z)[4], RisultatoQuery.get(z)[5], RisultatoQuery.get(z)[6],"tmpScaffale",0,0));
+			Libri.add(new Libro(Integer.parseInt(RisultatoQuery.get(z)[0]), RisultatoQuery.get(z)[1], Double.parseDouble(RisultatoQuery.get(z)[2]),RisultatoQuery.get(z)[3],Integer.parseInt(RisultatoQuery.get(z)[4]),RisultatoQuery.get(z)[5], RisultatoQuery.get(z)[6], RisultatoQuery.get(z)[7],"tmpScaffale",0,0));
 		}
 		return Libri;
 	}

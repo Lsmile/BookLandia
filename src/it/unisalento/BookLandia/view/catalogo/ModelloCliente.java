@@ -11,7 +11,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class ModelloCliente extends AbstractTableModel {
 		Vector v = Catalogo.getInstance().getCatalogo();
-		String[] ColName =  {"Titolo","Autore", "Genere", "Prezzo", "Casa Editrice",  "Copie Disponibili" }; 
+		String[] ColName =  {"ID", "Titolo","Autore", "Genere", "Prezzo", "Casa Editrice",  "Copie Disponibili" }; 
 		
 		/** ritorna il nome della colonna */ 
 		public String getColumnName(int col) { 
@@ -42,13 +42,14 @@ public class ModelloCliente extends AbstractTableModel {
 			// seleziona il libro
 			Libro b = (Libro) v.elementAt(riga); 
 			 // la stringa corrispondente alla colonna 
-			 switch (colonna){    
-			 case 0: return b.getTitolo();
-			 case 1: return b.getAutore();
-			 case 2: return b.getGenere();
-			 case 3: return b.getPrezzo();
-			 case 4: return b.getCasa_Editrice();
-			 case 5: 
+			 switch (colonna){ 
+			 case 0: return b.getID();
+			 case 1: return b.getTitolo();
+			 case 2: return b.getAutore();
+			 case 3: return b.getGenere();
+			 case 4: return b.getPrezzo();
+			 case 5: return b.getCasa_Editrice();
+			 case 6: 
 				 {if (b.getCopieDisponibili() == 0)
 				 return "Non Disponibile";
 			 else return b.getCopieDisponibili();

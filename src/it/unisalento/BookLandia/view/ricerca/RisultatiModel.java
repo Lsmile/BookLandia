@@ -8,7 +8,7 @@ import java.util.Vector;
 import javax.swing.table.AbstractTableModel;
 
 public class RisultatiModel extends AbstractTableModel {
-	String[] ColName =  {"Titolo","Autore", "Prezzo", "Casa Editrice", "Genere", "Copie Disponibili" };
+	String[] ColName =  {"ID", "Titolo","Autore", "Prezzo", "Casa Editrice", "Genere", "Copie Disponibili" };
 	GestoreDati Dati;
 	
 	
@@ -46,13 +46,14 @@ public class RisultatiModel extends AbstractTableModel {
 		// seleziona il libro
 		Vector<Libro> b   = (Vector<Libro>) RicercaDAO.getInstance().getLibri(Dati);
 		 // la stringa corrispondente alla colonna 
-		 switch (colonna){    
-		 case 0: return b.get(riga).getTitolo();
-		 case 1: return b.get(riga).getAutore();
-		 case 2: return b.get(riga).getGenere();
-		 case 3: return b.get(riga).getPrezzo();
-		 case 4: return b.get(riga).getCasa_Editrice();
-		 case 5: return b.get(riga).getCopieDisponibili();
+		 switch (colonna){   
+		 case 0: return b.get(riga).getID();
+		 case 1: return b.get(riga).getTitolo();
+		 case 2: return b.get(riga).getAutore();
+		 case 3: return b.get(riga).getGenere();
+		 case 4: return b.get(riga).getPrezzo();
+		 case 5: return b.get(riga).getCasa_Editrice();
+		 case 6: return b.get(riga).getCopieDisponibili();
 		 default: return ""; 
 	}
 	}

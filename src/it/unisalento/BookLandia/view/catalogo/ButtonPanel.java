@@ -1,5 +1,7 @@
 package it.unisalento.BookLandia.view.catalogo;
 
+import it.unisalento.BookLandia.listener.OrdinaListener;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -9,7 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class ButtonPanel  extends JPanel{
-		Box vertical;
+	
+	OrdinaListener listener;
+	Box vertical;
 	
 	public ButtonPanel(){
 		this.setLayout(new BorderLayout());
@@ -25,6 +29,7 @@ public class ButtonPanel  extends JPanel{
 		{
 			JButton added = new JButton("ordina"){ { setSize(80,16); setMaximumSize(getSize()); }};
 			added.setName(""+z);
+			added.addActionListener(listener);
 			vertical.add(added);
 		}
 	}

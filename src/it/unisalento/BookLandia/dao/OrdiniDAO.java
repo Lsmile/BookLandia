@@ -14,7 +14,7 @@ public class OrdiniDAO {
 	
 	public static OrdiniDAO getInstance()
 	{
-		if(instance == null)
+		instance = null;
 			instance = new OrdiniDAO();
 		return instance;
 		

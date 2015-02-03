@@ -15,7 +15,7 @@ public class RegistraVenditaPanel extends JPanel {
 	CampiTesto IdCliente = new CampiTesto();
 	CampiTesto Quantit‡ = new CampiTesto();
 	JLabel IdLibroLbl = new JLabel("Id Libro");
-	JLabel IdClienteLbl = new JLabel ("Id Cliente");
+	JLabel IdClienteLbl = new JLabel ("Id Cliente (Opzionale)");
 	JLabel Quantit‡Lbl = new JLabel ("Quantit‡");
 	JButton Avanti = new JButton("Avanti");
 	
@@ -39,8 +39,9 @@ public class RegistraVenditaPanel extends JPanel {
 	
 	public int getLibroID()
 	{
-		if (IdLibro.getText() == "")
+		if (IdLibro.getText().compareTo("") == 0)
 			return 0;
+		else
 		return Integer.parseInt(IdLibro.getText());
 	}
 	
@@ -57,6 +58,9 @@ public class RegistraVenditaPanel extends JPanel {
 	
 	public int getQuantit‡()
 	{
+		if (Quantit‡.getText().compareTo("") == 0)
+			return 0;
+		else
 		return Integer.parseInt(Quantit‡.getText());
 	}
 	

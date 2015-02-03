@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 public class VenditaListener implements ActionListener {
 	Libro LibroVendita;
@@ -48,6 +49,23 @@ public class VenditaListener implements ActionListener {
 			JButton bottone = (JButton) sorgente.getSource();
 		if(bottone.getName() == "Avanti")
 		{
+			Boolean IdLibroFlag, Quantit‡Flag;
+		if(source.getLibroID() == 0)
+		{
+			JOptionPane.showMessageDialog(null, "Non Ë stato inserito l'ID del libro");
+			IdLibroFlag = false;
+		}
+		else
+			IdLibroFlag = true;
+		if(source.getLibroID() == 0)
+		{
+			JOptionPane.showMessageDialog(null, "Non Ë stata inserita la quantit‡");
+			Quantit‡Flag = false;
+		}
+		else
+			Quantit‡Flag = true;
+		if(IdLibroFlag && Quantit‡Flag)
+		{
 		Vector<String[]> risultato = VenditaDAO.getInstance().getLibro(source.getLibroID());
 		LibroVendita = new Libro(risultato.get(0)[0], risultato.get(0)[1], risultato.get(0)[2], risultato.get(0)[3],risultato.get(0)[4], Double.parseDouble(risultato.get(0)[5]), source.getLibroID(), source.getQuantit‡());
 		if(source.getUtenteID() != 0)
@@ -58,6 +76,7 @@ public class VenditaListener implements ActionListener {
 		}
 		else
 		finestra.sellView(LibroVendita);
+		}
 		}
 		
 		if(bottone.getName() == "Registra")

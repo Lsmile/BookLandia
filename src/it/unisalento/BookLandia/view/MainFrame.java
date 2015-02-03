@@ -84,7 +84,7 @@ public class MainFrame extends JFrame {
 		case 1: Contenitore.add(Cerca, BorderLayout.CENTER);
 		panelInFront = Cerca;
 		break;
-		case 2: Contenitore.add(Ordine, BorderLayout.CENTER);
+		case 2: Contenitore.add(Ordine = new VistaOrdini(), BorderLayout.CENTER);
 		panelInFront = Ordine;
 		break;
 		case 3: Contenitore.add(Inserisci, BorderLayout.CENTER);

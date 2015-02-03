@@ -63,6 +63,10 @@ public class NorthPanelListener implements ActionListener{
 				UserManager.getInstance().LogOut();
 				
 			}
+			if(button.getName() == "Indietro")
+			{
+				source.Back();
+			}
 		}
 	}
 

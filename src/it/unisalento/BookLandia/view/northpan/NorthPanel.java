@@ -19,6 +19,7 @@ public class NorthPanel extends JPanel {
 	private JTextField username;	//campo di testo username
 	private JPasswordField password; 	//campo di testo password
 	private JButton confirmButton; //bottone di conferma credenziali di login
+	private JButton Indietro;
 	NorthPanelListener listener; //listener comune per tutto il pannello
 	
 	private JLabel youAreLogged;
@@ -77,6 +78,10 @@ public class NorthPanel extends JPanel {
 		confirmButton.setName("Entra");
 		confirmButton.addActionListener(listener);
 		
+		Indietro = new JButton("Indietro");
+		Indietro.setName("Indietro");
+		Indietro.addActionListener(listener);
+		
 		youAreLogged = new JLabel("");//mostrerà le informazioni di nome, cognome e tipo dell'utente corrente, va settata sul momento
 		logoutButton = new JButton("Logout");
 		logoutButton.setName("Logout");
@@ -98,6 +103,7 @@ public class NorthPanel extends JPanel {
 		add(username);
 		add(password);
 		add(confirmButton);
+		add(Indietro);
 		revalidate();// servono per rivalidare e ridisegnare il pannello per i suoi cambiamenti
 		repaint();	//
 	}
@@ -125,6 +131,20 @@ public class NorthPanel extends JPanel {
 		add(username);
 		add(password);
 		add(confirmButton);
+		
+		revalidate();
+		repaint();
+	}
+	
+	public void Back() {
+		remove(username);
+		remove(password);
+		remove(confirmButton);
+		remove(Indietro);
+		username.setText("username");
+		password.setText("password");
+		add(loginButton);
+		add(RegistrationButton);
 		
 		revalidate();
 		repaint();

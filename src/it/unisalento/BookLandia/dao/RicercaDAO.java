@@ -72,7 +72,7 @@ public class RicercaDAO {
 			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[3] = "  Case_Editrici.Nome LIKE'%" + Dati.getTitolo()+"%'" + " ";
+				Estensioni[3] = " Case_Editrici.Nome LIKE '%" + Dati.getCasaEditrice() + "%' ";
 				Selettore[i] = 3;
 
 			}
@@ -105,7 +105,7 @@ public class RicercaDAO {
 			{
 				i++;
 				Estensioni[0] = "  Titolo LIKE'%" + Dati.getTitolo()+"%'" + " ";
-				Selettore[i] = 0;	
+				Selettore[i] = 0;
 			}
 			//string per l'autore
 			if(Dati.getAutore().compareTo("") != 0)
@@ -127,7 +127,7 @@ public class RicercaDAO {
 			if(Dati.getCasaEditrice().compareTo("") != 0)
 			{
 				i++;
-				Estensioni[3] = "  Case_Editrici.Nome LIKE'%" + Dati.getCasaEditrice()+ "%'" + " ";
+				Estensioni[3] = " Case_Editrici.Nome LIKE '%" + Dati.getCasaEditrice() + "%' ";
 				Selettore[i] = 3;
 
 			}

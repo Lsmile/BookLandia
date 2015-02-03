@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import it.unisalento.BookLandia.business.UserManager;
 import it.unisalento.BookLandia.dbinterface.DbConnection;
+import it.unisalento.BookLandia.enums.UserType;
 
 public class OrdiniDAO {
 	
@@ -23,6 +24,10 @@ public class OrdiniDAO {
 	public int getNumeroRecord()
 	{
 		String query = "SELECT COUNT(*) from ordinazioni";
+		if (UserManager.getInstance().getUtente_connesso() == UserType.CLIENTE)
+		{
+			query += " INNER JOIN utente ON ID_Utente = Cliente_Utente_ID_Utente where ID_Utente = " + UserManager.getInstance().getCurUser().getID();
+		}
 		return Integer.parseInt(DbConnection.getInstance().eseguiQuery(query).get(0)[0]);
 	}
 	
@@ -32,6 +37,11 @@ public class OrdiniDAO {
 						+ "utente.Nome, utente.Cognome, Data_Inserimento, Data_Completato, Data_Consegna, Stato "
 						+ " FROM ordinazioni INNER JOIN libri ON Libri_ID = ID INNER JOIN autori ON Autori_Codice_Autore = Codice_Autore "
 						+ "INNER JOIN utente ON ID_Utente = Cliente_Utente_ID_Utente";
+		if (UserManager.getInstance().getUtente_connesso() == UserType.CLIENTE)
+		{
+			query += " where ID_Utente = " + UserManager.getInstance().getCurUser().getID();
+		}
+			
 		return DbConnection.getInstance().eseguiQuery(query);
 		
 	}

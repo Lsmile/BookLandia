@@ -17,7 +17,6 @@ import it.unisalento.BookLandia.view.menu.MenuAddettoScaffali;
 import it.unisalento.BookLandia.view.menu.MenuAddettoVendite;
 import it.unisalento.BookLandia.view.menu.MenuCliente;
 import it.unisalento.BookLandia.view.northpan.NorthPanel;
-import it.unisalento.BookLandia.view.ordini.OrdinePanel;
 import it.unisalento.BookLandia.view.ordini.VistaOrdini;
 import it.unisalento.BookLandia.view.ricerca.PanelCerca;
 import it.unisalento.BookLandia.view.ricerca.PanelRisultati;

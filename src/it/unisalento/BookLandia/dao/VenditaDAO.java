@@ -97,4 +97,12 @@ private static VenditaDAO instance;
 		else
 		return true;
 	}
+
+	public Boolean ModificaQuantità(int quantità, int ID) {
+		String query = "SELECT CopieDisponibili from Libri where ID = " + ID;
+		int NuovaQuantità = Integer.parseInt(DbConnection.getInstance().eseguiQuery(query).get(0)[0]) - quantità;
+		query = "UPDATE Libri SET CopieDisponibili = " + NuovaQuantità + " where ID = " + ID;
+		return DbConnection.getInstance().eseguiAggiornamento(query);
+		
+	}
 }

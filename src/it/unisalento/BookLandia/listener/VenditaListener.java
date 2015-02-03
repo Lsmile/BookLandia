@@ -102,8 +102,9 @@ public class VenditaListener implements ActionListener {
 			if(buyUser != null)
 			{
 				VenditaDAO.getInstance().RegistraVendita(LibroVendita.getQuantità(), LibroVendita.getID(), buyUser.getID());
-				System.out.println("Qui arrivo");
 			}
+			if(VenditaDAO.getInstance().ModificaQuantità(LibroVendita.getQuantità(), LibroVendita.getID()));
+			JOptionPane.showMessageDialog(null, "Vendita Registrata con successo");
 			finestra.changeView(4);
 		}
 		

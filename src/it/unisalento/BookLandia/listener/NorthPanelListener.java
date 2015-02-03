@@ -58,6 +58,7 @@ public class NorthPanelListener implements ActionListener{
 			if(button.getName() == "Logout")
 			{
 				root.selectMenu(UserType.NESSUNO);
+				root.changeView(0);
 				source.logoutDone();
 				UserManager.getInstance().LogOut();
 				

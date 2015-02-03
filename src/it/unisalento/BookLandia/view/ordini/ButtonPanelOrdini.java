@@ -1,0 +1,77 @@
+package it.unisalento.BookLandia.view.ordini;
+
+import it.unisalento.BookLandia.listener.OrdinaListener;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+
+public class ButtonPanelOrdini  extends JPanel{
+	
+	OrdinaListener listener;
+	Box verticalCancella; //spaziatura
+	Box verticalCompleta;
+	
+	
+	public ButtonPanelOrdini(JTable table){
+		listener = new OrdinaListener(table);
+		
+		this.setLayout(new GridLayout(1,2));
+		
+		
+		JPanel cancellaPanel = new JPanel();
+		JPanel completaPanel = new JPanel();
+		this.add(cancellaPanel);
+		this.add(completaPanel);
+		
+		cancellaPanel.setLayout(new BorderLayout());
+		verticalCancella = Box.createVerticalBox();
+		verticalCancella.setAlignmentY(TOP_ALIGNMENT);
+		cancellaPanel.add(verticalCancella, BorderLayout.NORTH);
+		verticalCancella.add(Box.createRigidArea(new Dimension(0,21)));
+		
+		completaPanel.setLayout(new BorderLayout());
+		verticalCompleta = Box.createVerticalBox();
+		verticalCompleta.setAlignmentY(TOP_ALIGNMENT);
+		completaPanel.add(verticalCompleta, BorderLayout.NORTH);
+		verticalCompleta.add(Box.createRigidArea(new Dimension(0,21)));
+	}
+	
+	public void addButton(int n)
+	{
+		for(int z = 0; z < n; z++)
+		{
+			JButton added1 = new JButton("cancella"){ { setSize(80,16); setMaximumSize(getSize()); }};
+			added1.setName(""+z);
+			added1.addActionListener(listener);
+			verticalCancella.add(added1);
+			
+			JButton added2 = new JButton("completa"){ { setSize(80,16); setMaximumSize(getSize()); }};
+			added2.setName(""+z);
+			added2.addActionListener(listener);
+			verticalCompleta.add(added2);
+		}
+	}
+	
+	private void removeButtons()
+	{
+		verticalCancella.removeAll();
+		verticalCancella.add(Box.createRigidArea(new Dimension(0,21)));
+		
+		verticalCompleta.removeAll();
+		verticalCompleta.add(Box.createRigidArea(new Dimension(0,21)));
+	}
+	
+	public void updateButtons(int n)
+	{
+		removeButtons();
+		addButton(n);
+	}
+
+}

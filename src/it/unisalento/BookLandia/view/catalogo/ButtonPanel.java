@@ -17,7 +17,7 @@ public class ButtonPanel  extends JPanel{
 	Box vertical;
 	
 	public ButtonPanel(JTable table){
-		listener = new OrdinaListener(table);
+		listener = new OrdinaListener(table,null);
 		
 		this.setLayout(new BorderLayout());
 		vertical = Box.createVerticalBox();
@@ -31,7 +31,7 @@ public class ButtonPanel  extends JPanel{
 		for(int z = 0; z < n; z++)
 		{
 			JButton added = new JButton("ordina"){ { setSize(80,16); setMaximumSize(getSize()); }};
-			added.setName(""+z);
+			added.setName("ordina"+z);
 			added.addActionListener(listener);
 			vertical.add(added);
 		}

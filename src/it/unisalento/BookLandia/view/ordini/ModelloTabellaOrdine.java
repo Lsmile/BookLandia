@@ -35,7 +35,11 @@ public class ModelloTabellaOrdine extends AbstractTableModel {
 			if (Integer.parseInt(Dati.get(Riga)[9]) == 0)
 				return "In corso";
 			if (Integer.parseInt(Dati.get(Riga)[9]) == 1)
+				return "Arrivato";
+			if (Integer.parseInt(Dati.get(Riga)[9]) == 2)
 				return "Completato";
+			if (Integer.parseInt(Dati.get(Riga)[9]) == -1)
+				return "Cancellato";
 		}
 		return Dati.get(Riga)[Colonna];
 	}

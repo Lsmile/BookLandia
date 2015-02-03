@@ -57,4 +57,29 @@ public class OrdiniDAO {
 		return DbConnection.getInstance().eseguiAggiornamento(query);
 	}
 	
+	public boolean libroArrivato(int idOrdinazione)
+	{
+		DateFormat sqlFormatDate = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+		String curDate = sqlFormatDate.format(date);
+		
+		String query = "update ordinazioni set Stato = '1', Data_Completato = '"+curDate+"'  where ID_Ordinazione = "+idOrdinazione;
+		return DbConnection.getInstance().eseguiAggiornamento(query);
+	}
+	
+	public boolean concludiOrdinazione(int idOrdinazione)
+	{
+		DateFormat sqlFormatDate = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+		String curDate = sqlFormatDate.format(date);
+		
+		String query = "update ordinazioni SET Stato = '2', Data_Consegna = '"+curDate+"'  WHERE ID_Ordinazione ="+idOrdinazione;
+		return DbConnection.getInstance().eseguiAggiornamento(query);
+	}
+	
+	public boolean cancellaOrdinazione(int idOrdinazione)
+	{
+		String query = "UPDATE `booklandia`.`ordinazioni` SET `Stato` = '-1' WHERE `ordinazioni`.`ID_Ordinazione` ="+idOrdinazione;
+		return DbConnection.getInstance().eseguiAggiornamento(query);
+	}
 }

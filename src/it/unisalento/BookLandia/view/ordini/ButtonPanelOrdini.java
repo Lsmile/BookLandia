@@ -17,10 +17,15 @@ public class ButtonPanelOrdini  extends JPanel{
 	OrdinaListener listener;
 	Box verticalCancella; //spaziatura
 	Box verticalCompleta;
+	VistaOrdini source;
+	JTable t;
+	int rows = 0; //numero di righe di bottoni
 	
-	
-	public ButtonPanelOrdini(JTable table){
-		listener = new OrdinaListener(table);
+	public ButtonPanelOrdini(JTable table, VistaOrdini source){
+		this.source = source;
+		t = table;
+		
+		listener = new OrdinaListener(table,source);
 		
 		this.setLayout(new GridLayout(1,2));
 		
@@ -46,16 +51,37 @@ public class ButtonPanelOrdini  extends JPanel{
 	public void addButton(int n)
 	{
 		for(int z = 0; z < n; z++)
-		{
-			JButton added1 = new JButton("cancella"){ { setSize(80,16); setMaximumSize(getSize()); }};
-			added1.setName(""+z);
-			added1.addActionListener(listener);
-			verticalCancella.add(added1);
+		{   if(t.getValueAt(rows, 9) == "In corso" || t.getValueAt(rows, 9) == "Arrivato")
+			{
+				JButton added1 = new JButton("cancella"){ { setSize(80,16); setMaximumSize(getSize()); }};
+				added1.setName("cancella"+z);
+				added1.addActionListener(listener);
+				verticalCancella.add(added1);
 			
-			JButton added2 = new JButton("completa"){ { setSize(80,16); setMaximumSize(getSize()); }};
-			added2.setName(""+z);
-			added2.addActionListener(listener);
-			verticalCompleta.add(added2);
+				if(t.getValueAt(rows, 9) == "In corso")
+				{
+					JButton added2 = new JButton("arrivato"){ { setSize(80,16); setMaximumSize(getSize()); }};
+					added2.setName("arrivato"+z);
+					added2.addActionListener(listener);
+					verticalCompleta.add(added2);
+				}
+				else if(t.getValueAt(rows, 9) == "Arrivato")
+				{
+					JButton added2 = new JButton("completa"){ { setSize(80,16); setMaximumSize(getSize()); }};
+					added2.setName("completa"+z);
+					added2.addActionListener(listener);
+					verticalCompleta.add(added2);
+				}
+			}
+			else
+			{
+				JButton added1 = new JButton("/"){ { setSize(80,16); setMaximumSize(getSize()); }};
+				verticalCancella.add(added1);
+				JButton added2 = new JButton("/"){ { setSize(80,16); setMaximumSize(getSize()); }};
+				verticalCompleta.add(added2);
+			}
+			
+			rows++;
 		}
 	}
 	

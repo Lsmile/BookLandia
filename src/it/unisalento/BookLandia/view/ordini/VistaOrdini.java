@@ -14,7 +14,7 @@ import javax.swing.JTable;
 public class VistaOrdini extends JPanel {
 	public VistaOrdini()
 	{
-	// crea il modello di dati 
+			// crea il modello di dati 
 			 ModelloTabellaOrdine dataModel = new ModelloTabellaOrdine(); 
 			  // crea la tabella 
 			  JTable t = new JTable(dataModel); 
@@ -27,8 +27,32 @@ public class VistaOrdini extends JPanel {
 			 add(scrollpane);   
 			 
 			 this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
-			 ButtonPanelOrdini b = new ButtonPanelOrdini(t); // andrà creato un altro pannello simile però con cancella e modifica
+			 ButtonPanelOrdini b = new ButtonPanelOrdini(t,this); // andrà creato un altro pannello simile però con cancella e modifica
 			 b.addButton(t.getRowCount());
 			 add(b);
-}
+		}
+	
+	public void Refresh()
+	{
+		this.removeAll();
+		// crea il modello di dati 
+		 ModelloTabellaOrdine dataModel = new ModelloTabellaOrdine(); 
+		  // crea la tabella 
+		  JTable t = new JTable(dataModel); 
+
+		  
+		  // aggiunge la tabella ad uno ScollPane 
+		 JScrollPane scrollpane = new JScrollPane(t); 
+		 scrollpane.setPreferredSize(new Dimension(800,500));
+		  // aggiunge lo ScrollPane alpannello 
+		 add(scrollpane);   
+		 
+		 this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+		 ButtonPanelOrdini b = new ButtonPanelOrdini(t,this); // andrà creato un altro pannello simile però con cancella e modifica
+		 b.addButton(t.getRowCount());
+		 add(b);
+		 
+		 this.revalidate();
+		 this.repaint();
+	}
 }

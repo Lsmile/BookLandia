@@ -54,16 +54,29 @@ private static VenditaDAO instance;
 		DbConnection.getInstance().eseguiAggiornamento(query);
 	}
 	
-	public int getNumeroVendite()
+	public int getNumeroVenditeConUtente()
 	{
-		String query = "Select COUNT(*) FROM vendite;";
+		String query = "Select COUNT(*) FROM vendite INNER JOIN utente ON vendite.ID_Cliente = utente.ID_Utente;";
 		return Integer.parseInt((DbConnection.getInstance().eseguiQuery(query).get(0)[0]));
 			
 	}
 	
-	public Vector<String[]> getVendite()
+	public int getNumeroVenditeAnonime()
+	{
+		String query = "Select COUNT(*) FROM vendite where ID_Cliente IS NULL;";
+		return Integer.parseInt((DbConnection.getInstance().eseguiQuery(query).get(0)[0]));
+			
+	}
+	
+	public Vector<String[]> getVenditeConUtente()
 	{
 		String query ="SELECT Titolo, autori.nome,  utente.Nome, Utente.Cognome,  Data, Quantità FROM libri INNER JOIN autori ON Codice_Autore = Autori_Codice_Autore INNER JOIN vendite ON ID = Libri_ID INNER JOIN utente ON vendite.ID_Cliente = utente.ID_Utente;";
+		return DbConnection.getInstance().eseguiQuery(query);
+	}
+	
+	public Vector<String[]> getVenditeAnonime()
+	{
+		String query ="SELECT Titolo, autori.nome, Data, Quantità FROM libri INNER JOIN autori ON Codice_Autore = Autori_Codice_Autore INNER JOIN vendite ON ID = Libri_ID where ID_Cliente IS NULL";
 		return DbConnection.getInstance().eseguiQuery(query);
 	}
 }

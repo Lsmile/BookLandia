@@ -92,7 +92,7 @@ public class MainFrame extends JFrame {
 		case 4: Contenitore.add(Registra_Vendita, BorderLayout.CENTER);
 		panelInFront = Registra_Vendita;
 		break;
-		case 5:Contenitore.add(VenditePanel, BorderLayout.CENTER);
+		case 5:Contenitore.add(VenditePanel = new TabellaVendite(), BorderLayout.CENTER);
 		panelInFront = VenditePanel;
 		break;
 		case 6:Contenitore.add(RegistraClientePnl, BorderLayout.CENTER);

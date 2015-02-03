@@ -79,4 +79,22 @@ private static VenditaDAO instance;
 		String query ="SELECT Titolo, autori.nome, Data, Quantità FROM libri INNER JOIN autori ON Codice_Autore = Autori_Codice_Autore INNER JOIN vendite ON ID = Libri_ID where ID_Cliente IS NULL";
 		return DbConnection.getInstance().eseguiQuery(query);
 	}
+
+	public boolean checkLibroID(int ID) {
+		// TODO Auto-generated method stub
+		String query = "SELECT COUNT(*) from Libri where ID = " + ID;
+		if(Integer.parseInt(DbConnection.getInstance().eseguiQuery(query).get(0)[0]) == 0)
+		return false;
+		else
+		return true;
+	}
+
+	public boolean checkQuantità(int quantità, int ID) {
+		// TODO Auto-generated method stub
+		String query = "SELECT CopieDisponibili from Libri where ID = " + ID;
+		if(Integer.parseInt(DbConnection.getInstance().eseguiQuery(query).get(0)[0]) < quantità)
+		return false;
+		else
+		return true;
+	}
 }

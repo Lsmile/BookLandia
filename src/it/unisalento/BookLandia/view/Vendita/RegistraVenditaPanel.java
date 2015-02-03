@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import it.unisalento.BookLandia.listener.VenditaListener;
@@ -61,7 +62,16 @@ public class RegistraVenditaPanel extends JPanel {
 		if (Quantità.getText().compareTo("") == 0)
 			return 0;
 		else
+		try
+		{
 		return Integer.parseInt(Quantità.getText());
+		}
+		catch(NumberFormatException e)
+		{
+			JOptionPane.showMessageDialog(null, "Quantità di libri richiesta non supportata");
+			return 0;
+		}
+		
 	}
 	
 

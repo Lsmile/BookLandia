@@ -50,16 +50,30 @@ public class VenditaListener implements ActionListener {
 		if(bottone.getName() == "Avanti")
 		{
 			Boolean IdLibroFlag, Quantit‡Flag;
+			
 		if(source.getLibroID() == 0)
 		{
 			JOptionPane.showMessageDialog(null, "Non Ë stato inserito l'ID del libro");
 			IdLibroFlag = false;
 		}
+			
+		else if(!VenditaDAO.getInstance().checkLibroID(source.getLibroID()))
+		{
+			JOptionPane.showMessageDialog(null, "L'ID del libro inserito non Ë presente nel Database");
+			IdLibroFlag = false;
+		}
+			
+		
 		else
 			IdLibroFlag = true;
-		if(source.getLibroID() == 0)
+		if(source.getQuantit‡() == 0)
 		{
 			JOptionPane.showMessageDialog(null, "Non Ë stata inserita la quantit‡");
+			Quantit‡Flag = false;
+		}
+		else if(!VenditaDAO.getInstance().checkQuantit‡(source.getQuantit‡(), source.getLibroID()))
+		{
+			JOptionPane.showMessageDialog(null, "Non sono disponibili abbastanza copie");
 			Quantit‡Flag = false;
 		}
 		else

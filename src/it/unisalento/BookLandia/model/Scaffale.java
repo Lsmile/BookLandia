@@ -11,4 +11,9 @@ public class Scaffale {
 		this.numeroScaffale = numeroScaffale;
 		this.settore = settore;
 	}
+	
+	public String getSettore()
+	{
+		return settore;
+	}
 }

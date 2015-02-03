@@ -65,8 +65,8 @@ public class Libro {
 		return genere.getGenere();
 	}
 
-	public Scaffale getScaffale() {
-		return scaffale;
+	public String getScaffale() {
+		return scaffale.getSettore();
 	}
 	
 	public int getID()

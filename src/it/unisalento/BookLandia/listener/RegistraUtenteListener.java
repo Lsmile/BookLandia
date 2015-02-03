@@ -13,7 +13,7 @@ public class RegistraUtenteListener implements ActionListener {
 	
 	RegistraClientePanel source;
 	MainFrame root;
-	Boolean UserFlag = true, PassFlag = true, CodiceFiscaleFlag = true;
+	Boolean UserFlag = true, PassFlag = true, CodiceFiscaleFlag = true, NomeFlag = true, CognomeFlag = true;
 	
 	public RegistraUtenteListener(RegistraClientePanel source, MainFrame root)
 	{
@@ -24,13 +24,22 @@ public class RegistraUtenteListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
-		if(RegistraClientiDAO.checkUsername(source.getUsername()))
+		if(RegistraClientiDAO.checkUsername(source.getUsername()) && source.getUsername().length() >= 3)
 		{
 			UserFlag = false;
 			JOptionPane.showMessageDialog(null, "Username già esistente");
 		}
 		else
 			UserFlag = true;
+		
+		if(source.getUsername().length() < 3)
+		{
+			UserFlag = false;
+			JOptionPane.showMessageDialog(null, "Inserisci un nome utente di almeno 3 caratteri");
+		}
+		else
+			UserFlag = true;
+		
 		
 		if (source.getPassword().length() <= 8)
 		{
@@ -56,19 +65,19 @@ public class RegistraUtenteListener implements ActionListener {
 		else
 			CodiceFiscaleFlag = true;
 		
-//		if (source.getName().length() == 0)
-//		{
-//			RegistraFlag = false;
-//			JOptionPane.showMessageDialog(null, "Non hai inserito il tuo nome!!");
-//		}
-//		
-//		if (source.getCognome().length() == 0)
-//		{
-//			RegistraFlag = false;
-//			JOptionPane.showMessageDialog(null, "Non hai inserito il tuo cognome!!");
-//		}
+		if (source.getNome().length() < 1)
+		{
+			NomeFlag = false;
+			JOptionPane.showMessageDialog(null, "Non hai inserito il tuo nome!!");
+		}
 		
-		if (UserFlag == true && PassFlag == true && CodiceFiscaleFlag == true)
+		if (source.getCognome().length() < 1)
+		{
+			CognomeFlag = false;
+			JOptionPane.showMessageDialog(null, "Non hai inserito il tuo cognome!!");
+		}
+		
+		if (UserFlag == true && PassFlag == true && CodiceFiscaleFlag == true && NomeFlag == true && CognomeFlag == true)
 		{
 		RegistraClientiDAO.RegistraCliente(source.getUsername(), source.getPassword(), source.getNome(), source.getCognome(), source.getCodiceFiscale());
 		JOptionPane.showMessageDialog(null, "Registrazione effettuata con successo");

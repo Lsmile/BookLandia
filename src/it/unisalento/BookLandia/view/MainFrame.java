@@ -78,7 +78,7 @@ public class MainFrame extends JFrame {
 		Contenitore.remove(panelInFront);
 		switch (Selezione)
 		{
-		case 0: Contenitore.add(Catalogo, BorderLayout.CENTER);
+		case 0: Contenitore.add(Catalogo = new PanelCatalogo(), BorderLayout.CENTER);
 		panelInFront = Catalogo;
 		break;
 		case 1: Contenitore.add(Cerca, BorderLayout.CENTER);

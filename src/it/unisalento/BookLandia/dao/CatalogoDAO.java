@@ -14,7 +14,7 @@ public class CatalogoDAO {
 
 	
 	public static CatalogoDAO getInstance() {
-		   if(instance == null)
+		   instance = null;
 			   instance = new CatalogoDAO();
 		   return instance;
 	   }

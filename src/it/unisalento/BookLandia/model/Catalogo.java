@@ -19,7 +19,7 @@ public class Catalogo {
 	}
 	
 	public static Catalogo getInstance() {
-		   if(instance == null)
+		   instance = null;
 			   instance = new Catalogo();
 		   return instance;
 	   }

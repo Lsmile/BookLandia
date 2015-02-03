@@ -10,13 +10,23 @@ import it.unisalento.BookLandia.dbinterface.DbConnection;
 
 public class OrdiniDAO {
 	
-	public static int getNumeroRecord()
+	public static OrdiniDAO instance;
+	
+	public static OrdiniDAO getInstance()
+	{
+		if(instance == null)
+			instance = new OrdiniDAO();
+		return instance;
+		
+	}
+	
+	public int getNumeroRecord()
 	{
 		String query = "SELECT COUNT(*) from ordinazioni";
 		return Integer.parseInt(DbConnection.getInstance().eseguiQuery(query).get(0)[0]);
 	}
 	
-	public static Vector<String[]> getOrdinazioni()
+	public Vector<String[]> getOrdinazioni()
 	{
 		String query = "SELECT ID_Ordinazione, libri.Titolo, autori.Nome, libri.Prezzo, "
 						+ "utente.Nome, utente.Cognome, Data_Inserimento, Data_Completato, Data_Consegna, Stato "
@@ -26,14 +36,14 @@ public class OrdiniDAO {
 		
 	}
 	
-	public static boolean insertOrdinazione(int idLibro)
+	public boolean insertOrdinazione(int idLibro)
 	{
 		int idCliente = UserManager.getInstance().getCurUser().getID();
-		DateFormat sqlFormatDate = new SimpleDateFormat("yyyy-mm-gg");
+		DateFormat sqlFormatDate = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		String curDate = sqlFormatDate.format(date);
 		String query = "INSERT INTO `booklandia`.`ordinazioni` (`ID_Ordinazione`, `Stato`, `Data_Inserimento`, `Cliente_Utente_ID_Utente`, `Data_Completato`,"
-				+"`Data_Consegna`, `Libri_ID`) VALUES (0, '0', "+curDate+", "+idCliente+", NULL, NULL, "+idLibro+");";
+				+"`Data_Consegna`, `Libri_ID`) VALUES (0, '0', '"+curDate+"', "+idCliente+", NULL, NULL, "+idLibro+");";
 		return DbConnection.getInstance().eseguiAggiornamento(query);
 	}
 	

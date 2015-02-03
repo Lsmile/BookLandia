@@ -26,7 +26,7 @@ public class VistaOrdini extends JPanel {
 			 add(scrollpane);   
 			 
 			 this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
-			 ButtonPanel b = new ButtonPanel();
+			 ButtonPanel b = new ButtonPanel(t); // andrà creato un altro pannello simile però con cancella e modifica
 			 b.addButton(t.getRowCount());
 			 add(b);
 }

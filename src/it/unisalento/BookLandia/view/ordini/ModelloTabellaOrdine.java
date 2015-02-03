@@ -8,7 +8,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class ModelloTabellaOrdine extends AbstractTableModel {
 	
-	Vector<String[]> Dati = OrdiniDAO.getOrdinazioni();
+	Vector<String[]> Dati = OrdiniDAO.getInstance().getOrdinazioni();
 	String[] ColName =  {"ID","Titolo" ,"Autore", "Prezzo", "Nome", "Cognome", "Data Richiesta", "Data Arrivo", "Data Completamento", "Stato" }; 
 	@Override
 	public int getColumnCount() {
@@ -23,7 +23,7 @@ public class ModelloTabellaOrdine extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
-		return OrdiniDAO.getNumeroRecord();
+		return OrdiniDAO.getInstance().getNumeroRecord();
 	}
 
 	@Override

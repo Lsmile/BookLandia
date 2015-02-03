@@ -40,7 +40,7 @@ public class PanelRisultati extends JPanel {
 		 add(scrollpane);   
 		 
 		 this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
-		 ButtonPanel b = new ButtonPanel();
+		 ButtonPanel b = new ButtonPanel(t);
 		 b.addButton(t.getRowCount());
 		 add(b);
 		} 

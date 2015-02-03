@@ -9,13 +9,16 @@ import java.awt.Font;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 public class ButtonPanel  extends JPanel{
 	
 	OrdinaListener listener;
 	Box vertical;
 	
-	public ButtonPanel(){
+	public ButtonPanel(JTable table){
+		listener = new OrdinaListener(table);
+		
 		this.setLayout(new BorderLayout());
 		vertical = Box.createVerticalBox();
 		vertical.setAlignmentY(TOP_ALIGNMENT);

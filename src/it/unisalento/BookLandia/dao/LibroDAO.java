@@ -16,6 +16,18 @@ public class LibroDAO {
 		return instance;
 	}
 	
+	public boolean esauriteCopie(int id)
+	{
+		String query = "SELECT CopieDisponibili from libri where id ="+id;
+		Vector<String[]> risultati = DbConnection.getInstance().eseguiQuery(query);
+		if(Integer.parseInt(risultati.get(0)[0]) == 0)
+		{
+			return true;
+		}
+		return false;
+		
+	}
+	
 	public int getNumLibri()
 	{
 		String query = "SELECT * from libri";

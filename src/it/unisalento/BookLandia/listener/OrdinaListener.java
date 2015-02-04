@@ -34,9 +34,11 @@ public class OrdinaListener implements ActionListener {
 		{
 			JButton bottone = (JButton) event.getSource();
 			String name = bottone.getName();
-			int Position = Integer.parseInt(name.substring(name.length()-1, name.length())); //ultimo carattere
+			//int Position = Integer.parseInt(name.substring(name.length()-1, name.length())); //ultimo carattere
+			//String action = name.substring(0, name.length()-1);
+			String action = name.replaceAll("[0123456789]", "");
+			int Position = Integer.parseInt(name.toLowerCase().replaceAll("[abcdefghijklmnopqrstuvxwyz]", ""));
 			
-			String action = name.substring(0, name.length()-1);
 			if(action.equalsIgnoreCase("ordina"))
 			{
 				
@@ -45,8 +47,15 @@ public class OrdinaListener implements ActionListener {
 					int riga = Position;
 					int colonna = 0;
 					int id = (int)source.getValueAt(riga, colonna);
-					OrdiniDAO.getInstance().insertOrdinazione(id);
-					JOptionPane.showMessageDialog(null, "Inserito ordine per libro "+  LibroDAO.getInstance().getLibro(id)[0] );
+					if(LibroDAO.getInstance().esauriteCopie(id))
+					{
+						OrdiniDAO.getInstance().insertOrdinazione(id);
+						JOptionPane.showMessageDialog(null, "Inserito ordine per libro "+  LibroDAO.getInstance().getLibro(id)[0] );
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "Sono ancora disponibili copie del libro, contatta un venditore per procedere all'acquisto");
+					}
 				}
 				else
 				{

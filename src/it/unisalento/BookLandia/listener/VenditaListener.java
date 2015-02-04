@@ -97,11 +97,11 @@ public class VenditaListener implements ActionListener {
 		{
 			if(buyUser == null)
 			{
-				VenditaDAO.getInstance().RegistraVendita(LibroVendita.getQuantità(), LibroVendita.getID());
+				VenditaDAO.getInstance().RegistraVendita(LibroVendita.getQuantità(), LibroVendita.getID(), LibroVendita.getPrezzo());
 			}
 			if(buyUser != null)
 			{
-				VenditaDAO.getInstance().RegistraVendita(LibroVendita.getQuantità(), LibroVendita.getID(), buyUser.getID());
+				VenditaDAO.getInstance().RegistraVendita(LibroVendita.getQuantità(), LibroVendita.getID(), buyUser.getID(), LibroVendita.getPrezzo());
 			}
 			if(VenditaDAO.getInstance().ModificaQuantità(LibroVendita.getQuantità(), LibroVendita.getID()));
 			JOptionPane.showMessageDialog(null, "Vendita Registrata con successo");

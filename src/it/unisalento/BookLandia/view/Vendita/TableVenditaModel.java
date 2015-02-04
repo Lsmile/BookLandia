@@ -14,7 +14,7 @@ public class TableVenditaModel extends AbstractTableModel {
 	int NumeroVenditeConUtente = VenditaDAO.getInstance().getNumeroVenditeConUtente();
 	int NumeroVenditeAnonime = VenditaDAO.getInstance().getNumeroVenditeAnonime();
 	//Titolo, autori.nome,  utente.Nome, Utente.Cognome,  Data, Quantità
-	String[] ColName =  {"Titolo","Autore","Acquirente","Data","Quantità"}; 
+	String[] ColName =  {"Titolo","Autore","Acquirente","Data","Quantità", "Totale"}; 
 	
 	/** ritorna il nome della colonna */ 
 	public String getColumnName(int col) { 

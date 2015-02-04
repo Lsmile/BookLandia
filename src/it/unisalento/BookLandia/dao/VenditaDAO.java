@@ -35,22 +35,37 @@ private static VenditaDAO instance;
 		return risultato;
 	}
 
-	public void RegistraVendita(int quantità, int id) {
+	public void RegistraVendita(int quantità, int id, double Prezzo) {
 		GregorianCalendar gc = new GregorianCalendar();
-		String query = "INSERT INTO vendite (`Vendite_Codice_Vendita`, `ID_Cliente`, `Data`, `Quantità`, `Libri_ID`) VALUES (0,"
-				+ " NULL, '"
-				+ gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" + gc.get(Calendar.DAY_OF_MONTH)+"'," +
-				"'" + quantità +"'," +  "'" + id + "');";
+//		String query = "INSERT INTO vendite (`Vendite_Codice_Vendita`, `ID_Cliente`, `Data`, `Quantità`, `Libri_ID`, 'Totale') VALUES (0,"
+//				+ " NULL, '"
+//				+ gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" + gc.get(Calendar.DAY_OF_MONTH)+"'," +
+//				"'" + quantità +"'," +  "'" + id + "','" + 10 +"');";
+		System.out.println("quantità = " + quantità + " Prezzo =" + Prezzo + "quantità * Prezzo" + quantità * Prezzo );
+		String query = "INSERT INTO `vendite` (`Vendite_Codice_Vendita`, `ID_Cliente`, `Data`, `Quantità`, `Libri_ID`, `Totale`) VALUES ("
+				+ "NULL, "
+				+ "NULL, "
+				+ "'"+ gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" + gc.get(Calendar.DAY_OF_MONTH)+"', "
+				+ "'"+quantità+"',"
+				+ " '"+id+"', "
+				+ "'"+ (int)quantità*Prezzo+"');";
 		DbConnection.getInstance().eseguiAggiornamento(query);
 		
 	}
 
-	public void RegistraVendita(int quantità, int id, int idCliente) {
+	public void RegistraVendita(int quantità, int id, int idCliente, double Prezzo) {
 		GregorianCalendar gc = new GregorianCalendar();
-		String query = "INSERT INTO vendite (`Vendite_Codice_Vendita`, `ID_Cliente`, `Data`, `Quantità`, `Libri_ID`) VALUES (0,"
-				+ " '" + idCliente + "', '"
-				+ gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" + gc.get(Calendar.DAY_OF_MONTH)+"'," +
-				"'" + quantità +"'," +  "'" + id + "');";
+//		String query = "INSERT INTO vendite (`Vendite_Codice_Vendita`, `ID_Cliente`, `Data`, `Quantità`, `Libri_ID`) VALUES (0,"
+//				+ " '" + idCliente + "', '"
+//				+ gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" + gc.get(Calendar.DAY_OF_MONTH)+"'," +
+//				"'" + quantità +"'," +  "'" + id + "');";
+		String query = "INSERT INTO `vendite` (`Vendite_Codice_Vendita`, `ID_Cliente`, `Data`, `Quantità`, `Libri_ID`, `Totale`) VALUES ("
+				+ "NULL, "
+				+ ""+idCliente+", "
+				+ "'"+ gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" + gc.get(Calendar.DAY_OF_MONTH)+"', "
+				+ "'"+quantità+"',"
+				+ " '"+id+"', "
+				+ "'"+ (int)quantità*Prezzo+"');";
 		DbConnection.getInstance().eseguiAggiornamento(query);
 	}
 	
@@ -70,13 +85,13 @@ private static VenditaDAO instance;
 	
 	public Vector<String[]> getVenditeConUtente()
 	{
-		String query ="SELECT Titolo, autori.nome,  utente.Nome, Utente.Cognome,  Data, Quantità FROM libri INNER JOIN autori ON Codice_Autore = Autori_Codice_Autore INNER JOIN vendite ON ID = Libri_ID INNER JOIN utente ON vendite.ID_Cliente = utente.ID_Utente;";
+		String query ="SELECT Titolo, autori.nome,  utente.Nome, Utente.Cognome,  Data, Quantità, Totale FROM libri INNER JOIN autori ON Codice_Autore = Autori_Codice_Autore INNER JOIN vendite ON ID = Libri_ID INNER JOIN utente ON vendite.ID_Cliente = utente.ID_Utente;";
 		return DbConnection.getInstance().eseguiQuery(query);
 	}
 	
 	public Vector<String[]> getVenditeAnonime()
 	{
-		String query ="SELECT Titolo, autori.nome, Data, Quantità FROM libri INNER JOIN autori ON Codice_Autore = Autori_Codice_Autore INNER JOIN vendite ON ID = Libri_ID where ID_Cliente IS NULL";
+		String query ="SELECT Titolo, autori.nome, Data, Quantità, Totale FROM libri INNER JOIN autori ON Codice_Autore = Autori_Codice_Autore INNER JOIN vendite ON ID = Libri_ID where ID_Cliente IS NULL";
 		return DbConnection.getInstance().eseguiQuery(query);
 	}
 

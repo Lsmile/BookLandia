@@ -1,6 +1,9 @@
 package it.unisalento.BookLandia.view.northpan;
 
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import it.unisalento.BookLandia.business.UserManager;
 import it.unisalento.BookLandia.enums.EnumUtils;
 import it.unisalento.BookLandia.listener.NorthPanelListener;
@@ -73,12 +76,18 @@ public class NorthPanel extends JPanel {
 		password = new JPasswordField();
 		password.setColumns(10);
 		password.setText("password");
+		password.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mouseClicked(MouseEvent e){
+				password.setText("");
+			}
+		});
 		
 		confirmButton = new JButton(new ImageIcon("assets/accedi.png"));
 		confirmButton.setName("Entra");
 		confirmButton.addActionListener(listener);
 		
-		Indietro = new JButton("Indietro");
+		Indietro = new JButton(new ImageIcon("assets/indietro.png"));
 		Indietro.setName("Indietro");
 		Indietro.addActionListener(listener);
 		
@@ -113,6 +122,7 @@ public class NorthPanel extends JPanel {
 		remove(username);
 		remove(password);
 		remove(confirmButton);
+		remove(Indietro);
 		//in breve l'istruzione sotto costruisce la stringa con le informazioni che servono
 		youAreLogged.setText("Ciao "+UserManager.getInstance().getCurUser().getNome()+" "+UserManager.getInstance().getCurUser().getCognome()+", ti sei autenticato come "+EnumUtils.getStringFromType(UserManager.getInstance().getUtente_connesso()));
 		add(youAreLogged);
@@ -131,6 +141,7 @@ public class NorthPanel extends JPanel {
 		add(username);
 		add(password);
 		add(confirmButton);
+		add(Indietro);
 		
 		revalidate();
 		repaint();

@@ -29,10 +29,7 @@ public class RegistraUtenteListener implements ActionListener {
 			UserFlag = false;
 			JOptionPane.showMessageDialog(null, "Username già esistente");
 		}
-		else
-			UserFlag = true;
-		
-		if(source.getUsername().length() < 3)
+		else if(source.getUsername().length() < 3)
 		{
 			UserFlag = false;
 			JOptionPane.showMessageDialog(null, "Inserisci un nome utente di almeno 3 caratteri");
@@ -54,10 +51,7 @@ public class RegistraUtenteListener implements ActionListener {
 			CodiceFiscaleFlag = false;
 			JOptionPane.showMessageDialog(null, "Il codice fiscale non ha 16 caratteri!!");
 		}
-		else
-			CodiceFiscaleFlag = true;
-		
-		if (RegistraClientiDAO.CheckCodiceFiscale(source.getCodiceFiscale()))
+		else if (RegistraClientiDAO.CheckCodiceFiscale(source.getCodiceFiscale()))
 		{
 			CodiceFiscaleFlag = false;
 			JOptionPane.showMessageDialog(null, "Il codice fiscale esiste già in Database");

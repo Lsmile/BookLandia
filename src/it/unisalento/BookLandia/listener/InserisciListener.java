@@ -37,17 +37,61 @@ public class InserisciListener implements ActionListener{
 			JButton button = (JButton)event.getSource();
 			if(button.getName() == "Inserisci")
 			{
-				String titolo = source.getTitoloTextField().getText();
-				float prezzo = Float.parseFloat(source.getPrezzoTextField().getText().replace(",", "."));
-				String ISBN = ((String) source.getISBNTextField().getText()).replace(".", "");
-				int copieDisponibili = Integer.parseInt(source.getCopieTextField().getText());
-				int idAutore = AutoreDAO.getInstance().getIdFromName((String)source.getAutoreList().getSelectedValue());
-				int idGenere =  GenereDAO.getInstance().getIdFromName((String)source.getGenereList().getSelectedValue());
-				int idCasaEditrice = CasaEditriceDAO.getInstance().getIdFromName((String)source.getCasaEditriceList().getSelectedValue());
-				int idScaffale = ScaffaleDAO.getInstance().getIdFromName((String)source.getScaffaleList().getSelectedValue());
-				GestoreLibri.getInstance().InserisciLibro(titolo, prezzo, ISBN, copieDisponibili, idAutore, idGenere, idCasaEditrice, idScaffale);
+				boolean invalidInput = false;
+				if(source.getTitoloTextField().getText().length() < 1)
+				{
+					invalidInput = true;
+					JOptionPane.showMessageDialog(null, "Inserisci un titolo per il libro");
+				}
+				if(source.getPrezzoTextField().getText().length() < 1)
+				{
+					invalidInput = true;
+					JOptionPane.showMessageDialog(null, "Inserisci un prezzo per il libro");
+				}
+				if(source.getISBNTextField().getText().length() < 1)
+				{
+					invalidInput = true;
+					JOptionPane.showMessageDialog(null, "Inserisci l'ISBN del libro");
+				}
+				if(source.getCopieTextField().getText().length() < 1)
+				{
+					invalidInput = true;
+					JOptionPane.showMessageDialog(null, "Inserisci il numero di copie del libro");
+				}
+				if(source.getAutoreList().getSelectedValue() == null)
+				{
+					invalidInput = true;
+					JOptionPane.showMessageDialog(null, "Seleziona un autore o inseriscine uno nuovo");
+				}
+				if(source.getGenereList().getSelectedValue() == null)
+				{
+					invalidInput = true;
+					JOptionPane.showMessageDialog(null, "Seleziona un genere o inseriscine uno nuovo");
+				}
+				if(source.getCasaEditriceList().getSelectedValue() == null)
+				{
+					invalidInput = true;
+					JOptionPane.showMessageDialog(null, "Seleziona una casa editrice o inseriscine una nuova");
+				}
+				if(source.getScaffaleList().getSelectedValue() == null)
+				{
+					invalidInput = true;
+					JOptionPane.showMessageDialog(null, "Seleziona uno scaffale o inseriscine uno nuovo");
+				}
+				if(!invalidInput)
+				{
+					String titolo = source.getTitoloTextField().getText();
+					float prezzo = Float.parseFloat(source.getPrezzoTextField().getText().replace(",", "."));
+					String ISBN = ((String) source.getISBNTextField().getText()).replace(".", "");
+					int copieDisponibili = Integer.parseInt(source.getCopieTextField().getText());
+					int idAutore = AutoreDAO.getInstance().getIdFromName((String)source.getAutoreList().getSelectedValue());
+					int idGenere =  GenereDAO.getInstance().getIdFromName((String)source.getGenereList().getSelectedValue());
+					int idCasaEditrice = CasaEditriceDAO.getInstance().getIdFromName((String)source.getCasaEditriceList().getSelectedValue());
+					int idScaffale = ScaffaleDAO.getInstance().getIdFromName((String)source.getScaffaleList().getSelectedValue());
+					GestoreLibri.getInstance().InserisciLibro(titolo, prezzo, ISBN, copieDisponibili, idAutore, idGenere, idCasaEditrice, idScaffale);
 			
-				JOptionPane.showMessageDialog(null, "Libro "+titolo+" inserito con successo" );
+					JOptionPane.showMessageDialog(null, "Libro "+titolo+" inserito con successo" );
+				}
 			}
 			else if(button.getName() == "NuovoAutore")
 			{

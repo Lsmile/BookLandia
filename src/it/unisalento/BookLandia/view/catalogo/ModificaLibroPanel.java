@@ -196,6 +196,8 @@ public class ModificaLibroPanel extends JPanel {
 		genereList.setSelectedIndex(GenereDAO.getInstance().getPositionFromId(idGenere));
 		casaEditriceList.setSelectedIndex(CasaEditriceDAO.getInstance().getPositionFromId(idCasaEditrice));
 		scaffaleList.setSelectedIndex(ScaffaleDAO.getInstance().getPositionFromId(idScaffale));
+		
+		this.curBookLabel.setText("Libro in modifica:"+titolo);
 	}
 	public int getIdSelected() {
 		return idSelected;

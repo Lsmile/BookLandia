@@ -1,4 +1,4 @@
-package it.unisalento.BookLandia.view.catalogo;
+package it.unisalento.BookLandia.view.bookManagement;
 
 import it.unisalento.BookLandia.dao.AutoreDAO;
 import it.unisalento.BookLandia.dao.CasaEditriceDAO;

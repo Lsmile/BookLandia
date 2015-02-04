@@ -2,7 +2,7 @@ package it.unisalento.BookLandia.view.ricerca;
 
 import it.unisalento.BookLandia.business.GestoreDati;
 import it.unisalento.BookLandia.model.Catalogo;
-import it.unisalento.BookLandia.view.catalogo.ButtonPanel;
+import it.unisalento.BookLandia.view.ordini.ButtonPanel;
 
 import java.awt.Dimension;
 

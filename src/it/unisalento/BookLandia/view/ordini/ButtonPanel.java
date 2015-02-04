@@ -1,4 +1,4 @@
-package it.unisalento.BookLandia.view.catalogo;
+package it.unisalento.BookLandia.view.ordini;
 
 import it.unisalento.BookLandia.listener.OrdinaListener;
 

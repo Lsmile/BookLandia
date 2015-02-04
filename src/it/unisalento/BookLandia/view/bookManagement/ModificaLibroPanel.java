@@ -1,4 +1,4 @@
-package it.unisalento.BookLandia.view.catalogo;
+package it.unisalento.BookLandia.view.bookManagement;
 
 import java.awt.GridLayout;
 import java.text.NumberFormat;

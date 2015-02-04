@@ -1,8 +1,8 @@
 package it.unisalento.BookLandia.view.Vendita;
 
 import it.unisalento.BookLandia.dao.VenditaDAO;
-import it.unisalento.BookLandia.view.catalogo.ButtonPanel;
 import it.unisalento.BookLandia.view.catalogo.ModelloCliente;
+import it.unisalento.BookLandia.view.ordini.ButtonPanel;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;

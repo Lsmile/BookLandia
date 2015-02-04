@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.8" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
+  <package id="1" language="java" name="it.unisalento.BookLandia" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="517" width="807" x="25" y="21"/>    
+    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="2" language="java" name="it.unisalento.BookLandia.business" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/business" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="152" y="98"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="3" language="java" name="it.unisalento.BookLandia.dao" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/dao" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="377" y="103"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="4" language="java" name="it.unisalento.BookLandia.dbinterface" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/dbinterface" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="609" y="107"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="5" language="java" name="it.unisalento.BookLandia.enums" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/enums" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="143" y="150"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="6" language="java" name="it.unisalento.BookLandia.listener" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/listener" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="385" y="165"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="7" language="java" name="it.unisalento.BookLandia.model" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/model" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="615" y="166"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="8" language="java" name="it.unisalento.BookLandia.view" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="324" width="793" x="34" y="207"/>    
+    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="9" language="java" name="it.unisalento.BookLandia.view.bookManagement" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view/bookManagement" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="204" y="300"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="10" language="java" name="it.unisalento.BookLandia.view.catalogo" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view/catalogo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="440" y="492"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="11" language="java" name="it.unisalento.BookLandia.view.creators" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view/creators" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="180" y="360"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="12" language="java" name="it.unisalento.BookLandia.view.menu" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view/menu" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="438" y="367"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="13" language="java" name="it.unisalento.BookLandia.view.northpan" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view/northpan" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="693" y="376"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="14" language="java" name="it.unisalento.BookLandia.view.ordini" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view/ordini" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="174" y="423"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="15" language="java" name="it.unisalento.BookLandia.view.RegistrazioneUtente" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view/RegistrazioneUtente" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="541" y="309"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="16" language="java" name="it.unisalento.BookLandia.view.ricerca" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view/ricerca" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="175" y="495"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="17" language="java" name="it.unisalento.BookLandia.view.Vendita" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view/Vendita" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="438" y="436"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

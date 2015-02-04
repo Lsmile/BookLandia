@@ -64,9 +64,9 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="it.unisalento.BookLandia.view.catalogo.ModificaLibroPanel" project="BookLandia" 
-    file="/BookLandia/src/it/unisalento/BookLandia/view/catalogo/ModificaLibroPanel.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="it.unisalento.BookLandia.view.bookManagement.ModificaLibroPanel" 
+    project="BookLandia" file="/BookLandia/src/it/unisalento/BookLandia/view/bookManagement/ModificaLibroPanel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1272" y="543"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -74,8 +74,8 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="it.unisalento.BookLandia.view.catalogo.InserisciPanel" project="BookLandia" 
-    file="/BookLandia/src/it/unisalento/BookLandia/view/catalogo/InserisciPanel.java" binary="false" 
+  <class id="9" language="java" name="it.unisalento.BookLandia.view.bookManagement.InserisciPanel" project="BookLandia" 
+    file="/BookLandia/src/it/unisalento/BookLandia/view/bookManagement/InserisciPanel.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1275" y="347"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -229,135 +229,151 @@
     </display>  
   </class>  
   <association id="25">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="26" name="IdCliente">        
-        <position height="0" width="0" x="420" y="468"/>      
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="26" name="instance">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="27" minimum="0" maximum="1">        
-        <position height="0" width="0" x="420" y="468"/>      
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
+    <end type="TARGET" refId="22" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="28">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="29" name="v"/>      
-      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="29" name="Registra_Vendita">        
+        <position height="0" width="0" x="228" y="476"/>      
+      </attribute>      
+      <multiplicity id="30" minimum="0" maximum="1">        
+        <position height="0" width="0" x="228" y="476"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="31">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="32" name="genere">        
+      <attribute id="32" name="autore">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="33" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="34">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="35" name="Ordine">        
-        <position height="0" width="0" x="0" y="0"/>      
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="35" name="IdLibro">        
+        <position height="0" width="0" x="420" y="468"/>      
       </attribute>      
       <multiplicity id="36" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="420" y="468"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="37">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="38" name="AutoreTxt">        
-        <position height="0" width="0" x="420" y="468"/>      
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="38" name="Inserisci">        
+        <position height="0" width="0" x="-352" y="-220"/>      
       </attribute>      
       <multiplicity id="39" minimum="0" maximum="1">        
-        <position height="0" width="0" x="420" y="468"/>      
+        <position height="0" width="0" x="-352" y="-220"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="40">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="41" name="root"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="44" name="UserNameTxt">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </attribute>      
-      <multiplicity id="45" minimum="0" maximum="1">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="47" name="Casa_EditriceTxt">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </attribute>      
-      <multiplicity id="48" minimum="0" maximum="1">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="49">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="22"/>  
+  <dependency id="40">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="23"/>  
   </dependency>  
-  <association id="50">    
+  <association id="41">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="51" name="scaffale">        
+      <attribute id="42" name="scaffale">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="52" minimum="0" maximum="1">        
+      <multiplicity id="43" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="53">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="23"/>  
-  </dependency>  
-  <association id="54">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="55" name="instance"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
+  <association id="44">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="45" name="GenereTxt">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="57">    
+  <association id="47">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="48" name="CognomeTxt">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="1">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="50">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="51">    
     <end type="SOURCE" refId="24"/>    
     <end type="TARGET" refId="5"/>  
   </dependency>  
-  <association id="58">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="59" name="Libri"/>      
-      <multiplicity id="60" minimum="0" maximum="2147483647"/>    
+  <association id="52">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="53" name="listener">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="54" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="56" name="source">        
+        <position height="0" width="0" x="-108" y="172"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-108" y="172"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="59" name="Quantità">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </attribute>      
+      <multiplicity id="60" minimum="0" maximum="1">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="61">    
-    <end type="SOURCE" refId="11" navigable="false">      
+    <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="62" name="source">        
         <position height="0" width="0" x="-108" y="172"/>      
       </attribute>      
@@ -369,8 +385,8 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="64">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="65" name="CognomeTxt">        
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="65" name="TitoloTxt">        
         <position height="0" width="0" x="420" y="468"/>      
       </attribute>      
       <multiplicity id="66" minimum="0" maximum="1">        
@@ -381,299 +397,307 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="67">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="68" name="Modifica_Libro">        
-        <position height="0" width="0" x="-144" y="-24"/>      
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="68" name="source">        
+        <position height="0" width="0" x="-108" y="172"/>      
       </attribute>      
       <multiplicity id="69" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-144" y="-24"/>      
+        <position height="0" width="0" x="-108" y="172"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="70">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="71" name="VenditePanel">        
-        <position height="0" width="0" x="824" y="140"/>      
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="71" name="IdCliente">        
+        <position height="0" width="0" x="420" y="468"/>      
       </attribute>      
       <multiplicity id="72" minimum="0" maximum="1">        
-        <position height="0" width="0" x="824" y="140"/>      
+        <position height="0" width="0" x="420" y="468"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="73">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="74" name="source">        
-        <position height="0" width="0" x="-108" y="172"/>      
-      </attribute>      
-      <multiplicity id="75" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-108" y="172"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="76">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="77" name="source"/>      
-      <multiplicity id="78" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="79">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="80" name="GenereTxt">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </attribute>      
-      <multiplicity id="81" minimum="0" maximum="1">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="82">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="83" name="listener"/>      
-      <multiplicity id="84" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="85">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="86" name="LibroVendita">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="87" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="88">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="89" name="IdLibro">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </attribute>      
-      <multiplicity id="90" minimum="0" maximum="1">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="91">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="92" name="Registra_Vendita">        
-        <position height="0" width="0" x="228" y="476"/>      
-      </attribute>      
-      <multiplicity id="93" minimum="0" maximum="1">        
-        <position height="0" width="0" x="228" y="476"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="94">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="95" name="Catalogo">        
-        <position height="0" width="0" x="-602" y="41"/>      
-      </attribute>      
-      <multiplicity id="96" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-602" y="41"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="97">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="98" name="Quantità">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </attribute>      
-      <multiplicity id="99" minimum="0" maximum="1">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="100">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="101" name="casa_Editrice">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="102" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="103">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="104" name="Cerca">        
-        <position height="0" width="0" x="240" y="384"/>      
-      </attribute>      
-      <multiplicity id="105" minimum="0" maximum="1">        
-        <position height="0" width="0" x="240" y="384"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="106">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <association id="107">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="108" name="Codice_FiscaleTxt">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </attribute>      
-      <multiplicity id="109" minimum="0" maximum="1">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="110">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="111" name="Inserisci">        
-        <position height="0" width="0" x="-352" y="-220"/>      
-      </attribute>      
-      <multiplicity id="112" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-352" y="-220"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="113">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="114" name="instance">        
-        <position height="0" width="0" x="-382" y="-31"/>      
-      </attribute>      
-      <multiplicity id="115" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-382" y="-31"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="116">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="117" name="RegistraClientePnl">        
-        <position height="0" width="0" x="276" y="400"/>      
-      </attribute>      
-      <multiplicity id="118" minimum="0" maximum="1">        
-        <position height="0" width="0" x="276" y="400"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="119">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="120" name="frame">        
-        <position height="0" width="0" x="-108" y="172"/>      
-      </attribute>      
-      <multiplicity id="121" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-108" y="172"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="122">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="123" name="autore">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="124" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="125">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="126" name="source">        
-        <position height="0" width="0" x="-108" y="172"/>      
-      </attribute>      
-      <multiplicity id="127" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-108" y="172"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="128">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="129" name="NomeTxt">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </attribute>      
-      <multiplicity id="130" minimum="0" maximum="1">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="131">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="132" name="TitoloTxt">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </attribute>      
-      <multiplicity id="133" minimum="0" maximum="1">        
-        <position height="0" width="0" x="420" y="468"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="134">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="135" name="instance">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="136" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="137">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="138" name="curUser">        
+      <attribute id="74" name="curUser">        
         <position height="0" width="0" x="-157" y="136"/>      
       </attribute>      
-      <multiplicity id="139" minimum="0" maximum="1">        
+      <multiplicity id="75" minimum="0" maximum="1">        
         <position height="0" width="0" x="-157" y="136"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="140">    
+  <association id="76">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="77" name="Libri">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="78" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="79">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="80" name="v">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="81" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="82">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="83" name="instance">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="84" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="86" name="RegistraClientePnl">        
+        <position height="0" width="0" x="276" y="400"/>      
+      </attribute>      
+      <multiplicity id="87" minimum="0" maximum="1">        
+        <position height="0" width="0" x="276" y="400"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="88">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="89">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="90" name="UserNameTxt">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </attribute>      
+      <multiplicity id="91" minimum="0" maximum="1">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="92">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="93" name="LibroVendita">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="94" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="95">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="96" name="genere">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="97" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="98">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="99" name="root">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="100" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="101">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="102" name="AutoreTxt">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </attribute>      
+      <multiplicity id="103" minimum="0" maximum="1">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="104">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="105" name="frame">        
+        <position height="0" width="0" x="-108" y="172"/>      
+      </attribute>      
+      <multiplicity id="106" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-108" y="172"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="107">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="108" name="Catalogo">        
+        <position height="0" width="0" x="-602" y="41"/>      
+      </attribute>      
+      <multiplicity id="109" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-602" y="41"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="110">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="111" name="Ordine">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="112" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="113">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="114" name="VenditePanel">        
+        <position height="0" width="0" x="824" y="140"/>      
+      </attribute>      
+      <multiplicity id="115" minimum="0" maximum="1">        
+        <position height="0" width="0" x="824" y="140"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="116">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="117" name="Codice_FiscaleTxt">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </attribute>      
+      <multiplicity id="118" minimum="0" maximum="1">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="119">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="141" name="source">        
+      <attribute id="120" name="source">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="121" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="122">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="123" name="Modifica_Libro">        
+        <position height="0" width="0" x="-144" y="-24"/>      
+      </attribute>      
+      <multiplicity id="124" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-144" y="-24"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="125">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="126" name="instance">        
+        <position height="0" width="0" x="-382" y="-31"/>      
+      </attribute>      
+      <multiplicity id="127" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-382" y="-31"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="128">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="129" name="source">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="130" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="131">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="132" name="Cerca">        
+        <position height="0" width="0" x="240" y="384"/>      
+      </attribute>      
+      <multiplicity id="133" minimum="0" maximum="1">        
+        <position height="0" width="0" x="240" y="384"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="134">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="135" name="Casa_EditriceTxt">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </attribute>      
+      <multiplicity id="136" minimum="0" maximum="1">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="137">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="138" name="NomeTxt">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </attribute>      
+      <multiplicity id="139" minimum="0" maximum="1">        
+        <position height="0" width="0" x="420" y="468"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="140">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="141" name="casa_Editrice">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="142" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

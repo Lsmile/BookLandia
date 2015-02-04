@@ -1,5 +1,7 @@
 package it.unisalento.BookLandia.view.catalogo;
 
+import it.unisalento.BookLandia.view.ordini.ButtonPanel;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;

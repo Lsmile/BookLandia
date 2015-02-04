@@ -4,7 +4,7 @@ import it.unisalento.BookLandia.dao.AutoreDAO;
 import it.unisalento.BookLandia.dao.CasaEditriceDAO;
 import it.unisalento.BookLandia.dao.GenereDAO;
 import it.unisalento.BookLandia.dao.ScaffaleDAO;
-import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
+import it.unisalento.BookLandia.view.bookManagement.InserisciPanel;
 import it.unisalento.BookLandia.view.creators.AutoreCreator;
 import it.unisalento.BookLandia.view.creators.CasaEditriceCreator;
 import it.unisalento.BookLandia.view.creators.GenereCreator;

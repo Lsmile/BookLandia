@@ -1,7 +1,6 @@
 package it.unisalento.BookLandia.view.ordini;
 
 import it.unisalento.BookLandia.business.UserManager;
-import it.unisalento.BookLandia.view.catalogo.ButtonPanel;
 import it.unisalento.BookLandia.view.catalogo.ModelloCliente;
 
 import java.awt.Dimension;

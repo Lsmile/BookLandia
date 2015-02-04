@@ -4,7 +4,7 @@ import it.unisalento.BookLandia.dao.AutoreDAO;
 import it.unisalento.BookLandia.dao.GenereDAO;
 import it.unisalento.BookLandia.listener.CreatorListener;
 import it.unisalento.BookLandia.view.MainFrame;
-import it.unisalento.BookLandia.view.catalogo.InserisciPanel;
+import it.unisalento.BookLandia.view.bookManagement.InserisciPanel;
 
 import java.awt.Container;
 import java.awt.FlowLayout;
